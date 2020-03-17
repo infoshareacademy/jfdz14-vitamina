@@ -6,44 +6,42 @@ html, body{
     padding: 0;
 }
 
-.container{
-    width: 100%;
-}
-
 /* Właściwy kod sekcji FEARTURES */
 .features{
-    max-width: 1200px;
+    max-width: 100vw;
     margin: 0 auto;
+    padding: 0 10px;
     background: var(--primary-color);
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(100px, auto);
-    grid-gap: 3px;
+    grid-gap: 1vw;
     grid-template-areas: 
     "action-1 action-2 action-3 action-4";
 }
 .features__action{
-    width: 250px;
+    width: 23.3vw;
     margin: 20px auto;
     padding: 20px 10px 0 10px;
     border-radius: 3px;
     background: var(--secondary-color);
     color: var(--font-color);
     text-align: center;
+    transition: ease .1s;
 }
 .features__action:hover{
-    box-shadow: #ffffff 0px 0px 3px 6px;
+    box-shadow: #ffffff 0px 0px 1px 6px;
 }
 .action__h{
     margin: 10px;
-    font-size: 28px;
+    font-size: 2.4vw;
 }
 .action__p{
-    font-size: 18px;
+    font-size: 1.6vw;
 }
 .action__img{
-    width: 114px;
+    width: 8vw;
 }
 
 /* grid area*/
@@ -69,21 +67,26 @@ html, body{
         "action-3 action-3 action-4 action-4";
         }
     .features__action{
-        width: 300px;
+        width: 45vw;
         margin: 5px auto;
     }
     .action__h{
         margin: 11px;
-        font-size: 32px;
+        font-size: 4vw;
     }
     .action__p{
-        font-size: 18px;
-    }    
+        font-size: 2.5vw;
+        line-height: 4vw;
+    }  
+    .action__img{
+        width: 11vw;
+    }
+      
 }
 
 @media screen and (max-width: 660px){
     .features{  
-        padding: 20px 0 20px 0;  
+        padding: 10px 0;  
         grid-template-areas: 
         "action-1 action-1 action-1 action-1"
         "action-2 action-2 action-2 action-2"
@@ -91,16 +94,21 @@ html, body{
         "action-4 action-4 action-4 action-4";
         }
     .features__action{
-        width: 300px;
-        margin: 10px auto;
-        padding: 40px 10px;
+        width: 88vw;
+        margin: 5px auto;
+        padding: 5px 10px;
     }
     .action__h{
-        font-size: 32px;
+        font-size: 7vw;
     }
     .action__p{
-        font-size: 18px;
+        font-size: 4vw;
+        line-height: 5.5vw;
     }
+    .action__img{
+        width: 18vw;
+    }
+    
 }
 
 @media screen and (max-width: 330px){
@@ -113,14 +121,19 @@ html, body{
         "action-4 action-4 action-4 action-4";
     }
     .features__action{
-        width: 280px;
+        width: 90vw;
         margin: 4px auto;
         padding: 0px 10px;
     }
     .action__h{
-        font-size: 28px;
+        font-size: 6vw;
     }
     .action__p{
-        font-size: 16px;
-    }   
+        font-size: 4vw;
+        line-height: 5.6vw;;
+    } 
+    .action__img{
+        width: 17vw;
+    }
+      
 }
