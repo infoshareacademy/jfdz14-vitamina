@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 100%;
+}
+
+/* Właściwy kod sekcji FEARTURES */
+.features{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--primary-color);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 3px;
+    grid-template-areas: 
+    "action-1 action-2 action-3 action-4";
+}
+.features__action{
+    width: 250px;
+    margin: 20px auto;
+    padding: 20px 10px 0 10px;
+    border-radius: 3px;
+    background: var(--secondary-color);
+    color: var(--font-color);
+    text-align: center;
+}
+.features__action:hover{
+    box-shadow: #ffffff 0px 0px 3px 6px;
+}
+.action__h{
+    margin: 10px;
+    font-size: 28px;
+}
+.action__p{
+    font-size: 18px;
+}
+.action__img{
+    width: 114px;
+}
+
+/* grid area*/
+.action__1{
+    grid-area: action-1;
+}
+.action__2{
+    grid-area: action-2;
+}
+.action__3{
+    grid-area: action-3;
+}
+.action__4{
+    grid-area: action-4;
+}
+
+/* responsywność */
+@media screen and (max-width: 1060px){
+    .features{  
+        padding: 10px 0 10px 0;  
+        grid-template-areas: 
+        "action-1 action-1 action-2 action-2"
+        "action-3 action-3 action-4 action-4";
+        }
+    .features__action{
+        width: 300px;
+        margin: 5px auto;
+    }
+    .action__h{
+        margin: 11px;
+        font-size: 32px;
+    }
+    .action__p{
+        font-size: 18px;
+    }    
+}
+
+@media screen and (max-width: 660px){
+    .features{  
+        padding: 20px 0 20px 0;  
+        grid-template-areas: 
+        "action-1 action-1 action-1 action-1"
+        "action-2 action-2 action-2 action-2"
+        "action-3 action-3 action-3 action-3"
+        "action-4 action-4 action-4 action-4";
+        }
+    .features__action{
+        width: 300px;
+        margin: 10px auto;
+        padding: 40px 10px;
+    }
+    .action__h{
+        font-size: 32px;
+    }
+    .action__p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 330px){
+    .features{  
+        padding: 10px 0;  
+        grid-template-areas: 
+        "action-1 action-1 action-1 action-1"
+        "action-2 action-2 action-2 action-2"
+        "action-3 action-3 action-3 action-3"
+        "action-4 action-4 action-4 action-4";
+    }
+    .features__action{
+        width: 280px;
+        margin: 4px auto;
+        padding: 0px 10px;
+    }
+    .action__h{
+        font-size: 28px;
+    }
+    .action__p{
+        font-size: 16px;
+    }   
+}

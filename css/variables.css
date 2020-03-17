@@ -1,3 +1,7 @@
 html{
-    --empty-var: #fff; /* broken by default */
+
+    --primary-color: #0098c9;
+    --secondary-color: #ffffff; 
+
+    --font-color: #363636;
 }
