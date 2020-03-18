@@ -28,7 +28,6 @@ html, body{
     background: var(--secondary-color);
     color: var(--font-color);
     text-align: center;
-    transition: ease .1s;
 }
 .features__action:hover{
     box-shadow: #ffffff 0px 0px 1px 6px;
