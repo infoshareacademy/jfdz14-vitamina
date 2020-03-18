@@ -29,9 +29,6 @@ html, body{
     color: var(--font-color);
     text-align: center;
 }
-.features__action:hover{
-    box-shadow: #ffffff 0px 0px 1px 6px;
-}
 .action__h{
     margin: 10px;
     font-size: 2.4vw;
