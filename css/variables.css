@@ -1,3 +1,10 @@
 html{
-    --empty-var: #fff; /* broken by default */
+
+    --primary-color: #364954;
+    --secondary-color: #ffffff; 
+    --log-color:  #0098c9;
+
+    --font-color: #363636;
+
+    --nav-color: hsla(0, 0%, 100%, 0.2);
 }
