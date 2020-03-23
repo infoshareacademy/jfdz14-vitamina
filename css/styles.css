@@ -78,8 +78,6 @@ html, body{
     background: var(--secondary-color);
 
     padding: 32px;
-
-    min-height: 700px;
 }
 
 .team__header{
@@ -92,11 +90,11 @@ html, body{
     display: grid;
     
     grid-template-columns: repeat(4, 425px);
-    grid-auto-rows: minmax(330px, 450px);
+    grid-auto-rows: minmax(330px, 410px);
     
     grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
 
-    grid-gap: 20px;
+    justify-content: space-between;
 }
 
 .team__window{
