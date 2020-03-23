@@ -40,23 +40,30 @@ html, body{
 }
 
 .nav__logo{
-    min-height: 30px; /*filler*/
+    max-height: 65px; 
     max-width: 300px;
 }
 
+.nav__menu{
+    max-height: 65px; 
+}
 
 .nav__list{
-    margin: 6px;
 
     list-style-type: none;
     
     display: flex;    
     justify-content: flex-end;
     align-items: center;
+
+    margin: 0px auto;
 }
 
 .nav__positions{
     padding: 0px 32px;
+
+    font-size: 24px;
+    line-height: 24px;
 }
 
 .space__filler{
@@ -153,10 +160,18 @@ html, body{
     justify-content: space-around;
 }
 
-.contact__link{
-    color: var(--secondary-color);
+.team__member1{
+    grid-area: team__member1;
 }
 
-.contact__link:visited{
-    color: var(--secondary-color);
+.team__member2{
+    grid-area: team__member2;
+}
+
+.team__member3{
+    grid-area: team__member3;
+}
+
+.team__member4{
+    grid-area: team__member4;
 }
