@@ -80,20 +80,21 @@ html, body{
 }
 
 .team__container{
-    
     margin: 0px;
 
     display: grid;
     
     grid-template-columns: repeat(4, 425px);
-    grid-auto-rows: minmax(330px, 350px);
+    grid-auto-rows: minmax(330px, 450px);
     
     grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
+
+    grid-gap: 20px;
 }
 
 .team__window{
-   height: 350px; 
-   width: 425px;
+   max-height: 350px; 
+   max-width: 425px;
 }
 
 .team__space__filler{
@@ -102,7 +103,7 @@ html, body{
 
 .team__box{
 
-    height: 350px; 
+    height: 275px; 
     width: 425px;
 
     border: 3px solid var(--log-color);
@@ -115,6 +116,8 @@ html, body{
 }
 
 .team__member__pic{
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 
     margin: -70px auto;
@@ -125,4 +128,35 @@ html, body{
 .team__box__info{
     justify-self: center;
 
+}
+
+.team__member__name{
+    font-size: 32px;
+
+    margin: 10px;
+    padding-top: 30px;
+}
+
+.team__member__title{
+    text-align: center;
+    font-size: 18px;
+
+    margin: 20px;
+}
+
+.team__member__info{
+    width: 100px;
+    margin: 0px auto;
+    
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.contact__link{
+    color: var(--secondary-color);
+}
+
+.contact__link:visited{
+    color: var(--secondary-color);
 }
