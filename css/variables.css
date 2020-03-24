@@ -2,8 +2,11 @@ html{
 
     --primary-color: #364954;
     --secondary-color: #ffffff;
-    --third-color: rgba(237, 237, 237, 0.7); 
-    --log--color:  #0098c9;
+    --third-color: rgba(237, 237, 237, 0.7);
+
+    --logo-color:  #0098c9;
+
 
     --font-color: #363636;
+    --font: 'Source Sans Pro';
 }

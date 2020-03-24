@@ -1,130 +1,112 @@
 *{
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 html, body{
     margin: 0;
     padding: 0;
 }
+.container{
+    font-family: var(--font);
+}
 
-/* Właściwy kod sekcji FEARTURES */
-.features{
-    padding: 24px;
-    background:var(--third-color);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(54,73,84,1) 100%, rgba(255,255,255,1) 100%);
+/*=================
+ Section: OUR WORKS 
+ ==================*/
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 2vw;
-    justify-items: center;
-    grid-template-areas: 
-    "action-1 action-2 action-3 action-4";
+.ourwork{
+    padding: 5px 0 24px 0;
+    background-color: var(--third-color);
+    
 }
-.features__action{
-    width: 22vw;
-    height: 38vw;
-    border-radius: 3px;
-    color: var(--font-color);
-    text-align: center;
+.ourwork__h{
+    font-size: 5vw;
+    padding-left: 5%;
+}
+.ourwork__present{
+    display: flex;
+    justify-content: space-evenly;
+}
+.present__section{
+    position: relative;
+    width: 28vw;
+    height: 22vw;
+}
 
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 25% 25% 25% 25%;
-}
-.action__img__composit{
-    width: 17vw;
-    grid-area: 1/1/3/2;
-    z-index: 1;
-}
-.action__img{
-    width: 8vw;
-    grid-area: 1/1/3/2;
-    z-index: 2;
-}
-.action__section{
+.present__section__img{
     width: 100%;
     height: 100%;
-    background-color: var(--secondary-color);
-    box-shadow:  0 0 10px -5px var(--primary-color);
+    cursor: pointer;
+}
 
-    grid-area: 2/1/5/4;
+.present__section__button{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-end;
+    color: #ffffff;
+    transition: .6s .2s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
 }
-.action__h{
-    margin-top: 45%;
-    font-size: 2.4vw;
+.present__section__button:hover{
+    opacity: 1;
+    transition: .6s .2s ease-in-out;
+    
 }
-.action__p{
-    margin-top: -20px;
-    padding: 18px;
-    font-size: 1.6vw;
+.present__section__button--name{
+    width: 100%;
+    height: 25%;
+    background-color: #0097C971;
+    font-size: 2vw;
+    color: #ffffff;
+    letter-spacing: .5vw;
+    border: #0097C9;
+    cursor: pointer;
+    
+}
+.present__section__button--name:active{
+    border: 2px solid #c0c0c0;
+    transition: none;
 }
 
-/* grid area*/
-.action__1{
-    grid-area: action-1;
-}
-.action__2{
-    grid-area: action-2;
-}
-.action__3{
-    grid-area: action-3;
-}
-.action__4{
-    grid-area: action-4;
-}
+
 
 /* responsywność */
 @media screen and (max-width: 600px){
-    .features{  
-        padding: 16px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: minmax(100px, auto);
-        grid-gap: 4vw;
-        grid-template-areas: 
-        "action-1 action-2"
-        "action-3 action-4";
-        }
-    .features__action{
-        width: 44vw;
-        
-    }
-    .action__h{
-        font-size: 4vw;
-    }
-    .action__p{
-        font-size: 2.5vw;
-        line-height: 4vw;
-    }  
-    .action__img{
-        width: 11vw;
-    }
+   .ourwork__present{
+       height: 66vw;
+       flex-wrap: wrap;
+       align-content: space-between;
+   }
+   .ourwork__h{
+       text-align: center;
+   }
+   .present__section{
+       width: 35vw;
+       height: 30vw;
+   }
       
 }
 
 @media screen and (max-width: 360px){
-    .features{ 
-        display: flex;
+    .ourwork__present{
+        height: 140vw;
+        flex-wrap: nowrap;
         flex-direction: column;
         align-items: center;
-        }
-    .features__action{
-        width: 88vw;
-        margin: 16px 0;
-        padding: 5px 10px;
     }
-    .action__h{
-        font-size: 7vw;
+    .ourwork__h{
+        text-align: center;
     }
-    .action__p{
-        font-size: 4vw;
-        line-height: 5.5vw;
-    }
-    .action__img{
-        width: 18vw;
+ 
+    .present__section{
+        width: 50vw;
+        height: 45vw;
     }
 }
