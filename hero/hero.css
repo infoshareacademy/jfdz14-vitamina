@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+body, html {
+    width: 100%;
+    height: 100%;
+  }
+
+.navigation {
+    position: absolute;
+    width: 100%;
+    height: 65px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+  
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+.menu {
+    list-style: none;
+    padding-right: 93px;
+  
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.navigation__logo {
+    padding-left: 33px;
+    padding-top: 4px;
+  }
+  
+.menu__link {
+    font-family: Source Sans Pro;
+    font-size: 24px;
+    line-height: 30px;
+    color:  #0098C9;
+    padding: 0px 11px;
+
+  }
+
+.hero {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: Source Sans Pro;
+    color: #FFFFFF;
+
+    display: flex;
+
+  }
+
+  .hero__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url('https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__section {
+    position: relative;
+    width: 100%;
+    margin-top: 65px;
+    padding-right: 93px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.hero__title {
+    font-size: 8.5vmax;
+    font-weight: 600;
+    line-height: 9vmax;
+}
+
+.hero__subtitle {
+    font-size: 2.5vmax;
+    line-height: 3.5vmax;
+}
+.hero__subtitle--normal {
+    font-weight: normal;
+}
+.hero__subtitle--bold {
+    font-weight: bold;
+}
+
+.form {
+    padding-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form__input {
+    margin: 4px;
+    padding: 15px;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 487px;
+    height: 59px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form__submit {
+    margin: 4px;
+    background: #0098C9;
+    border: 2px solid #0098C9;
+    box-shadow: 0px 4px 5px rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    width: 161px;
+    height: 59px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
