@@ -90,6 +90,8 @@ html, body{
 
 .team__header{
     font-size: 48px;
+
+    color: var(--font-color);
 }
 
 .team__container{
