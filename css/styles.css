@@ -20,25 +20,31 @@ html, body{
     min-height: 2000px;
 }
 
+.link{
+    color: var(--link-color);
+
+    text-decoration: none;
+}
+
+.link:visited{
+    color: var(--link-color);
+}
+
 /* NAV:                                                 */
 
 .nav{
     background: var(--nav-color);
 
-    max-width: 100%;
     height: 65px;
 
     padding: 0px 33px;
 
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    grid-template-areas: 
-    "nav__logo nav__menu";
+    display: flex;
+    justify-content: space-between;
 
     position: fixed;
     width: 100%;
+
 }
 
 .nav__logo{
@@ -94,14 +100,12 @@ html, body{
     grid-template-columns: repeat(4, 425px);
     grid-auto-rows: minmax(330px, 410px);
     
-    grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
-    
     justify-content: space-between;
 
 }
 
 .team__window{
-   max-height: 350px; 
+   max-height: 400px; 
    max-width: 425px;
 }
 
@@ -124,8 +128,8 @@ html, body{
 }
 
 .team__member__pic{
-    width: 150px;
-    height: 150px;
+    width: 186px;
+    height: 186px;
     border-radius: 50%;
 
     margin: -70px auto;
@@ -138,18 +142,34 @@ html, body{
 
 }
 
-.team__member__name{
-    font-size: 32px;
+.contact__link{
+    color: var(--log-color);
+}
 
-    margin: 10px;
+.team__member__name{
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    
+    color: var(--font-color);
+
+    margin: 10px 10px 0px;
     padding-top: 30px;
 }
 
 .team__member__title{
     text-align: center;
+    
+    font-style: normal;
+    font-weight: 600;
     font-size: 18px;
+    line-height: 23px;
 
-    margin: 20px;
+    color: var(--font-color);
+
+    margin: 0px 0px 20px;
 }
 
 .team__member__info{
@@ -161,6 +181,94 @@ html, body{
     justify-content: space-around;
 }
 
+.footer{
+    background: var(--primary-color);
+
+    height: 160px;
+    width: 100%;
+
+    padding: 50px 33px 50px;
+}
+
+.footer__line{
+    max-width: 1830px;
+}
+
+.footer__container{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;    
+    grid-template-areas: "footer__links footer__icons footer__copyright";
+
+    justify-items: stretch;
+
+    padding: 32px 0px;
+}
+
+.footer__links{
+    grid-area: footer__links;
+}
+
+.footer__link{
+    color: var(--footer-text);
+
+    padding: 0px 16px;
+}
+
+.footer__link:visited{
+    color: var(--footer-text);
+}
+
+.footer__icons{
+    grid-area: footer__icons;
+
+    align-items: center;
+    text-align: center; /* delete this later */
+}
+
+.footer__icon{
+    color: var(--footer-text);
+}
+
+.footer__icon__link:visited{
+    color: var(--footer-text);
+}
+
+.footer__copyright{
+    grid-area: footer__copyright;
+
+    text-align: end;
+}
+
+.footer__copyright__text{
+    margin: 0px;
+
+    color: var(--footer-text);
+}
+
+.socialmedia__icon{
+    width: 32px;
+    height: 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* UNNEEDED: 
+
+  grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
+    
 .team__member1{
     grid-area: team__member1;
 }
@@ -176,3 +284,5 @@ html, body{
 .team__member4{
     grid-area: team__member4;
 }
+
+*/

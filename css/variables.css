@@ -4,7 +4,10 @@ html{
     --secondary-color: #ffffff; 
     --log-color:  #0098c9;
 
-    --font-color: #363636;
+    --font-color: #364954;
 
-    --nav-color: hsla(0, 0%, 100%, 0.2);
+    --link-color: #0098c9;
+
+    --nav-color: rgba(255, 255, 255, 0.7);
+    --footer-text: rgba(255, 255, 255, 0.7);
 }
