@@ -160,7 +160,56 @@ html, body{
       
 }
 
+/* responsywność */
+@media screen and (max-width: 600px){
+    .features{  
+        padding: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-gap: 4vw;
+        grid-template-areas: 
+        "action-1 action-2"
+        "action-3 action-4";
+        }
+    .features__action{
+        width: 44vw;
+        
+    }
+    .action__h{
+        font-size: 4vw;
+    }
+    .action__p{
+        font-size: 2.5vw;
+        line-height: 4vw;
+    }  
+    .action__img{
+        width: 11vw;
+    }
+      
+}
+
 @media screen and (max-width: 360px){
+    .features{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+    .features__action{
+        width: 88vw;
+        margin: 16px 0;
+        padding: 5px 10px;
+    }
+    .action__h{
+        font-size: 7vw;
+    }
+    .action__p{
+        font-size: 4vw;
+        line-height: 5.5vw;
+    }
+    .action__img{
+        width: 18vw;
+    }
+    
     .ourwork__present{
         height: 140vw;
         flex-wrap: nowrap;
