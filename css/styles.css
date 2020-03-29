@@ -6,6 +6,7 @@
 body, html{
     width: 100%;
     height: 100%;
+    font-size: 16px;
 }
 
 
@@ -47,7 +48,7 @@ body, html{
 .header_and_icon {
 
     color: #364954;
-    font-size: 32px;
+    font-size: 2rem;
     display: flex;
     flex-direction: row;
     margin-left: 8px;
@@ -60,7 +61,7 @@ body, html{
 .body_txt {
     
     color: #364954;
-    font-size: 18px;
+    font-size: 1 rem;
     margin-left: 32px;
     margin-right: 32px;
     grid-area: body_txt;
@@ -71,9 +72,10 @@ body, html{
 .cta {
 
     color: #0098C9;
-    font-size: 16px;
+    font-size: 1 rem;
     display: flex;
     margin-right: 32px;
     grid-area: cta;
 
 }
+
