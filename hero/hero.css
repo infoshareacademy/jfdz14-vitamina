@@ -7,8 +7,9 @@
 body, html {
     width: 100%;
     height: 100%;
+    font-size: var(--text-font-size);
   }
-
+/*
 .navigation {
     position: absolute;
     width: 100%;
@@ -43,13 +44,14 @@ body, html {
     padding: 0px 11px;
 
   }
+*/
 
 .hero {
     width: 100%;
     height: 100%;
     position: relative;
-    font-family: Source Sans Pro;
-    color: #FFFFFF;
+    font-family: var(--font);
+    color: var(--basic-color);
 
     display: flex;
 
@@ -71,7 +73,7 @@ body, html {
     position: relative;
     width: 100%;
     margin-top: 65px;
-    padding-right: 93px;
+    padding: 93px;
 
     display: flex;
     justify-content: center;
@@ -81,14 +83,14 @@ body, html {
 }
 
 .hero__title {
-    font-size: 8.5vmax;
+    font-size: 9rem;
     font-weight: 600;
-    line-height: 9vmax;
+    line-height: 9.4rem;
 }
 
 .hero__subtitle {
-    font-size: 2.5vmax;
-    line-height: 3.5vmax;
+    font-size: 3rem;
+    line-height: auto;
 }
 .hero__subtitle--normal {
     font-weight: normal;
@@ -108,29 +110,69 @@ body, html {
 .form__input {
     margin: 4px;
     padding: 15px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--basic-color);
     box-sizing: border-box;
     border-radius: 5px;
+    
     width: 487px;
     height: 59px;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 30px;
-    color: #FFFFFF;
+    color: var(--basic-color);
     background-color: rgba(255, 255, 255, 0);
 }
 
 .form__submit {
     margin: 4px;
-    background: #0098C9;
-    border: 2px solid #0098C9;
+    background: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     box-shadow: 0px 4px 5px rgba(255, 255, 255, 0);
     border-radius: 5px;
     width: 161px;
     height: 59px;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 30px;
-    color: #FFFFFF;
+    color: var(--basic-color);
     cursor: pointer;
 }
+
+@media (min-width: 360px) {
+  html, body {
+      font-size: 5px;
+  }
+  .hero__section {
+      padding: 0 34px;
+  }
+}
+
+@media (min-width: 576px) {
+  html, body {
+      font-size: 9px;
+  }
+  .hero__section {
+       padding: 0 54px;
+  }
+}
+
+@media (min-width: 768px) {
+  html, body {
+      font-size: 12px;
+  }
+  .hero__section {
+      padding: 0 64px;
+  }
+}
+
+@media (min-width: 992px) {
+  html, body {
+      font-size: var(--text-font-size);
+      
+  }
+  .hero__section {
+      padding: 0 93px;
+  }
+}
+
+
