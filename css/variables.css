@@ -1,13 +1,21 @@
 html{
 
-    --primary-color: #364954;
-    --secondary-color: #ffffff; 
-    --log-color:  #0098c9;
+    --primary-color: #364954;   
+    --secondary-color: #0098c9;
+    --basic-color: #ffffff;
+    --transparent-color: rgba(255, 255, 255, 0.7);
+    --box-shadow-color: rgba(39, 39, 39, 0.2);
+    --pic--overlay--color: rgba(54, 73, 84, 0.3);
 
-    --font-color: #364954;
+    /*  
 
-    --link-color: #0098c9;
+    Media size - MIN!!!:
+    
+        small:  576px
+        medium: 768px
+        large:  992px
 
-    --nav-color: rgba(255, 255, 255, 0.7);
-    --footer-text: rgba(255, 255, 255, 0.7);
+    */
+
+    
 }

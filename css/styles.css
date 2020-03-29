@@ -4,6 +4,7 @@
     box-sizing: border-box;
 
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
 
 }
 html, body{
@@ -21,19 +22,19 @@ html, body{
 }
 
 .link{
-    color: var(--link-color);
+    color: var(--secondary-color);
 
     text-decoration: none;
 }
 
 .link:visited{
-    color: var(--link-color);
+    color: var(--secondary-color);
 }
 
 /* NAV:                                                 */
 
 .nav{
-    background: var(--nav-color);
+    background: var(--transparent-color);
 
     height: 65px;
 
@@ -54,6 +55,10 @@ html, body{
 
 .nav__menu{
     max-height: 65px; 
+
+    display: flex;
+
+    align-items: center;
 }
 
 .nav__list{
@@ -62,9 +67,12 @@ html, body{
     
     display: flex;    
     justify-content: flex-end;
-    align-items: center;
 
     margin: 0px auto;
+}
+
+.nav__link__text{
+    color: var(--secondary-color);
 }
 
 .nav__positions{
@@ -83,7 +91,7 @@ html, body{
 /* TEAM:                                */
 
 .team{
-    background: var(--secondary-color);
+    background: var(--basic-color);
 
     padding: 32px;
 }
@@ -91,7 +99,7 @@ html, body{
 .team__header{
     font-size: 48px;
 
-    color: var(--font-color);
+    color: var(--primary-color);
 }
 
 .team__container{
@@ -120,7 +128,7 @@ html, body{
     height: 275px; 
     width: 425px;
 
-    border: 3px solid var(--log-color);
+    border: 3px solid var(--secondary-color);
     border-radius: 3px;
 
     display: grid;
@@ -145,7 +153,7 @@ html, body{
 }
 
 .contact__link{
-    color: var(--log-color);
+    color: var(--secondary-color);
 }
 
 .team__member__name{
@@ -155,7 +163,7 @@ html, body{
     font-size: 32px;
     line-height: 40px;
     
-    color: var(--font-color);
+    color: var(--primary-color);
 
     margin: 10px 10px 0px;
     padding-top: 30px;
@@ -169,7 +177,7 @@ html, body{
     font-size: 18px;
     line-height: 23px;
 
-    color: var(--font-color);
+    color: var(--primary-color);
 
     margin: 0px 0px 20px;
 }
@@ -212,13 +220,13 @@ html, body{
 }
 
 .footer__link{
-    color: var(--footer-text);
+    color: var(--transparent-color);
 
     padding: 0px 16px;
 }
 
 .footer__link:visited{
-    color: var(--footer-text);
+    color: var(--transparent-color);
 }
 
 .footer__icons{
@@ -229,11 +237,11 @@ html, body{
 }
 
 .footer__icon{
-    color: var(--footer-text);
+    color: var(--transparent-color);
 }
 
 .footer__icon__link:visited{
-    color: var(--footer-text);
+    color: var(--transparent-color);
 }
 
 .footer__copyright{
@@ -245,7 +253,7 @@ html, body{
 .footer__copyright__text{
     margin: 0px;
 
-    color: var(--footer-text);
+    color: var(--transparent-color);
 }
 
 .socialmedia__icon{
