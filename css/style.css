@@ -23,6 +23,7 @@ html, body{
     width: 22vw;
     padding: 10px;
     border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(39, 39, 39, 0.2);;
     background: var(--secondary-color);
     color: var(--font-color);
     text-align: center;
