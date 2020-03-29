@@ -7,6 +7,11 @@ html{
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
 
+    
+    --big-header-font-size: 48px;
+    --med-header-font-size: 32px;
+    --text-font-size: 16px;
+
     /*  
 
     Media size - MIN!!!:
