@@ -5,19 +5,15 @@
 }
 
 body, html{
+
     width: 100%;
     height: 100%;
     font-size: 16px;
+    
 
 }
 
 
-
-.container {
-
-    background-color: #ededed;
-
-}
 
 .additional-features {
 
@@ -41,7 +37,7 @@ body, html{
     display: grid;
     max-width: 45%;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 0.2fr; 
+    grid-template-rows: 0.5fr 0.5fr 0.2fr; 
     grid-template-areas: "header_and_icon" "body_txt" "cta";
     
 
@@ -58,21 +54,31 @@ body, html{
 
     color: #364954;
     font-size: 2rem;
+
+    grid-area: header_and_icon;
+
     display: flex;
     flex-direction: row;
-    margin-left: 8px;
-    margin-top: 16px;
-    grid-area: header_and_icon;
     align-items: center;
+
+
+    margin-left: 8px;
+    margin-top: 8px;
+   
+
+    
 
 }
 
 .body_txt {
     
+    display: block;
     color: #364954;
     font-size: 1 rem;
+
     margin-left: 32px;
     margin-right: 32px;
+
     grid-area: body_txt;
 
 }
@@ -80,10 +86,11 @@ body, html{
 
 .cta {
 
-    color: #0098C9;
-    font-size: 1 rem;
+
+    display: block;
 
     margin-right: 32px;
+    padding: 8px;
     
     display: flex;
     justify-content: flex-end;
@@ -91,3 +98,18 @@ body, html{
     grid-area: cta;
 }
 
+
+h2 {
+
+display: block;
+margin: 16px;
+
+}
+
+.links {
+
+    text-decoration: none !important;
+    color: #0098C9;
+    font-size: 1 rem;
+
+}
