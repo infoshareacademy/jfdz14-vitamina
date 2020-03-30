@@ -20,13 +20,18 @@ body, html{
 .additional-features {
 
     padding: 24px;
-    
     background-color: #FFFFFF;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    /* grid-template-columns: repeat(2, 2fr);
     grid-auto-rows: minmax(150px, auto);
     grid-gap: 2vw;
-    grid-template-areas: "box" "box" "box" "box" "box" "box" "box" "box";
+    grid-template-areas: "box" "box" "box" "box" "box" "box" "box" "box"; */
 
 }
 
@@ -34,9 +39,11 @@ body, html{
 .box {
 
     display: grid;
+    max-width: 45%;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 0.2fr; 
+    grid-template-rows: 1fr 1fr 0.2fr; 
     grid-template-areas: "header_and_icon" "body_txt" "cta";
+    
 
     background-color: #ededed;
     box-sizing: border-box;
