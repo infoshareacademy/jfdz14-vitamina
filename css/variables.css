@@ -1,14 +1,19 @@
 html{
+
     --primary-color: #364954;   
     --secondary-color: #0098c9;
-    --third-color:rgb(237, 237, 237, 0.7); 
     --basic-color: #ffffff;
+
     --transparent-color: rgba(255, 255, 255, 0.7);
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
 
+    --third-color:rgb(237, 237, 237, 0.7); /* kolor Michała */
+
+    /* \/ czy to zostawiamy \/ ?? */
+
     --font-color: #363636;
-    --font: 'Source Sans Pro';
+    --font: 'Source Sans Pro'; 
     
     --big-header-font-size: 48px;
     --med-header-font-size: 32px;
@@ -26,4 +31,3 @@ html{
 
     
 }
-

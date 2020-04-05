@@ -8,6 +8,7 @@ html, body{
 }
 .container{
     font-family: var(--font);
+    
 }
 
 /*=================
@@ -218,3 +219,284 @@ html, body{
         height: auto;
     }
 }
+
+
+
+/* nav */
+
+/* tymczasowe: */
+.link{
+    color: var(--secondary-color);
+
+    text-decoration: none;
+}
+
+.link:visited{
+    color: var(--secondary-color);
+}
+
+/* koniec ^ */
+
+.nav{
+    background: var(--transparent-color);
+
+    height: 65px;
+
+    padding: 0px 33px;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    width: 100%;
+
+    z-index: 5;  /* do usuniecia pozniej */
+
+}
+
+.nav__logo{
+    max-height: 65px; 
+    max-width: 300px;
+}
+
+.nav__menu{
+    max-height: 65px; 
+
+    display: flex;
+
+    align-items: center;
+}
+
+.nav__list{
+
+    list-style-type: none;
+    
+    display: flex;    
+    justify-content: flex-end;
+
+    margin: 0px auto;
+}
+
+.nav__link__text{
+    color: var(--secondary-color);
+}
+
+.nav__positions{
+    padding: 0px 32px;
+
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.space__filler{
+    height: 500px;
+    background: var(--primary-color);
+}
+
+
+/* TEAM:                                */
+
+.team{
+    background: var(--basic-color);
+
+    padding: 32px;
+}
+
+.team__header{
+    font-size: 48px;
+
+    color: var(--primary-color);
+}
+
+.team__container{
+    margin: 0px;
+
+    display: grid;
+    
+    grid-template-columns: repeat(4, 425px);
+    grid-auto-rows: minmax(330px, 410px);
+    
+    justify-content: space-between;
+
+}
+
+.team__window{
+   max-height: 400px; 
+   max-width: 425px;
+}
+
+.team__space__filler{
+    height: 100px;
+}
+
+.team__box{
+
+    height: 275px; 
+    width: 425px;
+
+    border: 3px solid var(--secondary-color);
+    border-radius: 3px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: repeat(30px, auto);
+
+}
+
+.team__member__pic{
+    width: 186px;
+    height: 186px;
+    border-radius: 50%;
+
+    margin: -70px auto;
+
+    justify-self: center;
+}
+
+.team__box__info{
+    justify-self: center;
+
+}
+
+.contact__link{
+    color: var(--secondary-color);
+}
+
+.team__member__name{
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    
+    color: var(--primary-color);
+
+    margin: 10px 10px 0px;
+    padding-top: 30px;
+}
+
+.team__member__title{
+    text-align: center;
+    
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+
+    color: var(--primary-color);
+
+    margin: 0px 0px 20px;
+}
+
+.team__member__info{
+    width: 100px;
+    margin: 0px auto;
+    
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.footer{
+    background: var(--primary-color);
+
+    height: 160px;
+    width: 100%;
+
+    padding: 50px 33px 50px;
+}
+
+.footer__line{
+    max-width: 1830px;
+}
+
+.footer__container{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;    
+    grid-template-areas: "footer__links footer__icons footer__copyright";
+
+    justify-items: stretch;
+
+    padding: 32px 0px;
+}
+
+.footer__links{
+    grid-area: footer__links;
+}
+
+.footer__link{
+    color: var(--transparent-color);
+
+    padding: 0px 16px;
+}
+
+.footer__link:visited{
+    color: var(--transparent-color);
+}
+
+.footer__icons{
+    grid-area: footer__icons;
+
+    align-items: center;
+    text-align: center; /* delete this later */
+}
+
+.footer__icon{
+    color: var(--transparent-color);
+}
+
+.footer__icon__link:visited{
+    color: var(--transparent-color);
+}
+
+.footer__copyright{
+    grid-area: footer__copyright;
+
+    text-align: end;
+}
+
+.footer__copyright__text{
+    margin: 0px;
+
+    color: var(--transparent-color);
+}
+
+.socialmedia__icon{
+    width: 32px;
+    height: 32px;
+}
+
+/* cdn */
+
+
+
+
+
+
+
+
+
+
+
+/* UNNEEDED: 
+
+  grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
+    
+.team__member1{
+    grid-area: team__member1;
+}
+
+.team__member2{
+    grid-area: team__member2;
+}
+
+.team__member3{
+    grid-area: team__member3;
+}
+
+.team__member4{
+    grid-area: team__member4;
+}
+
+*/
