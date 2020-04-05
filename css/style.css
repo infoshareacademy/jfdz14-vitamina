@@ -11,6 +11,186 @@ html, body{
     
 }
 
+/* TYMCZASOWE: */
+.link{
+    color: var(--secondary-color);
+
+    text-decoration: none;
+}
+
+.link:visited{
+    color: var(--secondary-color);
+}
+
+/*      --- SHADER? --- 
+
+.img__shader{
+    background-color: var(--shader-color);
+
+    justify-content: center;
+} 
+
+*/
+
+/* koniec ^ */
+
+
+/*=================
+ Section: NAV 
+ =================*/
+
+ .nav{
+    background: var(--transparent-color);
+
+    height: 65px;
+
+    padding: 0px 33px;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    width: 100%;
+
+    z-index: 5;  /* do usuniecia pozniej */
+
+}
+
+.nav__logo{
+    max-height: 65px; 
+    max-width: 300px;
+}
+
+.nav__menu{
+    max-height: 65px; 
+
+    display: flex;
+
+    align-items: center;
+}
+
+.nav__list{
+
+    list-style-type: none;
+    
+    display: flex;    
+    justify-content: flex-end;
+
+    margin: 0px auto;
+}
+
+.nav__link__text{
+    color: var(--secondary-color);
+}
+
+.nav__positions{
+    padding: 0px 32px;
+
+    font-size: 24px;
+    line-height: 24px;
+}
+
+/*=================
+ Section: HERO 
+ =================*/
+
+ .hero {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: var(--pic--overlay--color);
+
+    display: flex;
+
+  }
+
+.hero__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    background-image: url('https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__section {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero__content {
+    color: var(--basic-color);
+    text-align: left;
+}
+
+.hero__title {
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.1em;
+}
+
+.hero__subtitle {
+    font-size: 0.3em;
+    line-height: auto;
+} 
+.hero__subtitle--normal {
+    font-weight: normal;
+}
+.hero__subtitle--bold {
+    font-weight: bold;
+}
+
+.hero__form {
+    padding-top: 16px;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.hero__input {
+    margin: 4px;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 30px;
+    color: var(--basic-color);
+    border-radius: 5px;
+}
+
+.hero__email {
+    padding: 15px;
+    border: 2px solid var(--basic-color);
+    width: 487px;
+    height: 59px;
+    background-color: transparent;
+}
+.hero__email:focus {
+    outline: none;
+    border: 3px solid var(--basic-color);
+}
+
+.hero__submit {
+    background: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0px 4px 5px var(--box-shadow-color);
+    width: 161px;
+    height: 59px;
+    cursor: pointer;
+}
+
+.hero__submit:focus {
+    outline: none;
+    border: 3px solid var(--transparent-color);
+}
+
 /*=================
  Section: FEATURES 
  =================*/
@@ -48,7 +228,7 @@ html, body{
     animation: pulse 1.3s 1s;
 }
 
-@keyframes pulse{
+@keyframes pulse{     /* to tu czy w RWD? */
     from{
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -77,7 +257,7 @@ html, body{
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
-}
+} /* what is this ^ sorcery?? */
 
 /* ====================
     Section: OUR WORKs
@@ -139,162 +319,11 @@ html, body{
     border: 2px solid #c0c0c0;
     transition: none;
 }
-/*=============
-  responsywność
-===============*/
-
-@media screen and (max-width: 992px){
-    .features__action__h{
-        font-size: 2.1vw;
-    }
-}
-@media screen and (max-width: 768px){
-    .features{
-        padding: 10px;
-
-        flex-wrap: wrap;
-        align-content: space-evenly;
-    }
-    .features__action{
-        width: 46%;
-        margin: 1%;
-    }
-    .features__action__h{
-        font-size: 4vw;
-    }
-    .features__action__p{
-        font-size: 2.5vw;
-        line-height: 4vw;
-    }  
-    .features__action__img{
-        width: 22%;
-    }
-    .ourwork__h{
-        padding-left: 5%;
-        font-size: 4vw;
-    }
-    .ourwork__present__section{
-        width: 30%;
-        height: auto;
-        margin: 0 25px;
-    }
-      
-}
-
-@media screen and (max-width: 576px){
-    .features{ 
-        padding: 8px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .features__action{
-        width: 90%;
-    }
-    .features__action__h{
-        font-size: 6vw;
-    }
-    .features__action__p{
-        font-size: 4vw;
-        line-height: 5.5vw;
-    }
-    .features__action__img{
-        width: 25%;
-    }
-    
-    .ourwork__present{
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    .ourwork__h{
-        font-size: 6vw;
-        text-align: center;
-    }
- 
-    .ourwork__present__section{
-        width: 70%;
-        height: auto;
-    }
-}
 
 
-
-/* nav */
-
-/* tymczasowe: */
-.link{
-    color: var(--secondary-color);
-
-    text-decoration: none;
-}
-
-.link:visited{
-    color: var(--secondary-color);
-}
-
-/* koniec ^ */
-
-.nav{
-    background: var(--transparent-color);
-
-    height: 65px;
-
-    padding: 0px 33px;
-
-    display: flex;
-    justify-content: space-between;
-
-    position: fixed;
-    width: 100%;
-
-    z-index: 5;  /* do usuniecia pozniej */
-
-}
-
-.nav__logo{
-    max-height: 65px; 
-    max-width: 300px;
-}
-
-.nav__menu{
-    max-height: 65px; 
-
-    display: flex;
-
-    align-items: center;
-}
-
-.nav__list{
-
-    list-style-type: none;
-    
-    display: flex;    
-    justify-content: flex-end;
-
-    margin: 0px auto;
-}
-
-.nav__link__text{
-    color: var(--secondary-color);
-}
-
-.nav__positions{
-    padding: 0px 32px;
-
-    font-size: 24px;
-    line-height: 24px;
-}
-
-.space__filler{
-    height: 500px;
-    background: var(--primary-color);
-}
-
-
-/* TEAM:                                */
+/*=================
+ Section: OUR TEAM 
+ =================*/
 
 .team{
     background: var(--basic-color);
@@ -397,6 +426,10 @@ html, body{
     justify-content: space-around;
 }
 
+/*=================
+ Section: FOOTER
+ =================*/
+
 .footer{
     background: var(--primary-color);
 
@@ -418,7 +451,8 @@ html, body{
 
     justify-items: stretch;
 
-    padding: 32px 0px;
+    padding: 32px 0px 25px;
+    align-items: flex-end;
 }
 
 .footer__links{
@@ -467,117 +501,11 @@ html, body{
     height: 32px;
 }
 
-/* cdn */
+/* ========= RESPONSIVE WEB DESIGN ========= */
 
-.hero {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background-color: var(--pic--overlay--color);
-
-    display: flex;
-
-  }
-
-.hero__image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -10;
-    background-image: url('https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
-    background-size: cover;
-    background-position: center;
-}
-
-.hero__section {
-    position: relative;
-    width: 100%;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.hero__content {
-    color: var(--basic-color);
-    text-align: left;
-}
-
-.hero__title {
-    font-size: 1em;
-    font-weight: 600;
-    line-height: 1.1em;
-}
-
-.hero__subtitle {
-    font-size: 0.3em;
-    line-height: auto;
-} 
-.hero__subtitle--normal {
-    font-weight: normal;
-}
-.hero__subtitle--bold {
-    font-weight: bold;
-}
-
-.hero__form {
-    padding-top: 16px;
-
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.hero__input {
-    margin: 4px;
-    font-size: 1em;
-    font-weight: normal;
-    line-height: 30px;
-    color: var(--basic-color);
-    border-radius: 5px;
-}
-
-.hero__email {
-    padding: 15px;
-    border: 2px solid var(--basic-color);
-    width: 487px;
-    height: 59px;
-    background-color: transparent;
-}
-.hero__email:focus {
-    outline: none;
-    border: 3px solid var(--basic-color);
-}
-
-.hero__submit {
-    background: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-    box-shadow: 0px 4px 5px var(--box-shadow-color);
-    width: 161px;
-    height: 59px;
-    cursor: pointer;
-}
-
-.hero__submit:focus {
-    outline: none;
-    border: 3px solid var(--transparent-color);
-}
-
-@media (min-width: 360px) {
-    .hero__content {
-        font-size: calc(62px + 82 * ((100vw - 360px) / 632));
-        padding: calc(10px + 92 * ((100vw - 360px) / 632));
-    }
-    .hero__input {
-        font-size: calc(16px + 8 * ((100vw - 360px) / 632));
-    }
-    .hero__email {
-        width: calc(310px + 177 * ((100vw - 360px) / 632));
-    }
-  }
+/*=================
+ Section: HERO
+ =================*/
   
   @media (min-width: 992px) {
   
@@ -593,31 +521,111 @@ html, body{
     }
   }
 
+/* BRAK ŚREDNIEGO ROZMIARU? */
+
+  @media (min-width: 360px) {
+    .hero__content {
+        font-size: calc(62px + 82 * ((100vw - 360px) / 632));
+        padding: calc(10px + 92 * ((100vw - 360px) / 632));
+    }
+    .hero__input {
+        font-size: calc(16px + 8 * ((100vw - 360px) / 632));
+    }
+    .hero__email {
+        width: calc(310px + 177 * ((100vw - 360px) / 632));
+    }
+  }
 
 
+  /* Max czy Min w końcu? */
 
+ /*=================
+ Section: FEATURES & OUR WORKS            
+ =================*/
 
+/* CZY MY CHCEMY TO ROZBIĆ NA DWA? */
 
+@media screen and (max-width: 992px){
+    .features__action__h{
+        font-size: 2.1vw;
+    }
+}
+@media screen and (max-width: 768px){
+    .features{
+        padding: 10px;
 
+        flex-wrap: wrap;
+        align-content: space-evenly;
+    }
+    .features__action{
+        width: 46%;
+        margin: 1%;
+    }
+    .features__action__h{
+        font-size: 4vw;
+    }
+    .features__action__p{
+        font-size: 2.5vw;
+        line-height: 4vw;
+    }  
+    .features__action__img{
+        width: 22%;
+    }
+    .ourwork__h{
+        padding-left: 5%;
+        font-size: 4vw;
+    }
+    .ourwork__present__section{
+        width: 30%;
+        height: auto;
+        margin: 0 25px;
+    }
+      
+}
 
-/* UNNEEDED: 
-
-  grid-template-areas: "team__member1 team__member2 team__member3 team__member4";
+@media screen and (max-width: 576px){
     
-.team__member1{
-    grid-area: team__member1;
+    .features{ 
+        padding: 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .features__action{
+        width: 90%;
+    }
+    .features__action__h{
+        font-size: 6vw;
+    }
+    .features__action__p{
+        font-size: 4vw;
+        line-height: 5.5vw;
+    }
+    .features__action__img{
+        width: 25%;
+    }
+    
+    .ourwork__present{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .ourwork__h{
+        font-size: 6vw;
+        text-align: center;
+    }
+ 
+    .ourwork__present__section{
+        width: 70%;
+        height: auto;
+    }
 }
 
-.team__member2{
-    grid-area: team__member2;
-}
 
-.team__member3{
-    grid-area: team__member3;
-}
 
-.team__member4{
-    grid-area: team__member4;
-}
 
-*/
+/* --------------- END --------------- */
+
+
