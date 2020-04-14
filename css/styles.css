@@ -44,7 +44,7 @@ body, html{
     box-sizing: border-box;
     border-radius: 4px;
 
-    margin: 15px;
+    margin: 16px;
 }
 
 
@@ -108,6 +108,6 @@ margin: 16px;
 
     text-decoration: none !important;
     color: #0098C9;
-    font-size: 1 rem;
+    font-size: 1rem;
 
 }
