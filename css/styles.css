@@ -38,7 +38,7 @@ body, html{
     max-width: 45%;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 0.5fr 0.2fr; 
-    grid-template-areas: "header_and_icon" "body_txt" "cta";
+    grid-template-areas: "additional__features__box__header" "additional__features__box__body" "additional__features__box__cta";
 
     box-shadow: 4px 0px 10px 0px var(--box-shadow-color); 
     box-sizing: border-box;
@@ -53,7 +53,7 @@ body, html{
     color: #364954;
     font-size: 2rem;
 
-    grid-area: header_and_icon;
+    grid-area: additional__features__box__header;
 
     display: flex;
     flex-direction: row;
@@ -72,12 +72,12 @@ body, html{
     
     display: block;
     color: #364954;
-    font-size: 1 rem;
+    font-size: 1rem;
 
     margin-left: 32px;
     margin-right: 32px;
 
-    grid-area: body_txt;
+    grid-area: additional__features__box__body;
 
 }
 
@@ -93,18 +93,18 @@ body, html{
     display: flex;
     justify-content: flex-end;
 
-    grid-area: cta;
+    grid-area: additional__features__box__cta;
 }
 
 
-h2 {
+.additional__features__title {
 
 display: block;
 margin: 16px;
 
 }
 
-.links {
+.additional__features__box__cta__read__more {
 
     text-decoration: none !important;
     color: #0098C9;
