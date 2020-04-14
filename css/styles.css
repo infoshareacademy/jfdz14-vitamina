@@ -15,7 +15,7 @@ body, html{
 
 
 
-.additional-features {
+.additional__features {
 
     padding: 24px;
     background-color: #FFFFFF;
@@ -32,7 +32,7 @@ body, html{
 }
 
 
-.box {
+.additional__features__box {
 
     display: grid;
     max-width: 45%;
@@ -50,7 +50,7 @@ body, html{
 }
 
 
-.header_and_icon {
+.additional__features__box__header {
 
     color: #364954;
     font-size: 2rem;
@@ -70,7 +70,7 @@ body, html{
 
 }
 
-.body_txt {
+.additional__features__box__body{
     
     display: block;
     color: #364954;
@@ -84,7 +84,7 @@ body, html{
 }
 
 
-.cta {
+.additional__features__box__cta {
 
 
     display: block;
