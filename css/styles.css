@@ -31,31 +31,57 @@ body, html{
 
     display: flex;
     flex-direction: column;
-    padding: 2em;
+    padding: 1em;
 	width: 100%;
-    box-shadow: 5px 0px 10px 0px var(--box-shadow-color); 
+    box-shadow: 4px 0px 10px 0px var(--box-shadow-color); 
     box-sizing: border-box;
     border-radius: 4px;
 
     margin: 16px;
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 576px) {
     .additional__features__box {
       width: 100%;
+      padding: 1.5em;
     }
-  }
-  @media all and (min-width: 992px) {
+
+    .additional__features__box__header {
+
+        font-size: 1.5rem;
+
+    }
+}
+
+@media all and (min-width: 768px) {
     .additional__features__box {
       width: 45%;
+      padding: 2em;
     }
-  }
 
+    .additional__features__box__header {
+
+        font-size: 1.5rem;;
+
+    }
+}
+
+@media all and (min-width: 992px) {
+    .additional__features__box {
+      width: 45%;
+      padding: 2em;
+    }
+
+    .additional__features__box__header {
+
+        font-size: 2rem;;
+
+    }
+}
 
 .additional__features__box__header {
 
     color: #364954;
-    font-size: 2rem;
 
     display: flex;
     flex-direction: row;
