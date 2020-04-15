@@ -47,9 +47,9 @@ body, html{
       padding: 1.5em;
     }
 
-    .additional__features__box__header {
+    .additional__features__title {
 
-        font-size: 1.5rem;
+        font-size: 2rem;
 
     }
 }
@@ -60,9 +60,9 @@ body, html{
       padding: 1.5em;
     }
 
-    .additional__features__box__header {
+    .additional__features__box__title {
 
-        font-size: 1.5rem;;
+        font-size: 2rem;;
 
     }
 }
@@ -73,9 +73,9 @@ body, html{
       padding: 2em;
     }
 
-    .additional__features__box__header {
+    .additional__features__box__title {
 
-        font-size: 1.5em;
+        font-size: 2.5rem;
 
     }
 }
@@ -96,6 +96,8 @@ body, html{
     line-height: 1em;
     display: block;
     margin: 16px;
+    font-size: 1.5rem;
+
     
 
 }
