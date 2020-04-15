@@ -14,15 +14,13 @@ body, html{
 }
 
 
-
 .additional__features {
 
-    padding: 24px;
+    padding: 10px;
     color: var(--additional-features--color);
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
-    justify-content: space-evenly;
-
+	width: 100%;
 
     /* grid-template-columns: repeat(2, 2fr);
     grid-auto-rows: minmax(150px, auto);
@@ -34,12 +32,17 @@ body, html{
 
 .additional__features__box {
 
-    display: grid;
+    /* display: grid;
     max-width: 45%;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr 0.2fr; 
-    grid-template-areas: "additional__features__box__header" "additional__features__box__body" "additional__features__box__cta";
+    grid-template-rows: 0.5fr 0.5fr 0.2fr;  
+    grid-auto-rows: 1fr, 1fr, 0.5fr;
+    grid-template-areas: "additional__features__box__header" "additional__features__box__body" "additional__features__box__cta"; */
 
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+	width: 45%;
     box-shadow: 4px 0px 10px 0px var(--box-shadow-color); 
     box-sizing: border-box;
     border-radius: 4px;
@@ -70,14 +73,16 @@ body, html{
 
 .additional__features__box__body{
     
-    display: block;
+    /* display: flex;
+    align-items: flex-start; */
     color: #364954;
     font-size: 1rem;
+    flex: 1 0 auto;
 
-    margin-left: 32px;
+    /* margin-left: 32px;
     margin-right: 32px;
 
-    grid-area: additional__features__box__body;
+    grid-area: additional__features__box__body; */
 
 }
 
@@ -85,13 +90,13 @@ body, html{
 .additional__features__box__cta {
 
 
-    display: block;
-
     margin-right: 32px;
     padding: 8px;
     
     display: flex;
     justify-content: flex-end;
+    /* align-items: center; */
+    
 
     grid-area: additional__features__box__cta;
 }
