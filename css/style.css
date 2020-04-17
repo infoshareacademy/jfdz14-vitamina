@@ -93,32 +93,31 @@ html, body{
 /*=================
  Section: HERO 
  =================*/
-
  .hero {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     background-color: var(--pic--overlay--color);
+    color: var(--basic-color);
 
     display: flex;
-
   }
 
 .hero__image {
-    position: absolute;
+   position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -10;
+    z-index: -1;
     background-image: url('https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
     background-size: cover;
     background-position: center;
 }
 
 .hero__section {
-    position: relative;
     width: 100%;
+    margin-top: 65px;
+    padding: 0px 10px;
+    font-size: 62px;
 
     display: flex;
     justify-content: flex-end;
@@ -126,17 +125,18 @@ html, body{
 }
 
 .hero__content {
-    color: var(--basic-color);
     text-align: left;
 }
 
 .hero__title {
+    margin: 0px;
     font-size: 1em;
     font-weight: 600;
     line-height: 1.1em;
 }
 
 .hero__subtitle {
+    margin: 0px;
     font-size: 0.3em;
     line-height: auto;
 } 
@@ -158,7 +158,7 @@ html, body{
 
 .hero__input {
     margin: 4px;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: normal;
     line-height: 30px;
     color: var(--basic-color);
@@ -168,7 +168,7 @@ html, body{
 .hero__email {
     padding: 15px;
     border: 2px solid var(--basic-color);
-    width: 487px;
+    width: 310px;
     height: 59px;
     background-color: transparent;
 }
@@ -190,7 +190,6 @@ html, body{
     outline: none;
     border: 3px solid var(--transparent-color);
 }
-
 /*=================
  Section: FEATURES 
  =================*/
@@ -507,36 +506,40 @@ html, body{
  Section: HERO
  =================*/
   
-  @media (min-width: 992px) {
-  
-    .hero__content {
-        font-size: 144px;
-        padding: 102px;
-    }
-    .hero__email {
-        width: 487px;
-  }
-    .hero__input {
-        font-size: 24px;
-    }
-  }
-
 /* BRAK ŚREDNIEGO ROZMIARU? */
 
-  @media (min-width: 360px) {
-    .hero__content {
+@media screen and (min-width: 360px) {
+    .hero__section {
         font-size: calc(62px + 82 * ((100vw - 360px) / 632));
-        padding: calc(10px + 92 * ((100vw - 360px) / 632));
-    }
-    .hero__input {
-        font-size: calc(16px + 8 * ((100vw - 360px) / 632));
+        padding-right: calc(10px + 92 * ((100vw - 360px) / 632));
+        padding-left: 10px;
     }
     .hero__email {
         width: calc(310px + 177 * ((100vw - 360px) / 632));
     }
+    .hero__input {
+        font-size: calc(16px + 8 * ((100vw - 360px) / 632));
+    }
   }
-
-
+    @media screen and (min-width: 992px) {
+  
+    .hero__section {
+        font-size: 144px;
+        padding-right: 102px;
+    }
+    .hero__title {
+        letter-spacing: 6px;
+    }
+    .hero__subtitle {
+        letter-spacing: 1px;
+    }
+    .hero__email {
+        width: 487px;
+    }
+    .hero__input {
+        font-size: 24px;
+    }
+  }
   /* Max czy Min w końcu? */
 
  /*=================
