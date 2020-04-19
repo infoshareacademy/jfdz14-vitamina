@@ -50,3 +50,12 @@
     $font-Flaticon-twitter: "\f103";
     $font-Flaticon-facebook: "\f104";
     $font-Flaticon-linkedin: "\f105";
+    .flaticon-exercise:before { content: "\f100"; }
+.flaticon-apple:before { content: "\f101"; }
+.flaticon-head:before { content: "\f102"; }
+.flaticon-goodwill:before { content: "\f103"; }
+    
+    $font-Flaticon-exercise: "\f100";
+    $font-Flaticon-apple: "\f101";
+    $font-Flaticon-head: "\f102";
+    $font-Flaticon-goodwill: "\f103";
