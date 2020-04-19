@@ -21,6 +21,9 @@ html{
     --med-header-font-size: 32px;
     --text-font-size: 16px;
 
+    --line-height: 1.5em;
+    --max-lines: 3;
+
     /*  
 
     Media size - MIN!!!:
