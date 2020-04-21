@@ -29,9 +29,7 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 32px;
 font-style: normal;
-margin: 0px 10px;
 }
 
 .flaticon-brand:before { content: "\f100"; }

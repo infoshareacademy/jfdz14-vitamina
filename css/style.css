@@ -48,7 +48,11 @@ html,body {
   position: fixed;
   width: 100vw;
 
-  z-index: 5; /* do usuniecia pozniej */
+  z-index: 5; /* fix this? - hides beneath the Our Works */
+}
+
+.nav__logo {
+  max-width: 30%;
 }
 
 .nav__menu {
@@ -73,7 +77,6 @@ html,body {
   padding: 0px 10px;
 
   font-size: 18px;
-  line-height: 24px;
 }
 
 /*=================
@@ -410,102 +413,130 @@ html,body {
  Section: OUR TEAM 
  =================*/
 
-.team {
-  background: var(--basic-color);
-  padding: 32px;
+.team{
+  width: 100%;
 }
 
-.team__header {
-  font-size: var(--big-header-font-size);
-  color: var(--primary-color);
+.team__header{              /* ADD UNIFIED HEADER COLOR AT THE TOP INSTEAD */
+  margin: 5% 3%;
+
+  font-size: 6vw;
+  text-align: center;
 }
 
-.team__container {
+.team__container{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
-.team__window {
-  width: 22.5%;
-  height: 45%;
+.team__card{
+  width: 45%;
+  margin: 10% auto;
+  padding: 3%;
+
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+
+  text-align: center;
+  color: var(--primary-color);
 }
 
-.team__space__filler {
-  height: 100px;
+.team__card__img__container{
+  width: 70%;
+  margin: -35% auto 0%;
 }
 
-.team__box {
-  width: 100%;
-  height: 100%;
-
-  border: 3px solid var(--secondary-color);
-  border-radius: 3px;
-
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.team__member__pic__figure {
-  width: 55%;
-  margin: -25% auto;
-}
-
-.team__member__pic {
+.team__card__img{
   width: 100%;
   height: auto;
+  
   border-radius: 50%;
-
-  justify-self: center;
 }
 
-.team__box__info {
-  justify-self: center;
+.team__card__header{
+  padding: 2%;
+  margin: 0% auto;
 }
 
-.contact__link {
-  color: var(--secondary-color);
+.team__card__name{
+  font-size: 4.5vw; /* czy zmienic na REMy? */
+  
+  padding-top: 5%;
 }
 
-.team__member__name {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 40px;
+.team__card__title{
+  font-size: 3.5vw;
+}
 
-  color: var(--primary-color);
-
-  margin: 10px 10px 0px;
-  padding-top: 40%;
-} /* TU SIĘ ZMNIEJSZA PADDING W OSTATNIM BOXIE */
-
-.team__member__title {
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 23px;
-
-  color: var(--primary-color);
-
+.team__card__icons{
   width: 100%;
-  margin: 0px 0px 20px;
-  text-overflow: clip;
+  display: flex;
+  justify-content: space-around;
+
+  margin: 10% auto 5%;
+  font-size: 5vw;
 }
 
-.team__member__info {
-  width: 80%;
-  margin: 0px auto 10px;
-
-  display: flex;
-
-  justify-content: space-around;
+.team__card__icon__link{
+  color: var(--secondary-color);
+  text-decoration: none;
 }
 
 /*=================
  Section: FOOTER
  =================*/
 
+.footer{
+  background-color: var(--primary-color);
+  padding: 3% 3% 0% 3%;
+
+}
+
+.footer__container{
+  display: flex;
+  flex-wrap: wrap;
+ 
+/*  align-items: center; */
+
+}
+
+.footer__item{
+  width: 33.333%;
+  margin: 2% 0%;
+
+  color: var(--transparent-color);
+}
+
+
+.footer__links{
+  display: flex;
+  justify-content: space-between;
+}
+
+ .footer__link{
+  color: var(--transparent-color);
+}
+
+.footer__link:visited{
+  color: var(--transparent-color);
+}
+
+.footer__icons{
+  display: flex;
+  flex-wrap: nowrap; /* is this necessary? */
+
+  justify-content: space-between; /* or between? - on MOBILE especially */
+}
+
+.footer__copyright__text{
+  margin: 0px;            /* TBA */
+  text-align: end;
+}
+
+
+/* 
+@media (min-width: 3200px) {
 .footer {
   background: var(--primary-color);
 
@@ -571,6 +602,8 @@ html,body {
   width: 32px;
   height: 32px;
 }
+
+}                                         TEMPORARILY REMOVED -  ATTEMPT AT BETTER FORMATING */
 
 /* ========= RESPONSIVE WEB DESIGN ========= */
 
@@ -739,140 +772,86 @@ html,body {
  Section: TEAM
  =================*/
 
-@media screen and (max-width: 992px) {
-  .team__window {
-    width: 45%;
-    margin: 2.5% auto;
-  }
-}
+@media (min-width: 1200px) {
 
-@media screen and (max-width: 768px) {
-  .team__member__name {
-    font-size: 24px;
-    text-align: center;
-  }
+ .team__header{
+   margin: 2.5% auto;
+   padding-left: 7%;
 
-  .team__member__title {
-    font-size: 16px;
-  }
-}
+   text-align: left;
 
-@media (max-width: 576px) {
-  .team__header {
-    font-size: 7vw;
-    text-align: center;
-  }
+   font-size: 3vw;
+ }
 
-  .team__container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+ .team__card{
+   width: 20%;
 
-  .team__window {
-    width: 45%;
-    margin: 10% auto;
-  }
+   margin: 5% auto;
+   padding: 32px;
+ }
 
-  .team__box {
-    width: 100%;
-    height: 100%;
-  }
+ .team__card__img__container{
+   margin: -40% auto 0%;
+ }
 
-  .team__member__pic__figure {
-    width: 75%;
-    margin: -35% auto;
-  }
+ .team__card__name{
+   font-size: 2rem;
+ }
 
-  .team__member__pic {
-    width: 100%;
-    height: 100%;
-  }
+ .team__card__title{
+  font-size: 1.5rem;
+ }
 
-  .team__member__name {
-    font-size: 30px;
-    text-align: center;
-  }
+.team__card__icons{
+  font-size: 2rem;
+} 
 
-  .team__member__title {
-    font-size: 20px;
-    text-overflow: ellipsis;
-  }
-}
-
-@media (max-width: 420px) {
-  .team__window {
-    width: 90%;
-  }
 }
 
 /*=================
  Section: FOOTER
  =================*/
 
-@media (max-width: 1256px) {
-  .footer__item {
-    padding: 0% 0.5%;
+ @media (min-width: 992px) {
+
+  .footer__links{
+    justify-content: flex-start;
   }
 
-  .footer__icons {
+  .footer__link{
+    padding: 0% 5% 0% 0%;
+  }
+
+   .footer__icons{
+     justify-content: space-around;
+     font-size: 1.5rem;
+   }
+ }
+
+ @media (max-width: 576px) {
+
+  .footer__item{
+    width: 100%;
+  }
+
+  .footer__icons{
     order: 1;
-    width: 100%;
-
-    padding: 1.5% 6.5% 1.5% 7.5%;
   }
 
-  .footer__links {
+  .footer__links{
     order: 2;
-    width: 40%;
-
-    text-align: justify;
-    padding: 2% 0% 2% 8%;
   }
-
-  .footer__copyright {
+    
+  .footer__copyright{
     order: 3;
-    width: 60%;
 
-    text-align: center;
-    padding-bottom: 2%;
+    font-size: .7rem;
   }
-
-  .footer__line {
-    max-width: 82.5%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .footer__item {
-    text-align: end;
-  }
-
-  .footer__links {
-    order: 2;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-
-    padding: 2% 8% 2% 9%;
-  }
-
-  .footer__link {
-    padding: 0;
-  }
-
-  .footer__copyright {
-    order: 3;
-    width: 100%;
-
-    padding: 2% 8%;
-  }
-
-  .socialmedia__icon {
-    margin: 0px;
-  }
-}
+  
+ }
 
 /* header 1.5 rem -= 24px */
 
 /* --------------- END --------------- */
+
+
