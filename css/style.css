@@ -117,12 +117,11 @@ html, body{
 .hero__section {
     width: 100%;
     margin-top: 65px;
-    padding: 0px 10px;
-    font-size: 62px;
+    padding: 0px 10px 20px 10px;
 
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .hero__content {
@@ -131,14 +130,14 @@ html, body{
 
 .hero__title {
     margin: 0px;
-    font-size: 1em;
+    font-size: 48px;
     font-weight: 600;
-    line-height: 1.1em;
+    line-height: 1.1;
 }
 
 .hero__subtitle {
     margin: 0px;
-    font-size: 0.3em;
+    font-size: 18px;
     line-height: auto;
 } 
 .hero__subtitle--normal {
@@ -152,16 +151,15 @@ html, body{
     padding-top: 16px;
 
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .hero__input {
     margin: 4px;
+    height: 40px;
     font-size: 16px;
     font-weight: normal;
-    line-height: 30px;
     color: var(--basic-color);
     border-radius: 5px;
 }
@@ -169,8 +167,7 @@ html, body{
 .hero__email {
     padding: 15px;
     border: 2px solid var(--basic-color);
-    width: 310px;
-    height: 59px;
+    width: 300px;
     background-color: transparent;
 }
 .hero__email:focus {
@@ -182,8 +179,7 @@ html, body{
     background: var(--secondary-color);
     border: 2px solid var(--secondary-color);
     box-shadow: 0px 4px 5px var(--box-shadow-color);
-    width: 161px;
-    height: 59px;
+    width: 130px;
     cursor: pointer;
 }
 
@@ -637,41 +633,68 @@ html, body{
 /*=================
  Section: HERO
  =================*/
-  
-/* BRAK ŚREDNIEGO ROZMIARU?  tak, nie ruszac mnie tu tego, bo sie zepsuje :( */
-
-@media screen and (min-width: 360px) {
+ @media screen and (min-width: 576px) {
     .hero__section {
-        font-size: calc(62px + 82 * ((100vw - 360px) / 632));
-        padding-right: calc(10px + 92 * ((100vw - 360px) / 632));
-        padding-left: 10px;
-    }
-    .hero__email {
-        width: calc(310px + 177 * ((100vw - 360px) / 632));
-    }
-    .hero__input {
-        font-size: calc(16px + 8 * ((100vw - 360px) / 632));
-    }
-  }
-    @media screen and (min-width: 992px) {
-  
-    .hero__section {
-        font-size: 144px;
-        padding-right: 102px;
-    }
-    .hero__title {
-        letter-spacing: 6px;
-    }
-    .hero__subtitle {
-        letter-spacing: 1px;
-    }
-    .hero__email {
-        width: 487px;
-    }
-    .hero__input {
-        font-size: 24px;
-    }
-  }
+         padding-right: calc(20px + 82 * ((100vw - 576px) / 416)); 
+         padding-left: 20px;
+ 
+         display: flex;
+         align-items: flex-end;
+     }
+     .hero__title {
+         font-size: calc(48px + 96 * ((100vw - 576px) / 416));
+     }
+     .hero__subtitle {
+         padding: 2px 0px;
+         font-size: calc(18px + 30 * ((100vw - 576px) / 416));
+     }
+     .hero__input {
+         font-size: calc(16px + 8 * ((100vw - 576px) / 416));
+         height: calc(42px + 8 * ((100vw - 576px) / 416));
+     }
+     .hero__email {
+         width: calc(310px + 176 * ((100vw - 576px) / 416));
+     }
+     .hero__submit {
+         width: calc(140px + 20 * ((100vw - 576px) / 416));
+     }
+   }
+ 
+ @media screen and (min-width: 768px) { 
+     .hero__form {
+         display: flex;
+         justify-content: flex-start;
+         flex-direction: row;
+     }
+   }
+ 
+ @media screen and (min-width: 992px) {
+     .hero__section {
+         padding-right: 102px;
+ 
+         display: flex;
+         align-items: center;
+     }
+     .hero__title {
+         font-size: 144px;
+         letter-spacing: 6px;
+     }
+     .hero__subtitle {
+         padding: 4px 0px;
+         font-size: 48px;
+         letter-spacing: 0.5px;
+     }
+     .hero__input {
+         font-size: 24px;
+         height: 60px;
+     }
+     .hero__email {
+         width: 486px;
+     }
+     .hero__submit {
+         width: 160px;
+     }
+   }
   /* Max czy Min w końcu? */
 
  /*=================
