@@ -179,111 +179,125 @@ html,body {
  Section: FEATURES 
  =================*/
 
-.features {
-  padding: 24px;
-  background: var(--primary-color);
-
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.features__action {
-  width: 22%;
-  padding: 10px;
-
-  background: var(--basic-color);
-  border-radius: 3px;
-  box-shadow: 0px 4px 10px var(--box-shadow-color);
-  color: var(--font-color);
-  text-align: center;
-  cursor: default;
-}
-    
-.features__action__h{
-    margin: 10px;
-    font-size: 2.4vw;
-}
-.features__action__p{
-    font-size: 1.6vw;
-    line-height: 2vw;
-}
-.features__action__img{
-    width: 40%;
-}
-.features__action__img:focus, .features__action__img:hover{
-    animation: pulse 1.3s;
-}
-@keyframes pulse{     /* to tu czy w RWD? */
-    from{
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
+ .features {
+    padding: 24px 16px;
+    background: var(--primary-color);
+  
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .features__action {
+    width: 22%;
+    padding: 10px;
+  
+    background: var(--basic-color);
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px var(--box-shadow-color);
+    color: var(--font-color);
+    text-align: center;
+    cursor: default;
+  }
+  .features__action:hover, .features__action:focus{
+      animation: selection .1s linear forwards;
+  }
+  
+  @keyframes selection{
+      0%{
+          -webkit-transform: scale(1);
+          transform: scale(1);
+      }
+      100%{
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+      }
+  }
+  .features__action__h{
+      margin: 10px;
+      font-size: 2.4vw;
+  }
+  .features__action__p{
+      font-size: 1.6vw;
+      line-height: 2vw;
+  }
+  .features__action__img{
+      width: 40%;
+  }
+  .features__action__img:focus, .features__action__img:hover{
+      animation: pulse 1.3s;
+  }
+  @keyframes pulse{     /* to tu czy w RWD? */
+      from{
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+      }
+      20%{
+          -webkit-transform: scale3d(1.3, 1.3, 1.3);
+          transform: scale3d(1.3, 1.3, 1.3);
+      }
+      40%{
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+      }
+      50%{
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+      }
+      60%{
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+      }
+      80%{
+          -webkit-transform: scale3d(1.05, 1.05, 1.05);
+          transform: scale3d(1.05, 1.05, 1.05);
+      }
+      to{
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+      }
     }
-    20%{
-        -webkit-transform: scale3d(1.3, 1.3, 1.3);
-        transform: scale3d(1.3, 1.3, 1.3);
-    }
-    40%{
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    50%{
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-    60%{
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    80%{
-        -webkit-transform: scale3d(1.05, 1.05, 1.05);
-        transform: scale3d(1.05, 1.05, 1.05);
-    }
-    to{
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-} /* what is this ^ sorcery?? */
 
 /* ======================
     Section: OUR MISSION
 ======================= */
 .mission{
-    width: 100%;
-    max-height: 50%;
-    padding: 24px 0;
-    display: flex;
-    align-items: center;
-    background-color: var(--primary-color);
+  width: 100%;
+  max-height: 50%;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
 }
 .mission__image{
-    width: 45vw; 
+  width: 46%; 
 }
 .mission__image--img{
-    width: 100%;
-    max-height: 500px;
-    box-shadow: 0px 4px 10px var(--box-shadow-color);
-    object-fit: cover;
+  width: 100%;
+  max-height: 500px;
+  box-shadow: 0px 4px 10px var(--box-shadow-color);
+  object-fit: cover;
 }
 .mission__section{
-    width: 50%;
-    padding: 0 24px;
-    color: var(--basic-color);
+  width: 50%;
+  padding: 0 24px;
+  color: var(--basic-color);
 }
 .mission__section--h{
-    margin: 24px 0;
-    font-size: var(--med-header-font-size);
+  margin: 24px 0;
+  font-size: var(--med-header-font-size);
 
 }
 .mission__section__discription{
-   font-size: 1.2em;
-   line-height: 1.2em;
+ font-size: 1.2em;
+ line-height: 1.2em;
 }
 .mission__section__discription-p{
-    padding-left: 45%;
-    font-size: 0.9em;
-    text-align: center;
+  padding-left: 45%;
+  font-size: 0.9em;
+  text-align: center;
 
 }
+
 /* ====================
     Section: ADDITIONAL FEATURES
 ===================== */
@@ -765,81 +779,120 @@ html,body {
 /* CZY MY CHCEMY TO ROZBIĆ NA DWA? */
 
 @media screen and (max-width: 992px) {
-  .features__action__h {
-    font-size: 2.1vw;
+    .features__action__h {
+      font-size: 2.1vw;
+    }
+    .mission__image{
+      width: 50%;
+    }
   }
-}
-@media screen and (max-width: 768px) {
-  .features {
-    padding: 10px;
-
-    flex-wrap: wrap;
-    align-content: space-evenly;
+  @media screen and (max-width: 768px) {
+    .features {
+      padding: 10px 0;
+  
+      flex-wrap: wrap;
+      align-content: space-evenly;
+    }
+    .features__action {
+      width: 46%;
+      margin: 1%;
+    }
+    .features__action__h {
+      font-size: 4vw;
+    }
+    .features__action__p {
+      font-size: 2.5vw;
+      line-height: 4vw;
+    }
+    .features__action__img {
+      width: 22%;
+    }
+    .ourwork__h {
+      padding-left: 5%;
+      font-size: 4vw;
+    }
+    .ourwork__present__section {
+      width: 30%;
+      height: auto;
+      margin: 0 25px;
+    }
+    .mission{
+      flex-direction: column;
   }
-  .features__action {
-    width: 46%;
-    margin: 1%;
+  .mission__image{
+      width: 95%;
   }
-  .features__action__h {
-    font-size: 4vw;
+  .mission__image--img{
+      max-height: 300px;
   }
-  .features__action__p {
-    font-size: 2.5vw;
-    line-height: 4vw;
+  .mission__section{
+      width: 95%;
+      padding: 0;
   }
-  .features__action__img {
-    width: 22%;
+  .mission__section--h{
+      margin: 0;
   }
-  .ourwork__h {
-    padding-left: 5%;
-    font-size: 4vw;
   }
-  .ourwork__present__section {
-    width: 30%;
-    height: auto;
-    margin: 0 25px;
+  
+  
+  
+  
+  @media screen and (max-width: 576px) {
+    .features {
+      padding: 10px;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .features__action {
+      width: 95%;
+      margin: 2%;
+    }
+    .features__action__h {
+      font-size: 6vw;
+    }
+    .features__action__p {
+      font-size: 4vw;
+      line-height: 5.5vw;
+    }
+    .features__action__img {
+      width: 25%;
+    }
+  
+    .ourwork__present {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .ourwork__h {
+      font-size: 6vw;
+      text-align: center;
+    }
+  
+    .ourwork__present__section {
+      width: 70%;
+      height: auto;
+    }
+    .mission{
+        padding: 0 24px;
+        flex-direction: column;
+    }
+    .mission__image{
+        width: 100%;
+    }
+    .mission__image--img{
+        max-height: 200px;
+    }
+    .mission__section{
+        width: 95%;
+        padding: 0;
+    }
+    .mission__section--h{
+        margin: 0;
+    }
   }
-}
-
-@media screen and (max-width: 576px) {
-  .features {
-    padding: 8px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .features__action {
-    width: 90%;
-  }
-  .features__action__h {
-    font-size: 6vw;
-  }
-  .features__action__p {
-    font-size: 4vw;
-    line-height: 5.5vw;
-  }
-  .features__action__img {
-    width: 25%;
-  }
-
-  .ourwork__present {
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .ourwork__h {
-    font-size: 6vw;
-    text-align: center;
-  }
-
-  .ourwork__present__section {
-    width: 70%;
-    height: auto;
-  }
-}
-
 /*=================
  Section: TEAM
  =================*/
