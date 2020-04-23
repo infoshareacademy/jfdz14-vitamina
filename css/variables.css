@@ -3,36 +3,21 @@ html{
     --primary-color: #364954;   
     --secondary-color: #0098c9;
     --basic-color: #ffffff;
+    --third-color:rgb(237, 237, 237, 0.7); 
 
     --transparent-color: rgba(255, 255, 255, 0.7);
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
 
-    --third-color:rgb(237, 237, 237, 0.7); /* kolor Michała */
-    /* UWAGA ^ - nazwa może ulec zmianie */
+    --shader-color: rgba(54, 73, 84, 0.3);  
 
-    --shader-color: rgba(54, 73, 84, 0.3);  /* for images */
-
-    /* \/ czy to zostawiamy \/ ?? */
     --font-color: #363636;
     --font: 'Source Sans Pro'; 
     
-    --big-header-font-size: 48px;
-    --med-header-font-size: 32px;
-    --text-font-size: 16px;
+    --big-header-font-size: 2em;
+    --med-header-font-size: 1.6em;
+    --text-font-size: 1em;
 
     --line-height: 1.5em;
     --max-lines: 3;
-
-    /*  
-
-    Media size - MIN!!!:
-    
-        small:  576px
-        medium: 768px
-        large:  992px
-
-    */
-
-    
 }
