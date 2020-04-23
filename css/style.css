@@ -6,9 +6,40 @@ html,body {
   margin: 0;
   padding: 0;
 }
-.container {
+
+body{
   font-family: var(--font);
 }
+
+
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
 
 /* TYMCZASOWE: */
 .link {
@@ -169,6 +200,7 @@ html,body {
     box-shadow: 0px 4px 5px var(--box-shadow-color);
     width: 130px;
     cursor: pointer;
+  
 }
 
 .hero__submit:focus {
@@ -178,10 +210,11 @@ html,body {
 /*=================
  Section: FEATURES 
  =================*/
-
+  .section__features {
+    background: var(--primary-color);
+  }
  .features {
     padding: 24px 16px;
-    background: var(--primary-color);
   
     display: flex;
     justify-content: space-evenly;
@@ -260,13 +293,18 @@ html,body {
 /* ======================
     Section: OUR MISSION
 ======================= */
+
+.section__mission{
+  background-color: var(--primary-color);
+}
+
 .mission{
   width: 100%;
   max-height: 50%;
   padding: 24px 0;
   display: flex;
   align-items: center;
-  background-color: var(--primary-color);
+
 }
 .mission__image{
   width: 46%; 
@@ -311,10 +349,8 @@ html,body {
 }
 
 .additional__features__box__header__icon{
-  width: 64px;
-  height: 64px;
-
-  
+  width: 48px;
+  height: 48px;
 }
 
 .additional__features__box {
@@ -357,16 +393,32 @@ html,body {
   overflow: hidden;
 }
 
-.additional__features__box__cta {
-  display: flex;
-  justify-content: flex-end;
+.additional__features__box__read__more__checkbox {
+  display: none;
 }
 
-.additional__features__box__cta__read__more {
-  text-decoration: none !important;
+.additional__features__box__read__more__checkbox ~ .additional__features__box__read__more__trigger:before {
+  content: 'Czytaj więcej';
+}
+
+.additional__features__box__read__more__checkbox:checked ~ .additional__features__box__read__more__trigger:before {
+  content: 'Czytaj mniej';
+}
+
+.additional__features__box__read__more__checkbox:checked ~ .additional___features__box__body__text {
+  -webkit-line-clamp: initial;
+  -webkit-box-orient: initial;
+  overflow: visible;
+}
+
+.additional__features__box__read__more__trigger {
+  float: right;
+  cursor: pointer;
+  padding: 0 .5em;
   color: #0098c9;
   font-size: 1rem;
 }
+
 
 @media all and (min-width: 576px) {
   .additional__features__box {
@@ -399,14 +451,24 @@ html,body {
   .additional__features__title {
     font-size: 2rem;
   }
+
+  .additional__features__box__header__icon{
+    width: 64px;
+    height: 64px;
+  }
 }
+
 
 /* ====================
     Section: OUR WORKs
 ===================== */
+
+.section__ourwork{
+  background-color: var(--third-color);
+}
+
 .ourwork {
   padding: 5px 0 24px 0;
-  background-color: var(--third-color);
 }
 .ourwork__h {
   font-size: 3vw;
