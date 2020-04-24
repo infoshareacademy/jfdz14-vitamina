@@ -17,31 +17,30 @@
 
 <body>
 
-    <nav class="nav">
-        <img class="nav__logo" src="./image/logo.png" alt="logo-vitamina">
-        <div class="nav__menu">
-            <ul class="nav__list">
-                <li class="nav__positions">
-                    <a href="#features" class="link nav__link">
-                        <p class="nav__link__text">Nasza filozofia</p>
-                    </a>
+    <nav class="navigation">
+        <label  class="navigation__burger" for="burger__checkbox"><img src="image/svg/open-menu.svg" class="navigation__burger__icon"></label>
+        <input class="navigation__burger__checkbox" type="checkbox" id="burger__checkbox"/>
+        <a href="#hero__page__part" class="navigation__logo"><img class="navigation__logo__img" src="./image/logo.png" alt="logo-vitamina"></a>            
+        <ul class="navigation__menu">
+                <li class="navigation__menu__list">
+                    <a href="#features" class="navigation__menu__list__link"><p class="nav__link__text">Nasza filozofia</p></a>
                 </li>
-                <li class="nav__positions">
-                    <a href="#additional__features" class="link nav__link">
-                        <p class="nav__link__text">O produkcie</p>
-                    </a>
-                    <!--LINK-->
+                <li class="navigation__menu__list">
+                    <a href="#additional__features" class="navigation__menu__list__link"><p class="nav__link__text">O produkcie</p></a> 
                 </li>
-                <li class="nav__positions">
-                    <a href="#team" class="link nav__link">
-                        <p class="nav__link__text">Nasz zespół</p>
-                    </a>
+                <li class="navigation__menu__list">
+                    <a href="#our__mission" class="navigation__menu__list__link"><p class="nav__link__text">Misja</p></a>             
+                </li>             
+                <li class="navigation__menu__list">
+                    <a href="#our__work" class="navigation__menu__list__link"><p class="nav__link__text">Nasze produkty</p></a>             
+                </li>
+                <li class="navigation__menu__list">
+                    <a href="#team" class="navigation__menu__list__link"><p class="nav__link__text">Nasz zespół</p></a>
                 </li>
             </ul>
-        </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" id="hero__page__part">
         <div class="hero__image"></div>
         <section class="hero__section">
             <div class="hero__content">
@@ -270,9 +269,9 @@
             </div>
         </section>
 
-        <section class="section__mission" id="mission">
+        <section class="section__mission">
             <div class="container">
-                <article class="mission">
+                <article class="mission" id="our__mission">
                     <figure class="mission__image">
                         <img class="mission__image--img" src="image/photo-1501644898242-cfea317d7faf.jpeg"
                             alt="człowiek spoglądający z za liści">
@@ -297,7 +296,7 @@
 
         <section class="section__ourwork">
             <div class="container">
-                <article class="ourwork">
+                <article class="ourwork" id="our__work">
                     <h2 class="ourwork__h">Zobacz nasze inne aplikacje</h2>
                     <div class="ourwork__present">
                         <section class="ourwork__present__section">
@@ -425,5 +424,7 @@
             </div>
         </div>
     </footer>
+
+
 </body>
 </html>
