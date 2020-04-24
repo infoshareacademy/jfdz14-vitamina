@@ -40,6 +40,7 @@ body {
 }
 .navigation__burger__checkbox {
   position: absolute;
+  margin: -100px;
   top: 0px;
   left: 0px;
   opacity: 0%;
@@ -443,7 +444,7 @@ body {
 }
 .team__card {
   width: 200px;
-  margin: 5% auto;
+  margin: 30px auto;
   padding: 3%;
 
   border: 2px solid var(--secondary-color);
