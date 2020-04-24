@@ -10,8 +10,6 @@ html,body {
 body{
   font-family: var(--font);
 }
-
-
 .container {
   width: 100%;
   padding-right: 0.75rem;
@@ -39,7 +37,101 @@ body{
     max-width: 1140px;
   }
 }
+.burger__menu__icon {
 
+  width: 24px;  
+  height: 24px;
+
+}
+
+/* BURGER VISIBLE EVERYWHERE EXCEPT >992px */
+
+.burger__navigation {
+  position: sticky;
+  top: 0px;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+    font-style: normal;
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+#hamburger__menu__checkbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0%;
+}
+
+.vitamina__logo__image {
+  display: flex;
+  height: 60%;
+  width: 60%;
+  align-self: flex-end;
+}
+
+  .burger__navigation .nav__burger__positions {
+    display: block;
+  }
+
+  .nav__burger__list {
+    display: block;
+    /* border-top: 1px solid red; */
+    margin: 0px;
+
+  }
+
+  /* Toggle show/hide menu on checkbox click */
+  .nav__burger__list {
+    display: none;
+  }
+  input:checked ~ .nav__burger__list {
+    display: block;
+    padding-left: 16px;
+  }
+
+/* END */
+
+/* HIDING BURGER IN BIG RESOLUTION */
+@media screen and (min-width: 992px){
+  
+  label {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .menu__burger__icon {
+    display: none;
+  }
+  
+  #hamburger__menu__checkbox {
+  display: none;
+  
+  }
+
+  .nav__burger__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; 
+  }
+  .nav__burger__positions {
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .burger__navigation, .nav__burger__link, .nav__burger__list, .nav__burger__positions  {
+    color: #fff;
+    text-decoration: none;
+  }
+
+}
+/* END */
 
 /* TYMCZASOWE: */
 .link {
@@ -51,64 +143,61 @@ body{
   color: var(--secondary-color);
 }
 
-/*      --- SHADER? --- 
-
-.img__shader{
-    background-color: var(--shader-color);
-
-    justify-content: center;
-} 
-
-*/
-
-/* koniec ^ */
-
-/*=================
- Section: NAV 
- =================*/
-
-.nav {
-  background: var(--transparent-color);
-
-  height: 70px;
-  padding: 0px 32px;
-
-  display: flex;
-  justify-content: space-between;
-
-  position: fixed;
-  width: 100vw;
-
-  z-index: 5; /* fix this? - hides beneath the Our Works */
+/* NAV POPRAWIONY Z MOBILEM */
+.nav, .nav__list {
+  display: none;
 }
 
-.nav__logo {
-  max-width: 30%;
+@media (min-width: 992px) {
+
+  .nav {
+    background: var(--transparent-color);
+  
+    height: 70px;
+    padding: 0px 32px;
+  
+    display: flex;
+    justify-content: space-between;
+  
+    position: fixed;
+    width: 100vw;
+  
+    z-index: 5; /* fix this? - hides beneath the Our Works */
+  }
+  
+  .nav__logo {
+    max-width: 30%;
+  }
+  
+  .nav__menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav__list {
+    list-style-type: none;
+  
+    display: flex;
+    justify-content: space-around;
+    margin: 0px auto;
+  }
+  
+  
+  .nav__link__text {
+    color: var(--secondary-color);
+  }
+  
+  .nav__positions {
+    padding: 0px 10px;
+  
+    font-size: 18px;
+  }
+  
 }
 
-.nav__menu {
-  display: flex;
-  align-items: center;
-}
+/* END */
 
-.nav__list {
-  list-style-type: none;
 
-  display: flex;
-  justify-content: space-around;
-
-  margin: 0px auto;
-}
-
-.nav__link__text {
-  color: var(--secondary-color);
-}
-
-.nav__positions {
-  padding: 0px 10px;
-
-  font-size: 18px;
-}
 
 /*=================
  Section: HERO 
