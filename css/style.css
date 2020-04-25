@@ -464,11 +464,19 @@ body {
 .team__card__img__container {
   width: 70%;
   margin: -35% auto 0%;
+  width: 70%;
+  margin: -35% auto 0%;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px var(--box-shadow-color);
 }
 .team__card__img {
   width: 100%;
   height: auto;
-  border-radius: 50%;
+  border-radius: inherit;
 }
 .team__card__header {
   margin: 0;
