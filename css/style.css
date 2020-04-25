@@ -125,6 +125,7 @@ body {
 .hero__title {
   margin: 0;
   font-size: 3.2em;
+  line-height: 1.1;
 }
 .hero__subtitle {
   margin: 0px;
@@ -145,6 +146,7 @@ body {
 .hero__input {
   height: 40px;
   font-size: 1em;
+  font-family: var(--font);
   color: var(--basic-color);
   border-radius: 5px;
 }
@@ -557,11 +559,11 @@ body {
     padding-left: 20px;
   }
   .hero__title {
-    font-size: 10vw /*calc(64px + 96 * ((100vw - 576px) / 1144));*/
+    font-size: 9.5vw;
   }
   .hero__subtitle {
     padding: 2px 0px;
-    font-size: 2.5vw /*calc(18px + 30 * ((100vw - 576px) / 1144));*/
+    font-size: 2.5vw;
   }
   .hero__form {
     display: flex;
