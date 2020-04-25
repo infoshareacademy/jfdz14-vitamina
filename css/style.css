@@ -75,9 +75,17 @@ body {
 }
 .navigation__menu__list__link {
   color: var(--secondary-color);
+}
+.navigation__menu__list__link:link {
   text-decoration: none;
 }
-
+.navigation__menu__list__link:hover {
+  text-decoration: underline var(--secondary-color);
+}
+.navigation__menu__list__link:focus{
+  color: var(--secondary-color);
+  font-weight: bolder;
+}
 /* Section: HERO */
 .hero {
   width: 100%;
