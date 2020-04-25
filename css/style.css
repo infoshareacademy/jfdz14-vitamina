@@ -6,9 +6,10 @@ html,
 body {
   margin: 0;
   padding: 0;
+   
 }
 body {
-  font-family: var(--font);
+  font-family: var(--font), Helvetica, sans-serif;
 }
 .container {
   width: 100%;
@@ -85,6 +86,10 @@ body {
 .navigation__menu__list__link:focus{
   color: var(--secondary-color);
   font-weight: bolder;
+}
+.navigation__menu__list__link:active{
+  color: var(--secondary-color);
+  font-weight: 900;
 }
 /* Section: HERO */
 .hero {
