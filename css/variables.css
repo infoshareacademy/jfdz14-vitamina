@@ -8,6 +8,7 @@ html{
     --transparent-color: rgba(255, 255, 255, 0.9);
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
+    --focus--color: #00BBD5;
 
     --shader-color: rgba(54, 73, 84, 0.3);  
 
