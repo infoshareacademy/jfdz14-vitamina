@@ -379,7 +379,7 @@ body {
   padding: 5px 0 24px 0;
 }
 .ourwork__h {
-  text-align: center;
+  text-align: left;
   font-size: 2em;
 }
 .ourwork__present {
@@ -443,7 +443,7 @@ body {
 .team__header {
   padding: 10px;
   font-size: 2em;
-  text-align: center;
+  text-align: left;
 }
 .team__container {
   width: 100%;
@@ -741,7 +741,7 @@ body {
   }
   .team__header {
     margin: 2.5% auto;
-    padding-left: 7%;
+    /* padding-left: 7%; */
   }
   .team__card {
     width: 20%;
