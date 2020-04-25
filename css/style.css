@@ -124,11 +124,17 @@ body {
 }
 .hero__title {
   margin: 0;
-  font-size: 3.4em;
+  font-size: 3.2em;
 }
 .hero__subtitle {
   margin: 0px;
-  font-size: 18px;
+  font-size: 1.1em;
+}
+.hero__subtitle--normal {
+  font-weight: normal;
+}
+.hero__subtitle--bold {
+  font-weight: bolder;
 }
 .hero__form {
   padding-top: 8px;
@@ -138,7 +144,7 @@ body {
 }
 .hero__input {
   height: 40px;
-  font-size: 16px;
+  font-size: 1em;
   color: var(--basic-color);
   border-radius: 5px;
 }
