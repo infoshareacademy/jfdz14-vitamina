@@ -121,11 +121,9 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-
 .hero__content {
   text-align: left;
 }
-
 .hero__title {
   margin: 6px;
   font-size: 3.4em;
@@ -137,10 +135,12 @@ body {
   font-size: 18px;
   line-height: auto;
 }
+.hero__subtitle--normal {
+  font-weight: normal;
+}
 .hero__subtitle--bold {
   font-weight: bolder;
 }
-
 .hero__form {
   padding-top: 8px;
 
@@ -148,7 +148,6 @@ body {
   align-items: flex-end;
   flex-direction: column;
 }
-
 .hero__input {
   height: 40px;
   font-size: 16px;
@@ -156,7 +155,6 @@ body {
   color: var(--basic-color);
   border-radius: 5px;
 }
-
 .hero__email {
   margin: 4px 4px 8px 4px;
   padding: 15px;
@@ -164,7 +162,6 @@ body {
   width: 100%;
   background-color: transparent;
 }
-
 .hero__email::placeholder {
   color: var(--basic-color);
 }
@@ -172,7 +169,6 @@ body {
   outline: none;
   border: 3px solid var(--basic-color);
 }
-
 .hero__submit {
   margin: 4px;
   background: var(--secondary-color);
@@ -181,7 +177,6 @@ body {
   width: 130px;
   cursor: pointer;
 }
-
 .hero__submit:focus {
   outline: none;
   border: 3px solid var(--focus--color);
@@ -563,11 +558,11 @@ body {
     padding-left: 20px;
   }
   .hero__title {
-    font-size: calc(64px + 96 * ((100vw - 576px) / 1144));
+    font-size: 10vw/*calc(64px + 96 * ((100vw - 576px) / 1144))*/;
   }
   .hero__subtitle {
     padding: 2px 0px;
-    font-size: calc(18px + 30 * ((100vw - 576px) / 1144));
+    font-size: 2.5vw/*calc(18px + 30 * ((100vw - 576px) / 1144))*/;
   }
   .hero__form {
     display: flex;
