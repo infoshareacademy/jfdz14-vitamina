@@ -559,11 +559,11 @@ body {
     padding-left: 20px;
   }
   .hero__title {
-    font-size: 9.5vw;
+    font-size: calc(48px + 96 * ((100vw - 576px) / 1144));;
   }
   .hero__subtitle {
     padding: 2px 0px;
-    font-size: 2.5vw;
+    font-size: calc(18px + 30 * ((100vw - 576px) / 1144));
   }
   .hero__form {
     display: flex;
