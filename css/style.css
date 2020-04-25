@@ -558,11 +558,11 @@ body {
     padding-left: 20px;
   }
   .hero__title {
-    font-size: 10vw/*calc(64px + 96 * ((100vw - 576px) / 1144))*/;
+    font-size: 10vw;
   }
   .hero__subtitle {
     padding: 2px 0px;
-    font-size: 2.5vw/*calc(18px + 30 * ((100vw - 576px) / 1144))*/;
+    font-size: 2.5vw;
   }
   .hero__form {
     display: flex;
