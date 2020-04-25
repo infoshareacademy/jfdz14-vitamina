@@ -474,9 +474,11 @@ body {
   box-shadow: 0px 4px 10px var(--box-shadow-color);
 }
 .team__card__img {
-  width: 100%;
-  height: auto;
+  width: 100px;
+  height: 100px;
   border-radius: inherit;
+  object-fit: cover;
+
 }
 .team__card__header {
   margin: 0;
