@@ -5,7 +5,7 @@ html{
     --basic-color: #ffffff;
     --third-color:rgb(237, 237, 237, 0.7); 
 
-    --transparent-color: rgba(255, 255, 255, 0.7);
+    --transparent-color: rgba(255, 255, 255, 0.9);
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
 
