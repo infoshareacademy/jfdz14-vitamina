@@ -1,6 +1,6 @@
 html{
 
-    --primary-color: #364954;   
+    --primary-color: #364954;
     --secondary-color: #0098c9;
     --basic-color: #ffffff;
     --third-color:rgb(237, 237, 237, 0.7); 
@@ -8,12 +8,12 @@ html{
     --transparent-color: rgba(255, 255, 255, 0.7);
     --box-shadow-color: rgba(39, 39, 39, 0.2);
     --pic--overlay--color: rgba(54, 73, 84, 0.3);
-
+    --focus-color: #00BBD5;
     --shader-color: rgba(54, 73, 84, 0.3);  
 
     --font-color: #363636;
-    --font: 'Source Sans Pro'; 
-    
+    --font: 'Source Sans Pro';
+
     --big-header-font-size: 2em;
     --med-header-font-size: 1.6em;
     --text-font-size: 1em;
