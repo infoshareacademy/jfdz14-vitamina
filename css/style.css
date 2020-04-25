@@ -297,7 +297,7 @@ body {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   color: var(--additional-features--color);
 }
 .additional__features__box__header__icon {
@@ -692,7 +692,7 @@ body {
     flex: 1 0 20%;
   }
   .additional__features__box {
-    width: 45%;
+    width: 46%;
     padding: 2em;
   }
   .additional__features__title {
