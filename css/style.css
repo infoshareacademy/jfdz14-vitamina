@@ -288,13 +288,16 @@ body {
   font-style: italic;
 }
 /* Section: ADDITIONAL FEATURES */
+.section__additional__features{
+   background-color: var(--third-color);
+}
 .additional__features {
   width: 100%;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  color: var(--additional-features--color);
+  
 }
 .additional__features__box__header__icon {
   width: 48px;
