@@ -730,7 +730,7 @@ body {
   .team__header {
     margin: 2.5% auto;
     text-align: left;
-    font-size: 3vw;
+    font-size: 2em;
   }
   .team__card {
     width: 20%;
