@@ -12,11 +12,8 @@ body {
 }
 .container {
   width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  margin-right: auto;
-  margin-left: auto;
-
+  padding: 0 0.75rem 0 0.75rem;
+  margin: 0 auto;
   color: var(--font-color);
 }
 /* Section: NAV */
@@ -131,12 +128,6 @@ body {
   margin: 0px;
   font-size: 1.1em;
 }
-.hero__subtitle--normal {
-  font-weight: normal;
-}
-.hero__subtitle--bold {
-  font-weight: bolder;
-}
 .hero__form {
   padding-top: 8px;
   display: flex;
@@ -218,7 +209,6 @@ body {
   animation: pulse 1.3s;
 }
 @keyframes pulse {
-  /* to tu czy w RWD? */
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -305,13 +295,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
 }
 .additional__features__box__header__icon {
   width: 48px;
   height: 48px;
 }
-
 .additional__features__box {
   width: 100%;
   margin: 16px;
@@ -319,6 +307,7 @@ body {
 
   display: flex;
   flex-direction: column;
+
   box-shadow: 4px 0px 10px 0px var(--box-shadow-color);
   box-sizing: border-box;
   border-radius: 4px;
@@ -348,10 +337,11 @@ body {
 }
 .additional__features__box__read__more__trigger {
   float: right;
-  cursor: pointer;
   padding: 0 0.5em;
+
   color: #0098c9;
   font-size: 1rem;
+  cursor: pointer;
 }
 .additional__features__box__read__more__checkbox {
   display: none;
@@ -509,8 +499,8 @@ body {
   flex-wrap: wrap;
 }
 .footer__item {
-  width: 33.333%;
-  margin: 2% 0%;
+  width: 100%;
+  margin: 4px 0;
 
   color: var(--transparent-color);
 }
@@ -521,36 +511,21 @@ body {
 }
 .footer__link {
   color: var(--transparent-color);
+  text-decoration: none;
+  text-align: center;
 }
 .footer__link:visited {
   color: var(--transparent-color);
 }
 .footer__icons {
+  width: 100%;
+  order: -1;
   display: flex;
-  flex-wrap: nowrap; /* is this necessary? */
-
-  justify-content: space-between; /* or between? - on MOBILE especially */
+  justify-content: space-evenly;
 }
 .footer__copyright__text {
-  margin: 0px; /* TBA */
-  font-size: 0.8em;
+  font-size: 0.7em;
   text-align: center;
-}
-
-@media (max-width: 576px) {
-  .footer__item {
-    width: 100%;
-  }
-  .footer__icons {
-    order: 1;
-  }
-  .footer__links {
-    order: 2;
-  }
-  .footer__copyright {
-    order: 3;
-    font-size: 0.7rem;
-  }
 }
 /*  MEDIA */
 @media screen and (min-width: 576px) {
@@ -606,6 +581,14 @@ body {
   }
   .team__header{
     font-size: 2em;
+  }
+  .footer__item{
+    width: 33.33%;
+    order: 0;
+    align-items: center;
+  }
+  .footer__icons{
+    width: 33.33%;
   }
 }
 
@@ -742,7 +725,6 @@ body {
   }
   .team__header {
     margin: 2.5% auto;
-    /* padding-left: 7%; */
     text-align: left;
     font-size: 3vw;
   }
