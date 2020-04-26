@@ -46,7 +46,7 @@ body {
 }
 .navigation__burger__checkbox:checked ~ .navigation__menu {
   display: block;
-  padding-left: 16px;
+  padding-left: 2px;
 }
 .navigation__menu {
   display: none;
