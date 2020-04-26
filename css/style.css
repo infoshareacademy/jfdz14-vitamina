@@ -388,7 +388,7 @@ body {
 }
 .ourwork__present__section {
   width: 90%;
-  margin: 8px;
+  margin: 16px;
   position: relative;
 }
 .ourwork__present__section__img {
@@ -489,7 +489,7 @@ body {
 }
 .team__card__icons {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 16px;
 
   display: flex;
   justify-content: space-evenly;
@@ -755,10 +755,10 @@ body {
     margin: -40% auto 0%;
   }
   .team__card__name {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .team__card__title {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .team__card__icons {
     font-size: 2rem;
