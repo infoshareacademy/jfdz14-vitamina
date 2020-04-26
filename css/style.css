@@ -198,7 +198,7 @@ body {
 }
 .features__action__h {
   margin: 10px;
-  font-size: var(--big-header-font-size);
+  font-size: 24px;
 }
 .features__action__p {
   margin: 16px 0;
@@ -324,7 +324,7 @@ body {
   color: #364954;
 }
 .additional__features__title {
-  margin: 16px;
+  margin: 16px 16px 16px 8px;
   display: block;
   font-size: 1.5rem;
   line-height: 1em;
@@ -335,6 +335,7 @@ body {
   flex: 1 0 5em;
 }
 .additional___features__box__body__text {
+  margin-left: 8px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
