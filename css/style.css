@@ -456,7 +456,7 @@ body {
 .team__card {
   width: 200px;
   margin: 30px auto;
-  padding: 3%;
+  padding: 4%;
 
   border: 2px solid var(--secondary-color);
   border-radius: 5px;
@@ -749,7 +749,7 @@ body {
   .team__card {
     width: 20%;
     margin: 5% auto;
-    padding: 32px;
+    padding: 32px 32px 16px 32px;
   }
   .team__card__img__container {
     margin: -40% auto 0%;
