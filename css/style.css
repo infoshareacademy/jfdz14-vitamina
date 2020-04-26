@@ -374,6 +374,7 @@ body {
 .ourwork__h {
   text-align: left;
   font-size: 1.5em;
+  padding-left: 10px;
 }
 .ourwork__present {
   display: flex;
@@ -438,7 +439,7 @@ body {
   width: 100%;
 }
 .team__header {
-  padding: 10px;
+  padding-left: 10px;
   font-size: 1.5em;
   text-align: left;
 }
