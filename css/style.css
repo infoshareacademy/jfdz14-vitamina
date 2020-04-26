@@ -111,8 +111,9 @@ body {
 .hero__section {
   width: 100vw;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
 }
 .hero__section__content {
   margin-top: 65px;
@@ -140,6 +141,13 @@ body {
   width: 100%;
   font-size: 1.1em;
   font-weight: bold;
+}
+.hero__label__container{
+  width: 90vw;
+  margin: 8px 8px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  text-align: justify;
 }
 .hero__input {
   height: 40px;
@@ -560,6 +568,9 @@ body {
   .hero__lable{
     font-size: calc(18px + 30 * ((100vw - 576px) / 1144));
   }
+  .hero__label__container{
+    width: 55vw;
+  }
   .hero__email {
     width: 100%;
   }
@@ -740,6 +751,9 @@ body {
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+  }
+  .hero__label__container{
+    width: 50vw;
   }
   .features__action__img {
     width: 80px;
