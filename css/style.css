@@ -22,7 +22,7 @@ body {
   top: 0px;
   width: 100%;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 3px opx 4px rgba(39, 39, 39, 0.2);
+  box-shadow: 3px 0px 4px rgba(39, 39, 39, 0.2);
   z-index: 5;
 
   display: flex;
