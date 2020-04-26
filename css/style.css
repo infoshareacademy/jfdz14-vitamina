@@ -127,9 +127,10 @@ body {
 .hero__subtitle {
   margin: 0px;
   font-size: 1.1em;
+  font-weight: normal;
 }
-.hero__lable{
-  width: 100%;
+.hero__subtitle--bold{
+  font-weight: bolder;
 }
 .hero__form {
   padding-top: 8px;
