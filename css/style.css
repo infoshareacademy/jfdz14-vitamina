@@ -304,10 +304,11 @@ body {
   width: 100%;
   margin: 16px;
   padding: 1.5em;
-
+  
   display: flex;
   flex-direction: column;
-
+  
+  background: var(--basic-color);
   box-shadow: 4px 0px 10px 0px var(--box-shadow-color);
   box-sizing: border-box;
   border-radius: 4px;
