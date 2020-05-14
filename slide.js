@@ -22,7 +22,7 @@ function heroVersion3() {
 
 const heroInterval = setInterval(nextSlide, 5000);
 const arrOfHeroVersion = [heroVersion1, heroVersion2, heroVersion3]
-const indexHero = 0
+let indexHero = 0
 
 function prevSlide() {
     if (indexHero == 0) {
