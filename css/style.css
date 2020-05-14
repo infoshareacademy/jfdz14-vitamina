@@ -103,15 +103,16 @@ body {
   width: 100%;
   height: 100vh;
 
-  background-image: url("https://images.unsplash.com/photo-1445384763658-0400939829cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-image: url("../image/hero/stay_healthy.jpg");
   background-size: cover;
   background-position: center;
   z-index: -1;
+  /*transition: 1s linear;*/
 }
 .hero__section {
   margin-top: 65px;
   padding: 12px;
-  width: 100vw;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -129,9 +130,59 @@ body {
   font-size: clamp(1.125em, 2.6vw, 3em);
   font-weight: normal;
 }
-.hero__subtitle--bold{
+.hero__subtitle--bold {
   font-weight: 600;
 }
+.hero__slide__dots {
+  position: absolute;
+  align-self: center;
+  top: 90%;
+}
+.hero__dots {
+  margin: 8px;
+  height: 1em;
+  width: 1em;
+  background-color: var(--transparent-color);
+  border-radius: 50%;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.7s ease;
+}
+.hero__dots:hover {
+  background-color: var(--secondary-color);
+}
+.hero__dots:focus {
+  outline: none;
+}
+
+.hero__slide__arrow {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.hero__arrow {
+  margin: 8px;
+  height: 1em;
+  width: 1em;
+  background-color: var(--transparent-color);
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.7s ease;
+}
+.hero__arrow:hover {
+  background-color: var(--secondary-color);
+}
+.hero__arrow:focus {
+  outline: none;
+}
+.active {
+  background-color: var(--secondary-color);
+}
+
 /* Section: FEATURES */
 .section__features {
   background: var(--primary-color);
