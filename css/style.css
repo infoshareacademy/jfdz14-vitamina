@@ -6,6 +6,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+
+  scroll-behavior: smooth;
 }
 body {
   font-family: var(--font), Helvetica, sans-serif;
@@ -32,6 +34,8 @@ color: var(--font-color);
   display: flex;
 }
 .cookie__box__icon {
+  width: 24px;
+  height: 24px;
   width: clamp(25px, 4vw, 70px);
   height: clamp(25px, 4vw, 70px);
   padding: .2em;
@@ -58,6 +62,7 @@ color: var(--font-color);
   font-size: 1em;
   letter-spacing: 2px;
   background-color: var(--secondary-color);
+  border: none;
   border-radius: 5px;
 }
 .cookie__button:hover {
