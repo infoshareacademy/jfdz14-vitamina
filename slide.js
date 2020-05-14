@@ -1,127 +1,108 @@
-const przycisk1 = document.querySelectorAll('.hero__dots')[0]
-const przycisk2 = document.querySelectorAll('.hero__dots')[1]
-const przycisk3 = document.querySelectorAll('.hero__dots')[2]
-const przyciski = document.querySelectorAll('.hero__dots')
+const heroDots = document.querySelectorAll('.hero__dot')
+const leftArrow = document.querySelectorAll('.hero__arrow')[0]
+const rightArrow = document.querySelectorAll('.hero__arrow')[1]
+const heroBackground = document.querySelector('.hero__img')
+const heroTitle = document.querySelector('.hero__title')
 
-const prev = document.querySelectorAll('.hero__arrow')[0]
-const next = document.querySelectorAll('.hero__arrow')[1]
-
-const tlo = document.querySelector('.hero__img')
-
-const tytul = document.querySelector('.hero__title')
-const text1 = "Stay healthy."
-const text2 = "Stay happy."
-const text3 = "Stay clean."
-
-function myFunction1() {
-    tlo.style.backgroundImage = "url('../image/hero/stay_healthy.jpg')"
-    tytul.textContent = text1
+function heroVersion1() {
+    heroBackground.style.backgroundImage = "url('../image/hero/stay_healthy.jpg')"
+    const stayHealthy = "Stay healthy."
+    heroTitle.textContent = stayHealthy
+}
+function heroVersion2() {
+    heroBackground.style.backgroundImage = "url('../image/hero/stay_happy.jpg')"
+    const stayHappy = "Stay happy."
+    heroTitle.textContent = stayHappy
+}
+function heroVersion3() {
+    heroBackground.style.backgroundImage = "url('../image/hero/stay_clean.jpg')"
+    const stayClean = "Stay clean."
+    heroTitle.textContent = stayClean
 }
 
-function myFunction2() {
-    tlo.style.backgroundImage = "url('../image/hero/stay_happy.jpg')"
-    tytul.textContent = text2
-}
-
-function myFunction3() {
-    tlo.style.backgroundImage = "url('../image/hero/stay_clean.jpg')"
-    tytul.textContent = text3
-}
-
-
-
-const tab = [przycisk1, przycisk2, przycisk3]
-const arr = [myFunction1, myFunction2, myFunction3]
-let index = 0
-
-prev.addEventListener('click', function() {
-    prevSlide();
-    resetTimer();
-})
-
-next.addEventListener('click', function() {
-    nextSlide();
-    resetTimer();
-})
+const heroInterval = setInterval(nextSlide, 5000);
+const arrOfHeroVersion = [heroVersion1, heroVersion2, heroVersion3]
+const indexHero = 0
 
 function prevSlide() {
-    if(index==0){
-        index=arr.length-1;
+    if (indexHero == 0) {
+        indexHero = arrOfHeroVersion.length-1;
     }
-    else{
-        index--;
+    else {
+        indexHero--;
     }
     changeSlide();
 }
 
 function nextSlide() {
-    if(index == arr.length-1) {
-        index = 0;
+    if(indexHero == arrOfHeroVersion.length-1) {
+        indexHero = 0;
     }
     else {
-        index++;
-
+        indexHero++;
     }
     changeSlide();
 }
 
 function changeSlide() {
-    arr[index]()
+    arrOfHeroVersion[indexHero]()
     changeDot()
 }
 
 function changeDot() {
-    if(index === 0) {
-        dupa();
-     } else if (index === 1) {
-        dupa2()
-     } else if (index === 2) {
-        dupa3()
+    if(indexHero === 0) {
+        changeDotToActive1();
+     } else if (indexHero === 1) {
+        changeDotToActive2()
+     } else if (indexHero === 2) {
+        changeDotToActive3()
     }
 }
-
-function dupa() {
-    tab[0].classList.add("active");
-    tab[1].classList.remove("active");
-    tab[2].classList.remove("active");
+function stopInterval() {
+    clearInterval(heroInterval);
 }
 
-function dupa2() {
-    tab[1].classList.add("active");
-    tab[0].classList.remove("active");
-    tab[2].classList.remove("active");
-}
-function dupa3() {
-    tab[2].classList.add("active");
-    tab[0].classList.remove("active");
-    tab[1].classList.remove("active");
+function changeDotToActive1() {
+    heroDots[0].classList.add("hero__dot--active");
+    heroDots[1].classList.remove("hero__dot--active");
+    heroDots[2].classList.remove("hero__dot--active");
 }
 
+function changeDotToActive2() {
+    heroDots[1].classList.add("hero__dot--active");
+    heroDots[0].classList.remove("hero__dot--active");
+    heroDots[2].classList.remove("hero__dot--active");
+}
+function changeDotToActive3() {
+    heroDots[2].classList.add("hero__dot--active");
+    heroDots[0].classList.remove("hero__dot--active");
+    heroDots[1].classList.remove("hero__dot--active");
+}
 
-przycisk1.addEventListener('focus', function() {
-    myFunction1();
-    resetTimer();
-    dupa();
+leftArrow.addEventListener('click', function() {
+    stopInterval()
+    prevSlide();
 })
 
-przycisk2.addEventListener('focus', function() {
-    myFunction2();
-    resetTimer();
-    dupa2();
-})
-przycisk3.addEventListener('focus', function() {
-    myFunction3();
-    resetTimer();
-    dupa3();
-})
-
-function resetTimer(){
-    clearInterval(timer);
-}
-
-
-function autoPlay(){
+rightArrow.addEventListener('click', function() {
+    stopInterval()
     nextSlide();
-}
+})
 
-let timer=setInterval(autoPlay,2000);
+heroDots[0].addEventListener('click', function() {
+    stopInterval()
+    heroVersion1();
+    changeDotToActive1();
+})
+
+heroDots[1].addEventListener('click', function() {
+    stopInterval()
+    heroVersion2();
+    changeDotToActive2();
+})
+
+heroDots[2].addEventListener('click', function() {
+    stopInterval()
+    heroVersion3();
+    changeDotToActive3();
+})

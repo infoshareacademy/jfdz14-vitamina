@@ -107,7 +107,7 @@ body {
   background-size: cover;
   background-position: center;
   z-index: -1;
-  /*transition: 1s linear;*/
+  transition: 0.5s ease-in-out;
 }
 .hero__section {
   margin-top: 65px;
@@ -133,12 +133,31 @@ body {
 .hero__subtitle--bold {
   font-weight: 600;
 }
+.hero__slide__arrows {
+  position: absolute;
+  top: 47%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.hero__arrow {
+  display: none;
+}
+.hero__arrow:hover {
+  color: var(--secondary-color);
+  transition: 0.5s ease-out;
+}
+.hero__arrow:focus {
+  outline: none;
+}
 .hero__slide__dots {
   position: absolute;
-  align-self: center;
   top: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.hero__dots {
+.hero__dot {
   margin: 8px;
   height: 1em;
   width: 1em;
@@ -147,40 +166,16 @@ body {
   border: none;
   display: inline-block;
   cursor: pointer;
-  transition: 0.7s ease;
 }
-.hero__dots:hover {
+.hero__dot--active {
   background-color: var(--secondary-color);
 }
-.hero__dots:focus {
+.hero__dot:hover {
+  background-color: var(--secondary-color);
+  transition: 0.5s ease-out;
+}
+.hero__dot:focus {
   outline: none;
-}
-
-.hero__slide__arrow {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.hero__arrow {
-  margin: 8px;
-  height: 1em;
-  width: 1em;
-  background-color: var(--transparent-color);
-  border: none;
-  display: inline-block;
-  cursor: pointer;
-  transition: 0.7s ease;
-}
-.hero__arrow:hover {
-  background-color: var(--secondary-color);
-}
-.hero__arrow:focus {
-  outline: none;
-}
-.active {
-  background-color: var(--secondary-color);
 }
 
 /* Section: FEATURES */
@@ -552,7 +547,7 @@ body {
     max-width: 540px;
   }
   .hero__section {
-    padding-right: 50px;
+    padding-right: 70px;
   } 
   .features {
     flex-direction: row;
@@ -631,6 +626,15 @@ body {
   .navigation__menu__list {
     padding: 10px;
     box-sizing: border-box;
+  }
+  .hero__arrow {
+    margin: 15px;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--transparent-color);
+    background-color: transparent;
+    font-size: clamp(5em, 6vw, 8em);
   }
   .additional__features__box {
     width: 100%;
