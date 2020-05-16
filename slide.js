@@ -1,27 +1,36 @@
-const heroDots = document.querySelectorAll('.hero__dot')
-const leftArrow = document.querySelectorAll('.hero__arrow')[0]
-const rightArrow = document.querySelectorAll('.hero__arrow')[1]
-const heroBackground = document.querySelector('.hero__img')
-const heroTitle = document.querySelector('.hero__title')
+const heroDots = document.querySelectorAll('.hero__dot');
+const leftArrow = document.querySelectorAll('.hero__arrow')[0];
+const rightArrow = document.querySelectorAll('.hero__arrow')[1];
+const heroBackground = document.querySelector('.hero__img');
+const heroTitle = document.querySelector('.hero__title');
+
+function heroBackgroundTransition() {
+    heroBackground.style.transition = "0.4s ease-in-out";
+}
 
 function heroVersion1() {
-    heroBackground.style.backgroundImage = "url('../image/hero/stay_healthy.jpg')"
-    const stayHealthy = "Stay healthy."
-    heroTitle.textContent = stayHealthy
+    heroBackground.style.backgroundImage = "url('image/hero/stay_healthy.jpg')";
+    const stayHealthy = "Stay healthy.";
+    heroTitle.textContent = stayHealthy;
+    changeDotToActive1();
 }
 function heroVersion2() {
-    heroBackground.style.backgroundImage = "url('../image/hero/stay_happy.jpg')"
-    const stayHappy = "Stay happy."
-    heroTitle.textContent = stayHappy
+    heroBackground.style.backgroundImage = "url('image/hero/stay_happy.jpg')";
+    const stayHappy = "Stay happy.";
+    heroTitle.textContent = stayHappy;
+    heroBackgroundTransition();
+    changeDotToActive2();
 }
 function heroVersion3() {
-    heroBackground.style.backgroundImage = "url('../image/hero/stay_clean.jpg')"
-    const stayClean = "Stay clean."
-    heroTitle.textContent = stayClean
+    heroBackground.style.backgroundImage = "url('image/hero/stay_clean.jpg')";
+    const stayClean = "Stay clean.";
+    heroTitle.textContent = stayClean;
+    heroBackgroundTransition();
+    changeDotToActive3();
 }
 
 const heroInterval = setInterval(nextSlide, 5000);
-const arrOfHeroVersion = [heroVersion1, heroVersion2, heroVersion3]
+const arrOfHeroVersion = [heroVersion1, heroVersion2, heroVersion3];
 let indexHero = 0
 
 function prevSlide() {
@@ -45,18 +54,7 @@ function nextSlide() {
 }
 
 function changeSlide() {
-    arrOfHeroVersion[indexHero]()
-    changeDot()
-}
-
-function changeDot() {
-    if(indexHero === 0) {
-        changeDotToActive1();
-     } else if (indexHero === 1) {
-        changeDotToActive2()
-     } else if (indexHero === 2) {
-        changeDotToActive3()
-    }
+    arrOfHeroVersion[indexHero]();
 }
 function stopInterval() {
     clearInterval(heroInterval);
@@ -80,29 +78,23 @@ function changeDotToActive3() {
 }
 
 leftArrow.addEventListener('click', function() {
-    stopInterval()
+    stopInterval();
     prevSlide();
 })
-
 rightArrow.addEventListener('click', function() {
-    stopInterval()
+    stopInterval();
     nextSlide();
 })
 
 heroDots[0].addEventListener('click', function() {
-    stopInterval()
+    stopInterval();
     heroVersion1();
-    changeDotToActive1();
 })
-
 heroDots[1].addEventListener('click', function() {
-    stopInterval()
+    stopInterval();
     heroVersion2();
-    changeDotToActive2();
 })
-
 heroDots[2].addEventListener('click', function() {
-    stopInterval()
+    stopInterval();
     heroVersion3();
-    changeDotToActive3();
 })
