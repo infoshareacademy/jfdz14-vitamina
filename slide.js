@@ -4,10 +4,6 @@ const rightArrow = document.querySelectorAll('.hero__arrow')[1];
 const heroBackground = document.querySelector('.hero__img');
 const heroTitle = document.querySelector('.hero__title');
 
-function heroBackgroundTransition() {
-    heroBackground.style.transition = "0.4s ease-in-out";
-}
-
 function heroVersion1() {
     heroBackground.style.backgroundImage = "url('image/hero/stay_healthy.jpg')";
     const stayHealthy = "Stay healthy.";
@@ -18,14 +14,12 @@ function heroVersion2() {
     heroBackground.style.backgroundImage = "url('image/hero/stay_happy.jpg')";
     const stayHappy = "Stay happy.";
     heroTitle.textContent = stayHappy;
-    heroBackgroundTransition();
     changeDotToActive2();
 }
 function heroVersion3() {
     heroBackground.style.backgroundImage = "url('image/hero/stay_clean.jpg')";
     const stayClean = "Stay clean.";
     heroTitle.textContent = stayClean;
-    heroBackgroundTransition();
     changeDotToActive3();
 }
 
