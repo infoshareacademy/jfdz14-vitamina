@@ -26,32 +26,18 @@ document.cookie = "cookieAccept=yes";
 cookie.classList.add('hidden');
 })
 
-
+const navigation = document.querySelector('.navigation');
 const burger = document.querySelector('.navigation__burger');
-const navigationCheckbox = document.querySelector('#burger__checkbox');
 const navigationMenu = document.querySelector('.navigation__menu');
 
 burger.addEventListener('click', () => {
-     if (!burger.classList.contains('open')) {
-          navigationCheckbox.setAttribute('disabled', 'disabled');
-          navigationMenu.classList.add('navigation__menu--open');
-          burger.classList.add('open');
-          console.log(burger)
+     if (!navigation.classList.contains('active')) {
+          navigation.classList.add('active');
      } else {
-          burger.classList.remove('open');
-          navigationMenu.classList.remove('navigation__menu--open');
-          setTimeout(() => {
-               navigationMenu.classList.add('navigation__menu');
-          }, 1000);
+          navigation.classList.remove('active');
      }
 })
 
 navigationMenu.addEventListener('click', () => {
-     if (navigationMenu.classList.contains('navigation__menu--open')) {
-          burger.classList.remove('open');
-          navigationMenu.classList.remove('navigation__menu--open');
-          setTimeout(() => {
-               navigationMenu.classList.add('navigation__menu');
-          }, 1000);
-     }
+     navigation.classList.remove('active');
 })
