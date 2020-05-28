@@ -1,29 +1,19 @@
 const cookie = document.querySelector('.cookie');
 const cookieButton = document.querySelector('.cookie__button');
 
-
-function showCookie(name) {
-     if (document.cookie !== "") {
-          const cookies = document.cookie.split(' ');
-          for (let i = 0; i < cookies.length; i++) {
-               const cookieName = cookies[i].split('=')[0];
-               const cookieValue = cookies[i].split('=')[1];
-               if (cookieName === name) {
-                    return cookieValue;
-               }
-          }
-     }
+function addCookie(cookieKey) {
+     localStorage.setItem(cookieKey, 'yes');
 }
-const cookieAcceptValue = showCookie("cookieAccept");
 
 setTimeout(() => {
-     if (cookieAcceptValue !== "yes"){
+     const cookieAccept = localStorage.hasOwnProperty('cookieAccept');
+     if (cookieAccept === false){
           cookie.classList.remove('hidden');
      }
 }, 1500);
 cookieButton.addEventListener('click', () => {
-document.cookie = "cookieAccept=yes";
-cookie.classList.add('hidden');
+     addCookie('cookieAccept')
+     cookie.classList.add('hidden');
 })
 
 const navigation = document.querySelector('.navigation');

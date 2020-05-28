@@ -187,7 +187,6 @@ color: var(--font-color);
     opacity: 0;
     border-bottom: 0 solid rgba(39, 39, 39, 0.2);
   }
-
 }
 .navigation__menu__list {
   padding: 10px;
