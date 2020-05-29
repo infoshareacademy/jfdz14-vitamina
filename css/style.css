@@ -560,15 +560,15 @@ color: var(--font-color);
   background-color: #0097c971;
   border: #0097c9;
   border-radius: 3px;
+  font-family: var(--font), Helvetica, sans-serif;
   font-size: 1em;
-  letter-spacing: 0.5vw;
-  color: #ffffff;
+  color: var(--basic-color);
   opacity: 0;
   cursor: pointer;
   transition: 0.2s 0.1s linear;
 }
-.ourwork__present__section__button--description {
-  font-size: .7em;
+.ourwork__present__section__button--h {
+  font-size: 1.5em;
 }
 .ourwork__present__section__button:hover {
   opacity: 1;
