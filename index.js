@@ -16,6 +16,26 @@ cookieButton.addEventListener('click', () => {
      cookie.classList.add('hidden');
 })
 
+
+const navigationMenuContainer = document.querySelector(".navigation");
+const navigationMenuElement = document.querySelector(".navigation__menu__list");
+const navigationMenuElementFocus = document.querySelector(".navigation__menu__list__link");
+
+    
+// navigationMenuElementFocus.addEventListener("click", () => {
+//      navigationMenuElementFocus.classList.remove('link');
+//      navigationMenuElementFocus.classList.add('active');
+// });
+
+for (let i = 0; i < navigationMenuElementFocus.length; i++) {
+          navigationMenuElementFocus[i].addEventListener("click", () => {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+     });
+}
+
+
 const navigation = document.querySelector('.navigation');
 const burger = document.querySelector('.navigation__burger');
 const navigationMenu = document.querySelector('.navigation__menu');
@@ -31,3 +51,5 @@ burger.addEventListener('click', () => {
 navigationMenu.addEventListener('click', () => {
      navigation.classList.remove('active');
 })
+
+

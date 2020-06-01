@@ -199,17 +199,24 @@ color: var(--font-color);
 .navigation__menu__list__link:link {
   text-decoration: none;
 }
-.navigation__menu__list__link:hover {
+.navigation__menu__list__link:hover{
   text-decoration: underline var(--secondary-color);
 }
-.navigation__menu__list__link:focus {
+
+.navigation__menu__list__link.active{
+  color: var(--secondary-color);
+  font-weight: bolder;
+  text-decoration: underline var(--secondary-color);
+}
+
+/* .navigation__menu__list__link:focus {
   color: var(--secondary-color);
   font-weight: bolder;
 }
 .navigation__menu__list__link:active {
   color: var(--secondary-color);
   font-weight: 900;
-}
+} */
 .navigation__logo {
   position: absolute;
   height: 50px;
