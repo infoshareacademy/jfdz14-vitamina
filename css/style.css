@@ -91,6 +91,38 @@ color: var(--font-color);
   flex-direction: column;
 }
 
+.quick-transition{
+  -webkit-transition: 0.2s ;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+
+.navigation>*{
+  -webkit-transition: 0.2s ;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navigation__slideup {
+  height: 0px !important;            
+  overflow-y: hidden;
+  -webkit-transition: 0.2s ;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navigation__slidedown {            
+  height: 60px ;            
+  -webkit-transition: 0.2s ;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;        
+} 
+
 .navigation__burger {
   width: 40px;
   height: 30px;
