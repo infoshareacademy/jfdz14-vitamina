@@ -106,7 +106,7 @@ body {
   animation: slider 1s ease-in-out;
 }
 @keyframes slider {
-  0% { transform: scale(1.01); opacity: 0.8; }
+  0% { transform: scale(1.02); opacity: 0.8; }
   100% { transform: scale(1); opacity: 1; }
 }
 .hero__img__1 {
@@ -147,6 +147,7 @@ body {
   margin: 0px;
   font-size: clamp(1.125em, 2.6vw, 3em);
   font-weight: normal;
+  text-align: right;
 }
 .hero__subtitle.hero__subtitle--bold {
   font-weight: 600;

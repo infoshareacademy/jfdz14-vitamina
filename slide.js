@@ -40,23 +40,23 @@ function stopInterval() {
     clearInterval(heroInterval);
 }
 
-leftArrow.addEventListener('click', function() {
+leftArrow.addEventListener('click', (event) => {
     stopInterval();
     prevSlide();
 })
-rightArrow.addEventListener('click', function() {
+rightArrow.addEventListener('click', (event) => {
     stopInterval();
     nextSlide();
 })
-heroDots[0].addEventListener('click', function() {
+heroDots[0].addEventListener('click', (event) => {
     stopInterval();
     currentSlide(0);
 })
-heroDots[1].addEventListener('click', function() {
+heroDots[1].addEventListener('click', (event) => {
     stopInterval();
     currentSlide(1);
 })
-heroDots[2].addEventListener('click', function() {
+heroDots[2].addEventListener('click', (event) =>{
     stopInterval();
     currentSlide(2);
 })
