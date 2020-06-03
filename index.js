@@ -31,3 +31,4 @@ burger.addEventListener('click', () => {
 navigationMenu.addEventListener('click', () => {
      navigation.classList.remove('active');
 })
+
