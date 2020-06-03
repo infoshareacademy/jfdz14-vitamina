@@ -3,7 +3,7 @@
 const modalWindow = document.querySelector('.modal__overlay');
 const closeButton = document.querySelector('.modal__close');
 
-setTimeout(showModal, 1000);
+setTimeout(showModal, 7000);
 
 function closeModal() {
     modalWindow.classList.remove("active");
@@ -11,8 +11,8 @@ function closeModal() {
 function showModal() {
     modalWindow.classList.add("active");
 }
-function outsideClick(e) {
-    if (e.target == modalWindow) {
+function outsideClick(event) {
+    if (event.target == modalWindow) {
         closeModal();
     }
   }
