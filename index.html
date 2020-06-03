@@ -38,9 +38,22 @@
         </section>
     </div>
 
+    <div class="cookie hidden">
+        <div class="cookie__box">
+            <img class="cookie__box__icon" src="/icons/food.svg" alt="icona ciastka">
+            <p class="cookie__box__description">Używamy własnych plików cookies oraz stron trzecich, aby wyświetlać ci reklamy na podstawie przeglądanych przez ciebie treści. Nawigowanie po stronie rozumiemy jako wyrażenie zgody na ich wykorzystanie. Możesz skonfigurować ustawienia plików cookie lub je odrzucić. Aby uzyskać więcej informacji, sprawdź naszą
+            <a class="cookie__box__description--link" href="#">Politykę cookies.</a>
+            </p>
+        </div>
+        <button class="cookie__button">Rozumiem</button>
+    </div>
+
     <nav class="navigation">
-        <label class="navigation__burger" for="burger__checkbox"><img src="image/svg/open-menu.svg"
-                class="navigation__burger__icon" alt="burger menu"></label>
+        <label class="navigation__burger" for="burger__checkbox">
+            <div class="navigation__burger--line burger__active--one"></div>
+            <div class="navigation__burger--line burger__active--two"></div>
+            <div class="navigation__burger--line burger__active--three"></div>
+        </label>
         <input class="navigation__burger__checkbox" type="checkbox" id="burger__checkbox" />
         <a href="#hero__page__part" class="navigation__logo"><img class="navigation__logo__img" src="./image/logo.png"
                 alt="logo-vitamina"></a>
@@ -347,21 +360,27 @@
                         <section class="ourwork__present__section">
                             <img class="ourwork__present__section__img"
                                 src="image/ourwork-amir-hanna-sweUF7FcyP4-unsplash.jpg" alt="our first aplication">
-                            <div class="ourwork__present__section__button">
-                                <button class="ourwork__present__section__button--name">Trip Invoked</button></div>
+                            <button class="ourwork__present__section__button">
+                                <h3 class="ourwork__present__section__button--h">Trip Invoked</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            </button>
                         </section>
                         <section class="ourwork__present__section">
                             <img class="ourwork__present__section__img"
                                 src="image/ourwork-freestocks-L5DxWLmywmM-unsplash.jpg" alt="our first aplication">
-                            <div class="ourwork__present__section__button">
-                                <button class="ourwork__present__section__button--name">Analysis Polution</button></div>
+                            <button class="ourwork__present__section__button">
+                                <h3 class="ourwork__present__section__button--h">Analysis Polution</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            </button>
                         </section>
                         <section class="ourwork__present__section">
                             <img class="ourwork__present__section__img"
                                 src="image/ourwork-viktor-talashuk-OYMKjv5zmGU-unsplash-2.jpg"
                                 alt="our first aplication">
-                            <div class="ourwork__present__section__button">
-                                <button class="ourwork__present__section__button--name">Fricky Pink</button></div>
+                            <button class="ourwork__present__section__button">
+                                <h3 class="ourwork__present__section__button--h">Fricky Pink</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            </button>
                         </section>
                     </div>
                 </article>
@@ -470,8 +489,9 @@
         </div>
     </footer>
 
-<script src="slide.js"></script>
-<script src="modal.js"></script> 
+    <script src="index.js" type="text/javascript"></script>
+    <script src="slide.js" type="text/javascript"></script>
+    <script src="modal.js" type="text/javascript"></script> 
 
 </body>
 
