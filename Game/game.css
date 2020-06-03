@@ -1,0 +1,47 @@
+html, body {
+     margin: 0;
+     padding: 0;
+}
+.canvas {
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.game__box {
+     position: relative;
+     width: 100vw;
+     height: 520px;
+     background-image: url(./Game_elements/Web\ 1920\ –\ 1.svg);
+     background-size: cover;
+
+}
+.game__box--badfood {
+     position: absolute;
+     width: 45px;
+     height: 38px;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+}
+.game__box--goodfood {
+     position: absolute;
+     width: 45px;
+     height: 38px;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+}
+.hidden-food {
+     display: none;
+}
+.human {
+     position: absolute;
+     right: .1vw;
+     width: 53px;
+     height: 125px;
+     background-image: url(./Game_elements/ludek-1.svg);
+     background-size: cover;
+     z-index: 2;
+}
