@@ -132,7 +132,7 @@ color: var(--font-color);
   top: 0px;
   left: 0px;
   margin: -100px;
-  opacity: 0%;
+  opacity: 0;
 }
 .navigation__burger__checkbox:checked ~ .navigation__menu {
   display: block;
@@ -759,7 +759,7 @@ color: var(--font-color);
   }
   .navigation {
     width: 100%;
-    height: 60px;
+    height: 51px;
     position: fixed;
 
     flex-direction: row;
@@ -776,7 +776,7 @@ color: var(--font-color);
     display: none;
   }
   .navigation__logo {
-    margin: 5px;
+    /* margin: 5px; */
     align-self: flex-start;
   }
   .navigation__menu, .navigation.active .navigation__menu {
