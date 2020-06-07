@@ -16,13 +16,10 @@ function outsideClick(event) {
         closeModal();
     }
   }
-closeButton.addEventListener('click', () => {
-    closeModal();
-})
-
+closeButton.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 
-/*email validation*/
+/* email validation*/
 
 const email = document.querySelector('.modal__email');
 const form = document.querySelector('.modal__form');
@@ -30,12 +27,10 @@ const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\")
 const emailErrorText = document.querySelector('.modal__email__error__text');
 const modalSubmit = document.querySelector('.modal__submit');
 
-modalSubmit.addEventListener('click', (event) => {
+modalSubmit.addEventListener('click', checkEmail)
+ 
+function checkEmail(event) {
     event.preventDefault();
-    checkEmail();
-});
-
-function checkEmail() {
     const emailValue = (email.value.trim()).toLowerCase();
     if (emailValue === '' || !emailReg.test(emailValue)) {
         emailErrorText.classList.add('error');
@@ -43,7 +38,7 @@ function checkEmail() {
     }
     else {
         localStorage.setItem('email', emailValue);
-        window.open("/game.html");
+        window.open("/game.html"); /*tutaj jakis odpalacz gry*/
         closeModal();
     }
 }

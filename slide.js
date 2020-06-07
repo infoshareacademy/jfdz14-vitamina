@@ -1,15 +1,14 @@
-const heroDots = document.querySelectorAll('.hero__dot');
 const leftArrow = document.querySelectorAll('.hero__arrow')[0];
 const rightArrow = document.querySelectorAll('.hero__arrow')[1];
-const heroSlide = document.querySelectorAll('.hero__img');
+const heroDots = document.querySelectorAll('.hero__dot');
+const heroSlides = document.querySelectorAll('.hero__img');
 
 const heroInterval = setInterval(nextSlide, 5000);
 let indexHero = 0;
-let n = 0;
 
 function prevSlide() {
     if (indexHero == 0) {
-        indexHero = heroSlide.length-1;
+        indexHero = heroSlides.length-1;
     }
     else {
         indexHero--;
@@ -17,7 +16,7 @@ function prevSlide() {
     changeSlide();
 }
 function nextSlide() {
-    if(indexHero == heroSlide.length-1) {
+    if (indexHero == heroSlides.length-1) {
         indexHero = 0;
     }
     else {
@@ -25,17 +24,21 @@ function nextSlide() {
     }
     changeSlide();
 }
+
 function changeSlide() {
-    for(let i = 0; i < heroSlide.length; i++){
-        heroSlide[i].classList.remove("active");
-        heroDots[i].classList.remove("active");
-   }
-    heroSlide[indexHero].classList.add("active");
-    heroDots[indexHero].classList.add("active");  
+    heroSlides.forEach(slide => {
+        if (slide.classList.contains("active")){
+            slide.classList.remove("active");}
+    })
+    heroSlides[indexHero].classList.add("active");
+
+    heroDots.forEach(dot => {
+        if (dot.classList.contains("active")){
+            dot.classList.remove("active");}
+    })
+    heroDots[indexHero].classList.add("active")
 }
-function currentSlide(n) {
-    changeSlide(indexHero = n);
-}
+
 function stopInterval() {
     clearInterval(heroInterval);
 }
@@ -48,15 +51,10 @@ rightArrow.addEventListener('click', (event) => {
     stopInterval();
     nextSlide();
 })
-heroDots[0].addEventListener('click', (event) => {
-    stopInterval();
-    currentSlide(0);
-})
-heroDots[1].addEventListener('click', (event) => {
-    stopInterval();
-    currentSlide(1);
-})
-heroDots[2].addEventListener('click', (event) =>{
-    stopInterval();
-    currentSlide(2);
+
+heroDots.forEach((dot, indexDots) => {
+    dot.addEventListener('click', (event) => {
+        stopInterval();
+        changeSlide(indexHero = indexDots);
+    })
 })
