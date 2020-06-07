@@ -380,6 +380,7 @@ body {
 /* Section: OUR WORKS */
 .section__ourwork {
   background-color: var(--third-color);
+  padding: 64px 0px;
 }
 .ourwork {
   padding: 5px 0 24px 0;
@@ -450,6 +451,7 @@ body {
 /* Section: OUR TEAM */
 .team {
   width: 100%;
+  margin: 64px 0px;
 }
 .team__header {
   padding-left: 10px;
