@@ -41,6 +41,16 @@ html, body {
      right: .1vw;
      width: 53px;
      height: 125px;
+     background-image: url(./game_image/ludek2.svg);
+     background-size: cover;
+     z-index: 2;
+}
+
+.human.active  {
+     position: absolute;
+     right: .1vw;
+     width: 53px;
+     height: 125px;
      background-image: url(./game_image/ludek-1.svg);
      background-size: cover;
      z-index: 2;
