@@ -80,14 +80,6 @@ for(let i =0; i < positionsList.length-1;i++) // petla do generowania par pozycj
      pairListStart.push(currentElementPosition); // pozycja startowa elementu
      pairListEnd.push(nextElementPosition); // pozycja koncowa elementu
 }
-// console.log("positionsList");
-// console.log(positionsList);
-
-// console.log("pairListStart");
-// console.log(pairListStart);
-
-// console.log("pairListEnd");
-// console.log(pairListEnd);
 
 function myScrollFunction(positionY)  // funkcja dodajaca aktywna klase elementom, positionY- wysokosc scrolla
 {
