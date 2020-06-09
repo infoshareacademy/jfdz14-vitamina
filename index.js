@@ -39,8 +39,6 @@ const headerSection = [...pageSection].filter((section) => section.getAttribute(
 const nav = document.getElementsByClassName('navigation');
 let navOffsetHeight = nav[0].offsetHeight;
 
-// window.addEventListener('load', () => links.forEach((link) => link.removeAttribute('href')));
-
 links.forEach((link, index) => {
      link.addEventListener('click', () => {
           link.removeAttribute('href');
