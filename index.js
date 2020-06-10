@@ -43,13 +43,27 @@ let windowActualPositionY = window.pageYOffset;
 
 window.addEventListener('scroll', () => {
      let windowNextPositionY = window.scrollY;
-     if (windowActualPositionY <= windowNextPositionY) {
+     if (windowActualPositionY < windowNextPositionY) {
           navigation.classList.add('nav--hidden');
      } else {
           navigation.classList.remove('nav--hidden');
      };
 
      windowActualPositionY = windowNextPositionY;
+
+
+     // headersSections.forEach((section , index) => {
+     //      const sectionHight = section.clientHeight;
+     //      const sectionOffset = section.offsetTop;
+     //      if (windowActualPositionY < sectionOffset && windowActualPositionY > sectionHight) {
+     //           console.log(`jestem ${section}`)
+     //           link.classList.add('');
+
+     // };
+     // });
+});
+
+
 
      links.forEach((link, index) => {
           const navOffsetHeight = nav[0].offsetHeight;
@@ -66,11 +80,6 @@ window.addEventListener('scroll', () => {
                     behavior: 'smooth'
                });
 
-               location.hash = headerSection[index].id;
+               location.hash = headersSections[index].id;
           });
-          return sectionHight = sectionOffsetTop
      });
-});
-
-
-
