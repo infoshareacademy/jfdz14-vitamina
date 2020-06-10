@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
 
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 body {
   font-family: var(--font), Helvetica, sans-serif;
@@ -81,14 +81,21 @@ color: var(--font-color);
 /* Section: NAV */
 .navigation {
   position: fixed;
-  top: 0px;
+  top: 0;
   width: 100%;
+  margin: 0;
   background: rgba(255, 255, 255, .9);
   border-bottom: 1px solid rgba(39, 39, 39, 0.2);
   z-index: 5;
 
+  transition: transform .5s;
+
   display: flex;
   flex-direction: column;
+}
+.nav--hidden {
+  transform: translateY(-61px);
+  transition: transform .5s;
 }
 
 .navigation__burger {
@@ -193,14 +200,17 @@ color: var(--font-color);
   list-style: none;
 }
 .navigation__menu__list__link {
+  padding: 0 2px;
   color: var(--secondary-color);
   text-decoration: none;
+  border-bottom: transparent;
 }
 .navigation__menu__list__link:link {
   text-decoration: none;
 }
 .navigation__menu__list__link:hover {
-  text-decoration: underline var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  transition: .4s ease;
 }
 .navigation__menu__list__link:focus {
   color: var(--secondary-color);
@@ -517,6 +527,7 @@ color: var(--font-color);
 /* Section: OUR WORKS */
 .section__ourwork {
   background-color: var(--third-color);
+  padding: 64px 0;
 }
 .ourwork {
   padding: 5px 0 24px 0;
@@ -538,12 +549,11 @@ color: var(--font-color);
 }
 .ourwork__present__section__img {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 
   border-radius: 3px;
   box-shadow: 0px 4px 10px var(--box-shadow-color);
-  cursor: pointer;
 }
 .ourwork__present__section__button {
   width: 100%;
@@ -564,13 +574,13 @@ color: var(--font-color);
   font-size: 1em;
   color: var(--basic-color);
   opacity: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.2s 0.1s linear;
 }
 .ourwork__present__section__button--h {
   font-size: 1.5em;
 }
-.ourwork__present__section__button:hover {
+.ourwork__present__section__button:hover, .ourwork__present__section__button:focus {
   opacity: 1;
   transition: 0.2s 0.1s linear;
 }
@@ -581,6 +591,7 @@ color: var(--font-color);
 /* Section: OUR TEAM */
 .team {
   width: 100%;
+  margin: 64px 0;
 }
 .team__header {
   padding-left: 10px;
@@ -759,7 +770,7 @@ color: var(--font-color);
   }
   .navigation {
     width: 100%;
-    height: 51px;
+    /* height: 51px; */
     position: fixed;
 
     flex-direction: row;

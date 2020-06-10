@@ -23,7 +23,6 @@ const navigationMenu = document.querySelector('.navigation__menu');
 
 burger.addEventListener('click', () => {
      burgerInput.checked = true;
-     console.log(burgerInput.checked)
      if (!navigation.classList.contains('active')) {
           navigation.classList.add('active');
      } else {
@@ -35,20 +34,43 @@ burger.addEventListener('click', () => {
 
 const links = document.querySelectorAll('.navigation__menu__list__link');
 const pageSection = document.querySelectorAll('section');
-const headerSection = [...pageSection].filter((section) => section.getAttribute('id'))
+const headersSections = [...pageSection].filter((section) => section.getAttribute('id'))
 const nav = document.getElementsByClassName('navigation');
-let navOffsetHeight = nav[0].offsetHeight;
 
-links.forEach((link, index) => {
-     link.addEventListener('click', () => {
-          link.removeAttribute('href');
-          navigation.classList.remove('active');
-          let sectionOffsetTop = headerSection[index].offsetTop;
-          let scrollTo = sectionOffsetTop - navOffsetHeight;
-          window.scrollTo({
-               top: scrollTo,
-               behavior: 'smooth'
+
+let windowActualPositionY = window.pageYOffset;
+
+
+window.addEventListener('scroll', () => {
+     let windowNextPositionY = window.scrollY;
+     if (windowActualPositionY <= windowNextPositionY) {
+          navigation.classList.add('nav--hidden');
+     } else {
+          navigation.classList.remove('nav--hidden');
+     };
+
+     windowActualPositionY = windowNextPositionY;
+
+     links.forEach((link, index) => {
+          const navOffsetHeight = nav[0].offsetHeight;
+          const sectionOffsetTop = headersSections[index].offsetTop;
+
+
+          link.addEventListener('click', () => {
+               link.removeAttribute('href');
+               navigation.classList.remove('active');
+
+               let scrollTo = sectionOffsetTop - navOffsetHeight;
+               window.scrollTo({
+                    top: scrollTo,
+                    behavior: 'smooth'
+               });
+
+               location.hash = headerSection[index].id;
           });
+          return sectionHight = sectionOffsetTop
      });
-})
+});
+
+
 
