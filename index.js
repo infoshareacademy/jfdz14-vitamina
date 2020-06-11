@@ -16,10 +16,18 @@ cookieButton.addEventListener('click', () => {
      cookie.classList.add('hidden');
 })
 
-const navigation = document.querySelector('.navigation');
+const nav = document.getElementsByClassName('navigation');
+const navigation = nav[0];
+const navigationMenu = document.querySelector('.navigation__menu');
+const links = document.querySelectorAll('.navigation__menu__list__link');
+
 const burgerInput = document.querySelector('.navigation__burger__checkbox');
 const burger = document.querySelector('.navigation__burger');
-const navigationMenu = document.querySelector('.navigation__menu');
+const logo = document.querySelector('.navigation__logo');
+
+const pageSection = document.querySelectorAll('section');
+const headersSections = [...pageSection].filter((section) => section.getAttribute('id'))
+
 
 burger.addEventListener('click', () => {
      burgerInput.checked = true;
@@ -30,56 +38,46 @@ burger.addEventListener('click', () => {
      }
 })
 
-// scroll handler
 
-const links = document.querySelectorAll('.navigation__menu__list__link');
-const pageSection = document.querySelectorAll('section');
-const headersSections = [...pageSection].filter((section) => section.getAttribute('id'))
-const nav = document.getElementsByClassName('navigation');
+let timeoutID;
 
+document.addEventListener('scroll', () => {
+          navigation.classList.remove('navigation--scale');
+          navigationMenu.classList.remove('nav--scale');
+          logo.classList.remove('nav--scale');
+          burger.classList.remove('nav--scale');
+          clearTimeout(timeoutID);
 
-let windowActualPositionY = window.pageYOffset;
+          timeoutID = setTimeout(() => {
+               navigation.classList.add('navigation--scale');
+               navigationMenu.classList.add('nav--scale');
+               logo.classList.add('nav--scale');
+               burger.classList.add('nav--scale');
+               }, 8000);
+})
 
+navigation.addEventListener('mouseover', () => {
+     clearTimeout(timeoutID);
+     navigation.classList.remove('navigation--scale');
+     navigationMenu.classList.remove('nav--scale');
+     logo.classList.remove('nav--scale');
+     burger.classList.remove('nav--scale');
+})
 
-window.addEventListener('scroll', () => {
-     let windowNextPositionY = window.scrollY;
-     if (windowActualPositionY < windowNextPositionY) {
-          navigation.classList.add('nav--hidden');
-     } else {
-          navigation.classList.remove('nav--hidden');
-     };
-
-     windowActualPositionY = windowNextPositionY;
-
-
-     // headersSections.forEach((section , index) => {
-     //      const sectionHight = section.clientHeight;
-     //      const sectionOffset = section.offsetTop;
-     //      if (windowActualPositionY < sectionOffset && windowActualPositionY > sectionHight) {
-     //           console.log(`jestem ${section}`)
-     //           link.classList.add('');
-
-     // };
-     // });
-});
-
-
-
-     links.forEach((link, index) => {
-          const navOffsetHeight = nav[0].offsetHeight;
+links.forEach((link, index) => {
+     link.addEventListener('click', () => {
+          const navOffsetHeight = navigation.offsetHeight;
           const sectionOffsetTop = headersSections[index].offsetTop;
+          link.removeAttribute('href');
+          navigation.classList.remove('active');
+          location.hash = headersSections[index].id;
 
-
-          link.addEventListener('click', () => {
-               link.removeAttribute('href');
-               navigation.classList.remove('active');
-
-               let scrollTo = sectionOffsetTop - navOffsetHeight;
-               window.scrollTo({
-                    top: scrollTo,
-                    behavior: 'smooth'
-               });
-
-               location.hash = headersSections[index].id;
+         let scrollTo = sectionOffsetTop - navOffsetHeight;
+          window.scrollTo({
+               top: scrollTo,
+               behavior: 'smooth'
           });
+          console.log(window.pageYOffset)
      });
+})
+
