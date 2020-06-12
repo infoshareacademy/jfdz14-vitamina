@@ -24,10 +24,10 @@ const links = document.querySelectorAll('.navigation__menu__list__link');
 const burgerInput = document.querySelector('.navigation__burger__checkbox');
 const burger = document.querySelector('.navigation__burger');
 const logo = document.querySelector('.navigation__logo');
+const arrowToTop = document.querySelector('.navigation__arrow');
 
 const pageSection = document.querySelectorAll('section');
 const headersSections = [...pageSection].filter((section) => section.getAttribute('id'))
-
 
 burger.addEventListener('click', () => {
      burgerInput.checked = true;
@@ -37,28 +37,37 @@ burger.addEventListener('click', () => {
           navigation.classList.remove('active');
      }
 })
-
+arrowToTop.addEventListener('click', () => {
+     window.scrollTo(0, 0);
+})
 
 let timeoutID;
 
 document.addEventListener('scroll', () => {
-          navigation.classList.remove('navigation--scale');
+          navigation.classList.remove('scale');
           navigationMenu.classList.remove('nav--scale');
           logo.classList.remove('nav--scale');
           burger.classList.remove('nav--scale');
           clearTimeout(timeoutID);
 
           timeoutID = setTimeout(() => {
-               navigation.classList.add('navigation--scale');
+               navigation.classList.add('scale');
                navigationMenu.classList.add('nav--scale');
                logo.classList.add('nav--scale');
                burger.classList.add('nav--scale');
                }, 8000);
+
+          let displayArrowToTop = headersSections[0].offsetTop / 2;
+          if (window.scrollY >= displayArrowToTop ) {
+               arrowToTop.classList.remove('hidden');
+          } else {
+               arrowToTop.classList.add('hidden');
+          }
 })
 
 navigation.addEventListener('mouseover', () => {
      clearTimeout(timeoutID);
-     navigation.classList.remove('navigation--scale');
+     navigation.classList.remove('scale');
      navigationMenu.classList.remove('nav--scale');
      logo.classList.remove('nav--scale');
      burger.classList.remove('nav--scale');
@@ -80,4 +89,5 @@ links.forEach((link, index) => {
           console.log(window.pageYOffset)
      });
 })
+
 
