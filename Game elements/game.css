@@ -52,3 +52,38 @@ html, body {
      background-size: cover;
      z-index: 2;
 }
+.timer {
+     position: absolute;
+     z-index: 1;
+     margin: 8px;
+     font-size: 1.2em;
+     font-weight: 600;
+     letter-spacing: 1px;
+     color: black;
+}
+.final__score {
+     position: absolute;
+     z-index: 1;
+     top: 160px;
+     left: 300px;
+     margin: 8px;
+     font-size: 1.6em;
+     letter-spacing: 1px;
+     color: pink;
+}
+.button-ranking {
+     position: absolute;
+     top: 450px;
+     left: 300px;
+     margin: 8px;
+     z-index: 1;
+     font-size: 1.5em;
+}
+.button-playAgain {
+     position: absolute;
+     top: 450px;
+     left: 420px;
+     margin: 8px;
+     z-index: 1;
+     font-size: 1.5em;
+}

@@ -116,9 +116,74 @@ const startGame = () => {
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
+     timer();
 }
 
 const newGame = showFirstScreen();
 
+const timer = () => {
+     let totalSeconds = 0;
+     const timerDiv = document.createElement('div');
+     timerDiv.classList.add('timer');
+     mainScreen.appendChild(timerDiv);
+
+     /*do usuniecia */
+     const buttonStart = document.createElement('button');
+     buttonStart.classList.add('button-start');
+     buttonStart.textContent = 'koniec';
+     mainScreen.appendChild(buttonStart);
+
+     buttonStart.addEventListener('click', () => {
+          buttonStart.remove();
+          gameOver();
+     })
+
+/*koniec usuniecia*/
+
+     setInterval(() => {
+          totalSeconds++;
+          seconds = padTimer(totalSeconds % 60);
+          minutes = padTimer(parseInt(totalSeconds / 60));
+          timerDiv.innerText = 'Czas: ' + minutes + ':' + seconds;
+     }, 1000)
+}
+const padTimer = (timeValue) => {
+         let time = timeValue + '';
+         if (time.length < 2){
+               return '0' + time;
+          } else { 
+               return time;
+         }
+}
+
+const gameOver = () => {
+     showGameOverScreen();
+}
+
+const showGameOverScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
+     const finalScoreDiv = document.createElement('div');
+     finalScoreDiv .classList.add('final__score');
+     mainScreen.appendChild(finalScoreDiv);
+     finalScoreDiv.innerText = 'Czas: ' + minutes + ':' + seconds + ' Punkty: ';
 
 
+     const buttonRanking = document.createElement('button');
+     buttonRanking.classList.add('button-ranking');
+     buttonRanking.textContent = 'Ranking';
+     mainScreen.appendChild(buttonRanking);
+
+     buttonRanking.addEventListener('click', () => {
+          alert('cos ranking')
+     })
+     const buttonPlayAgain = document.createElement('button');
+     buttonPlayAgain.classList.add('button-playAgain');
+     buttonPlayAgain.textContent = 'Zagraj';
+     mainScreen.appendChild(buttonPlayAgain);
+
+     buttonPlayAgain.addEventListener('click', () => {
+          buttonRanking.remove();
+          buttonPlayAgain.remove();
+          startGame();
+     })
+}
