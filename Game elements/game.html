@@ -6,7 +6,32 @@
 </head>
 <body>
 <main class="canvas">
-	<div class="game__box"></div>
+	<div class="game__box">
+
+		<div class="game__stats">
+			<div class="game__stat game__lives">
+				<img src="game_image/heart.svg" alt="heart-life-icon" 
+				class="game__lives__icon__full game__lives__icon heart_five">
+				<img src="game_image/heart.svg" alt="heart-life-icon" 
+				class="game__lives__icon__full game__lives__icon heart_four">
+				<img src="game_image/heart.svg" alt="heart-life-icon" 
+				class="game__lives__icon__full game__lives__icon heart_three">
+				<img src="game_image/heart.svg" alt="heart-life-icon" 
+				class="game__lives__icon__full game__lives__icon heart_two">
+				<img src="game_image/heart.svg" alt="heart-life-icon" 
+				class="game__lives__icon__full game__lives__icon heart_one">
+			</div>
+
+			<div class="game__stat game__time">
+				Time: <span class="game__timer"></span>
+			</div>
+
+			<div class="game__stat game__score">
+				Score: <span>5000</span>
+			</div>
+		</div>
+
+	</div>
 </main>
 
 <script type="text/javascript" src="game.js"></script>

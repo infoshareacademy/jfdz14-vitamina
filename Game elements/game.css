@@ -16,7 +16,8 @@ html, body {
      background-image: url(./game_image/Web\ 1920\ –\ 1.svg);
      background-size: cover;
 
-}
+} 
+/* a nie lepiej dodac jedna klase to stylizującą? */
 .game__box--badfood {
      position: absolute;
      width: 45px;
@@ -44,4 +45,39 @@ html, body {
      background-image: url(./game_image/ludek-1.svg);
      background-size: cover;
      z-index: 2;
+
+     /* test \/ */
+     margin-left: 20px;
+}
+.game__stats{
+     height: 30px;
+     width: 100%;
+
+     display: flex;
+     flex-wrap: nowrap;
+     justify-content: space-evenly;
+
+     font-size: 24px;
+     color: whitesmoke;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     text-align: center;
+     align-items: center;
+}
+.game__stat{
+     width: 33%;
+}
+.game__lives{
+     display: flex;
+     flex-wrap: nowrap; /* ??? */
+     justify-content: start;
+
+}
+.game__lives__icon{
+     height: 26px;
+     width: 26px;
+     
+     padding: 0px 2px;
+}
+.hidden{
+     display: none;
 }
