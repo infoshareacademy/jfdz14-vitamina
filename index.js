@@ -32,7 +32,6 @@ navigationMenu.addEventListener('click', () => {
      navigation.classList.remove('active');
 })
 
-<<<<<<< HEAD
 /* carousel */
 
 const leftArrow = document.querySelectorAll('.hero__arrow')[0];
@@ -145,5 +144,3 @@ form.addEventListener('focusin', (event) => {
     email.classList.remove("error");
     emailErrorText.classList.remove("error");
   });
-=======
->>>>>>> michpas
