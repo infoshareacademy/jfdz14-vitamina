@@ -8,6 +8,7 @@
     <title>Vitamina</title>
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/modal.css" type="text/css">
     <link rel="stylesheet" href="css/variables.css" type="text/css">
     <link rel="stylesheet" href="icons/flaticon.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -17,6 +18,25 @@
 </head>
 
 <body>
+    <div class="modal__overlay">
+        <section class="modal__container">
+            <div class="modal__img"></div>
+            <button class="modal__close">&times;</button>
+            <article class="modal__content">
+                <h1 class="modal__title">Bądź pierwszy.</h1>
+                <p class="modal__text">Zapisz się do Newslettera aby jako pierwszy dowiedziec się o premierze 
+                    <span class="modal__text modal__text--bold">VITAMINY.</span> </p>
+                <form method="post" class="modal__form">
+                    <input class="modal__email" type="email" name="email" placeholder="Tutaj wpisz swojego maila">
+                    <button class="modal__submit" type="submit">Zapisz się</button><br>
+                    <span class="modal__email__error__text">Nieprawidłowy adres email. <br></span>
+                    <label class="modal__label"><span class="modal__label--bold">Psst!</span> Tak samo jak ty nie lubimy spamu, dlatego wyślemy Ci 
+                        <span class="modal__label--bold">tylko jedną</span> wiadomość w dniu premiery.</label>
+                </form>
+                <p class="modal__permission">*Zapisując się do naszego Newslettera zgadzasz się na przetwarzanie Twoich danych w celach marketingowych.</p>
+            </article>
+        </section>
+    </div>
 
     <div class="cookie hidden">
         <div class="cookie__box">
@@ -57,24 +77,42 @@
     </nav>
 
     <header class="hero" id="hero__page__part">
-        <div class="hero__img"></div>
-        <section class="hero__section">
-            <article class="hero__section__content">
+        <section class="hero__img hero__img__1 active">
+        <div class="hero__img__overlay">
+            <article class="hero__section">
                 <h1 class="hero__title">Stay healthy.</h1>
+                <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
+                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
+            </article>
+        </div>
+        </section>
+        <section class="hero__img hero__img__2 ">
+            <div class="hero__img__overlay">
+            <article class="hero__section">
+                <h1 class="hero__title">Stay happy.</h1>
+                <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
+                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
+            </article>
+            </div>
+        </section>
+        <section class="hero__img hero__img__3">
+            <div class="hero__img__overlay">
+            <article class="hero__section">
                 <h1 class="hero__title">Stay clean.</h1>
                 <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
-                <form class="hero__form" novalidate>
-                    <label for="hero__input" class="hero__lable">Dowiedz się jako pierwszy.</label>
-                    <input class="hero__input hero__email" type="email" pattern=".+@" required
-                        placeholder="Tutaj wpisz swojego maila" onFocus="this.placeholder=''" id="hero__input">
-                    <input class="hero__input hero__submit" type="submit" value="Zapisz się">
-                    <label class="hero__label__container"><input type="checkbox">
-                        <span class="hero__label__checkmark"></span>Wyrażam zgodę na otrzymywanie od Vitamina Sp. z o.o. drogą elektroniczną na wskazany przeze mnie w Formularzu adres e-mail informacji handlowych,
-                        dotyczących produktów i uslug oferowanych przez firmę.
-                    </label>
-                </form>
+                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
             </article>
+            </div>
         </section>
+        <div class="hero__slide__arrows">
+            <button class="hero__arrow" type="button">&#8249;</button>
+            <button class="hero__arrow" type="button">&#8250;</button>
+        </div>
+        <div class="hero__slide__dots">
+            <button class="hero__dot active" type="button"></button>
+            <button class="hero__dot" type="button"></button>
+            <button class="hero__dot" type="button"></button>
+        </div>
     </header>
 
     <main>
