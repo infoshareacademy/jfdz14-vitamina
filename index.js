@@ -98,54 +98,34 @@ function myScrollFunction(positionY)  // funkcja dodajaca aktywna klase elemento
 
 // hide navbar when scrolling
 
-let navbarShowTimer = null; // timer ktory pokazuje navbara z opoznieniem  (poczatkowo zmienna jest pusta- funkcja nie istnieje)
+let lastScroll = 0;
 
-window.addEventListener('scroll', () => { 
+window.addEventListener('scroll', () => {
      
-     let currentPos = window.scrollY; //zwraca jakas liczbe w px(ale nie ma jednostki)
-     let visibleY = currentPos+100; // dodajemy 100 px do tej pozycji (jak jestesmy 100px przed rozpoczeciem elementu to zmienia sie aktywny element w navie)
-     
-     myScrollFunction(visibleY); //funkcja dajaca aktywna klase, w parametrze nadajemy wysokosc ktora sobie okreslilismy
+     let navbar = document.getElementsByClassName("navigation") [0];
+     const currentScroll = window.pageYOffset;
+     // console.log("current offset is:" + currentScroll)
 
-     clearTimeout(navbarShowTimer); // czyscimy timer- zerujemy funkcje (navbarShowTimer)
-
-     let navbar = document.getElementsByClassName("navigation")[0];
-
-     if(!navbar.classList.contains("navigation__slideup")) // jezeli element nie ma klasy slideup to ja dodajemy przy kazdym scrollu
-     {
-          navbar.classList.add("navigation__slideup");
+     if (currentScroll == 0){
+          navbar.classList.remove("navigation__slideup");
      }
-
-
-     navbarShowTimer = window.setTimeout(() => {
-          if(navbar.classList.contains("navigation__slideup")) // usuwamy klase slideup jesli element taka ma, jesli uplynie 300 msekund od zatrzymania scrolla
-          {
-               navbar.classList.remove("navigation__slideup");
-          }
-     }, 300);
+     if (currentScroll > lastScroll && !navbar.classList.contains("navigation__slideup")){
+          navbar.classList.remove("navigation__slidedown");
+          navbar.classList.add("navigation__slideup");
+          return console.log("navigation should go up")
+     } else if(currentScroll < lastScroll && navbar.classList.contains("navigation__slideup")){
+          navbar.classList.remove("navigation__slideup");
+          navbar.classList.add("navigation__slidedown");
+          return console.log("navigation should go down")
+     }
+     lastScroll = currentScroll;
 
 });
-
-/*
-var elementsInNavbar = document.querySelectorAll(".navigation>*"); //dodajemy klase quick transition(plynnosc) do wszystkich elementow nava- krok wykonujemy tylko raz 
-
-for(let i = 0; i < elementsInNavbar.length; i++)
-{
-     let element = elementsInNavbar[i];
-     if(!element.classList.contains("quick-transition")) //sprawdzamy czy element ma quick transition, jak nie ma to dodajemy
-     {
-          element.classList.add("quick-transition");
-     }
-}
-*/
-
 
 if(window.location.hash == "") // jezeli uzytkownik wejdzie na strone bez zadnego hashtaga w linku to wywolujemy funkcje zmiany adresu url podczas zaladowania strony(#home)
 {
      myScrollFunction(window.scrollY);
 }
-// #home dodany w index.html
-
 
 // burger menu mobile
 

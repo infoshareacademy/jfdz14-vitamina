@@ -39,7 +39,7 @@ color: var(--font-color);
   width: clamp(25px, 4vw, 70px);
   height: clamp(25px, 4vw, 70px);
   padding: .2em;
-   var(--secondary-color);
+  color: var(--secondary-color);
 }
 .cookie__box__description {
   margin: 0;
