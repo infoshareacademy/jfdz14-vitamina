@@ -18,23 +18,23 @@ cookieButton.addEventListener('click', () => {
 
 //active navbar elements
 
-function activateMenuLink(allLinks, linkToActivate) { //funkcja dodajaca active do linkow  (pierwszy parametr lista wszystkich linkow, w drugim link ktory chce aktywowac)
-     for(let i = 0; i < allLinks.length; i++){ //petla dla calej listy linkow
+function activateMenuLink(allLinks, linkToActivate) { 
+     for(let i = 0; i < allLinks.length; i++){ 
 
-          let link = allLinks[i]; // element w tablicy all links
+          let link = allLinks[i]; 
 
-          if (link.classList.contains('active')) { //  jesli jest active to usuwamy
+          if (link.classList.contains('active')) { 
                link.classList.remove("active");
           }
      }
 
-     if (!linkToActivate.classList.contains('active')) { // jesli nie zawiera active to dodajemy
+     if (!linkToActivate.classList.contains('active')) { 
           linkToActivate.classList.add("active");
      }
 
-     let href = linkToActivate.getAttribute("href"); //pobieramy atrybut href (np #features) 
+     let href = linkToActivate.getAttribute("href"); 
 
-     window.history.pushState(href, "Vitamina - "+href, href); // dodajemy go to historii przegladarki- zmienia sie url bez reloadu
+     window.history.pushState(href, "Vitamina - "+href, href); 
 }
 
 const navigationMenuContainer = document.querySelector(".navigation");
@@ -43,53 +43,50 @@ const navigationMenuElementFocus = document.querySelectorAll(".navigation__menu_
 
 for (let i = 0; i < navigationMenuElementFocus.length; i++) {
           navigationMenuElementFocus[i].addEventListener("click", (event) => {
-          activateMenuLink(navigationMenuElementFocus, event.target); //wywolujemy funkcje na kliku
+          activateMenuLink(navigationMenuElementFocus, event.target); 
      });
 }
 
 // scroll handler
 
-let linksDestination = document.getElementsByClassName("linkLoc"); // zbieramy elementy majace klase linkLoc w HTML
+let linksDestination = document.getElementsByClassName("linkLoc"); 
 let links = document.getElementsByClassName("navigation__menu__list__link"); 
-let positionsList = []; // tworzymy pusta liste 
-let linkHrefs = []; // tworzymy pusta liste hfefow
+let positionsList = []; 
+let linkHrefs = []; 
 
 for(let i = 0; i < links.length; i++){
-     let link = links[i]; // sprawdzamy kazdy element
-     linkHrefs.push(link.getAttribute("href")); //  pushujemy hrefy do pustej listy 
+     let link = links[i]; 
+     linkHrefs.push(link.getAttribute("href")); 
 }
-for(let i = 0; i < linksDestination.length; i++){ // petla sprawdzajaca elementy z klasa linkLoc
-     let linkDestination = linksDestination[i];  //sekcje docelowych miejsc do ktorych przekierowuja linki w navie
+for(let i = 0; i < linksDestination.length; i++){ 
+     let linkDestination = linksDestination[i];  
 
-     positionsList.push(linkDestination.offsetTop); //  ile pikseli od gory dokumentu zaczyna sie ta sekcja
+     positionsList.push(linkDestination.offsetTop); 
 }
 
-positionsList.push(document.body.clientHeight); //pushujemy cala wysokosc widoku, zeby ostatni element mial wartosc
+positionsList.push(document.body.clientHeight); 
 
-let pairListStart = []; // pusta lista- poczatkowe pozycje elementow
-let pairListEnd = []; // pusta liosta- koncowe pozycje elementow
+let pairListStart = []; 
+let pairListEnd = []; 
 
-// 200,500,600,2000, 3500
-
-
-for(let i =0; i < positionsList.length-1;i++) // petla do generowania par pozycji
+for(let i =0; i < positionsList.length-1;i++) 
 {
      let currentElementPosition = positionsList[i];
      let nextElementPosition = positionsList[i+1];
 
-     pairListStart.push(currentElementPosition); // pozycja startowa elementu
-     pairListEnd.push(nextElementPosition); // pozycja koncowa elementu
+     pairListStart.push(currentElementPosition); 
+     pairListEnd.push(nextElementPosition); 
 }
 
-function myScrollFunction(positionY)  // funkcja dodajaca aktywna klase elementom, positionY- wysokosc scrolla
+function myScrollFunction(positionY)  
 {
-     for(let i = 0; i < pairListStart.length; i++) { // petla przez wszystkie poczatki elementow
+     for(let i = 0; i < pairListStart.length; i++) { 
           if(positionY >= pairListStart[i] && positionY < pairListEnd[i]) {
 
                let allLinks = document.getElementsByClassName("navigation__menu__list__link");
-               let elementToActive = document.querySelector('.navigation__menu__list__link[href="'+linkHrefs[i]+'"]'); // wyszukanie elementu ktory bedziemy aktywowac (href ten sam przy iteracji)
+               let elementToActive = document.querySelector('.navigation__menu__list__link[href="'+linkHrefs[i]+'"]'); 
                
-               activateMenuLink(allLinks, elementToActive); // wywolanie funkcji dodawania klasy active
+               activateMenuLink(allLinks, elementToActive); 
 
                break;
           }
@@ -104,7 +101,6 @@ window.addEventListener('scroll', () => {
      
      let navbar = document.getElementsByClassName("navigation") [0];
      const currentScroll = window.pageYOffset;
-     // console.log("current offset is:" + currentScroll)
 
      if (currentScroll == 0){
           navbar.classList.remove("navigation__slideup");
@@ -120,9 +116,13 @@ window.addEventListener('scroll', () => {
      }
      lastScroll = currentScroll;
 
+     let currentPos = window.scrollY; 
+     let visibleY = currentPos+100; 
+     myScrollFunction(visibleY); 
+     clearTimeout(navbarShowTimer);
 });
 
-if(window.location.hash == "") // jezeli uzytkownik wejdzie na strone bez zadnego hashtaga w linku to wywolujemy funkcje zmiany adresu url podczas zaladowania strony(#home)
+if(window.location.hash == "")
 {
      myScrollFunction(window.scrollY);
 }
