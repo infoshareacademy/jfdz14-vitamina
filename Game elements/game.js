@@ -55,8 +55,13 @@ class Food {
 
                               if (this.foodType == 'good') {
                                    //dodawanie punktow
+                                   // console.log('good food was eaten')
                               } else if(this.foodType == 'bad') {
-                                   // odejmuje zycie
+
+                                   myProgressBar.consumeFood(-5);
+                                   // odejmowanie zycia
+                                   // console.log ('bad food was eaten')
+
                               }
 
                          }
@@ -188,18 +193,12 @@ class Human {
      }
 
      humanOpenMouth() {
-          console.log("Trying to open mouth");
-
-
           if (!this.human.classList.contains('active')) { 
                this.human.classList.add('active');
                console.log("Opening mouth");
-
           };
      }
 }
-
-
 
 const randomFoodCreate = () => {
      setInterval(() => {
@@ -215,6 +214,42 @@ human.humanPositionY();
 randomFoodCreate();
 
 
+class progressBar {
+     constructor(element, initialValue = 0){
+          this.valueElement = element.querySelector('.progress__bar__value');
+          this.fillElement = element.querySelector('.progress__bar__fill');
+
+          this.setValue(initialValue);
+
+     }
+
+     setValue(newValue) {
+          if (newValue < 0) {
+               newValue = 0;
+          }
+          if(newValue > 100) {
+               newValue = 100;
+          }
+
+          this.value = newValue;
+          this.update();
+     }
+
+     consumeFood(changeBy)
+     {
+          let currentValue = this.value;
+          let newValue = currentValue + changeBy;
+          this.setValue(newValue);
+     }
 
 
+     update() {
+          const progressBarPercentage = this.value + '%';
+          this.fillElement.style.width = progressBarPercentage;
+          this.valueElement.textContent = progressBarPercentage;
+     }
+
+}
+
+let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
 
