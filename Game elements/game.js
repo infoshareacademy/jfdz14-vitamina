@@ -26,7 +26,7 @@ class Food {
                     this.food.style.left = this.positionX + "%";
                     this.positionX += .4;
 
-                    // console.log(this.positionY + "||" + this.positionX)
+                    console.log(this.positionY + "||" + this.positionX)
                }
           }, 50);
      }
@@ -139,7 +139,7 @@ const gameTime = () => {
                time += 0.1;   
 
                return (Math.round((time + Number.EPSILON) * 100) / 100)
-          }, 100)
+          }, 1500)
      }
 
 const gameScore = () => {
