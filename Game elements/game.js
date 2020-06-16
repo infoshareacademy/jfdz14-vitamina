@@ -27,9 +27,7 @@ class Food {
                }
           }, 50);
      }
-
-
-
+   
      foodsTypeRandom() {
           const badFood = [
                'url(./game_image/burger.svg)',
@@ -89,6 +87,9 @@ class Human {
      humanPositionY() {
           this.human.addEventListener('mousemove', () => this.humanMove());
      }
+     removeHuman() {
+          this.human.remove();
+     }
 }
 const showFirstScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
@@ -103,6 +104,7 @@ const showFirstScreen = () => {
      })
 }
 
+const human = new Human();
 
 const startGame = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
@@ -112,7 +114,7 @@ const startGame = () => {
                food.initializeFood();
           }, 1000);
      }
-     const human = new Human();
+     /*const human = new Human();*/
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
@@ -121,8 +123,11 @@ const startGame = () => {
 
 const newGame = showFirstScreen();
 
+let totalSeconds = 0;
+let seconds = 0;
+let minutes = 0;
+
 const timer = () => {
-     let totalSeconds = 0;
      const timerDiv = document.createElement('div');
      timerDiv.classList.add('timer');
      mainScreen.appendChild(timerDiv);
@@ -140,7 +145,7 @@ const timer = () => {
 
 /*koniec usuniecia*/
 
-     setInterval(() => {
+    dupa = setInterval(() => {
           totalSeconds++;
           seconds = padTimer(totalSeconds % 60);
           minutes = padTimer(parseInt(totalSeconds / 60));
@@ -156,14 +161,20 @@ const padTimer = (timeValue) => {
          }
 }
 
+function myStopFunction() {
+     clearInterval(dupa);
+   }
+
 const gameOver = () => {
+     human.removeHuman();
      showGameOverScreen();
+     myStopFunction();
 }
 
 const showGameOverScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
      const finalScoreDiv = document.createElement('div');
-     finalScoreDiv .classList.add('final__score');
+     finalScoreDiv.classList.add('final__score');
      mainScreen.appendChild(finalScoreDiv);
      finalScoreDiv.innerText = 'Czas: ' + minutes + ':' + seconds + ' Punkty: ';
 
