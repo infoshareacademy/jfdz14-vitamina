@@ -100,7 +100,6 @@ transition: all .5s;
   transform: scale(.8, .8) translateY(15px);
   transition: transform .5s;
 }
-
 .navigation__burger {
   width: 40px;
   height: 30px;
@@ -136,8 +135,6 @@ transition: all .5s;
   transform: rotate(-45deg) translate(5px, -6px);
   transition: transform .3s  cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-
 .navigation__burger__checkbox {
   position: absolute;
   top: 0px;
@@ -210,20 +207,20 @@ transition: all .5s;
   text-decoration: none;
   border-bottom: transparent;
 }
-.navigation__menu__list__link:link {
+/* .navigation__menu__list__link:link {
   text-decoration: none;
-}
+} */
 .navigation__menu__list__link:hover {
+  border-bottom: 2px solid var(--secondary-color);
+  transition: .2s ease;
+}
+.navigation-look {
   border-bottom: 2px solid var(--secondary-color);
   transition: .2s ease;
 }
 .navigation__menu__list__link:focus {
   color: var(--secondary-color);
   font-weight: bolder;
-}
-.navigation__menu__list__link:active {
-  color: var(--secondary-color);
-  font-weight: 900;
 }
 .navigation__logo {
   position: absolute;

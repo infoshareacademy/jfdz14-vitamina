@@ -42,6 +42,7 @@ arrowToTop.addEventListener('click', () => {
 })
 
 let timeoutID;
+let windowActualPositionY = window.pageYOffset;
 
 document.addEventListener('scroll', () => {
           navigation.classList.remove('scale');
@@ -55,14 +56,35 @@ document.addEventListener('scroll', () => {
                navigationMenu.classList.add('nav--scale');
                logo.classList.add('nav--scale');
                burger.classList.add('nav--scale');
-               }, 8000);
+               }, 3000);
 
           let displayArrowToTop = headersSections[0].offsetTop / 2;
           if (window.scrollY >= displayArrowToTop ) {
                arrowToTop.classList.remove('hidden');
           } else {
                arrowToTop.classList.add('hidden');
-          }
+          };
+
+          // let windowPositionY = window.scrollY;
+          // const navOffsetHeight = navigation.offsetHeight;
+          // headersSections.forEach((section, index) => {
+          //      const sectionsOffsetPosition = headersSections[index].offsetTop;
+          //      const sectionsHight = headersSections[index].offsetHeight;
+          //      topPosition = sectionsOffsetPosition - navOffsetHeight;
+          //      bottomPosition = sectionsOffsetPosition + sectionsHight;
+
+          //      console.log(topPosition, bottomPosition)
+
+
+          //      if (windowActualPositionY > topPosition && windowActualPositionY < bottomPosition ) {
+          //           console.log(`mamy to ${links[index]}`)
+          //           links[index].classList.add('navigation-look');
+          //      } else {
+          //           links[index].classList.remove('navigation-look');
+          //      };
+          // });
+
+
 })
 
 navigation.addEventListener('mouseover', () => {
@@ -86,8 +108,25 @@ links.forEach((link, index) => {
                top: scrollTo,
                behavior: 'smooth'
           });
-          console.log(window.pageYOffset)
      });
 })
 
 
+// /* working about selection link with scroll
+
+
+
+     // windowActualPositionY = windowNextPositionY;
+
+
+     // headersSections.forEach((section , index) => {
+     //      const sectionHight = section.clientHeight;
+     //      const sectionOffset = section.offsetTop;
+     //      if (windowActualPositionY < sectionOffset && windowActualPositionY > sectionHight) {
+     //           console.log(`jestem ${section}`)
+     //           link.classList.add('');
+
+     // };
+     // });
+
+// */
