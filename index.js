@@ -34,6 +34,9 @@ burger.addEventListener('click', () => {
           navigation.classList.remove('active');
      }
 })
+navigationMenu.addEventListener('click', () => {
+     navigation.classList.remove('active');
+})
 arrowToTop.addEventListener('click', () => {
      window.scrollTo(0, 0);
 })
@@ -131,18 +134,15 @@ window.addEventListener('scroll', () => {
      if (currentScroll > lastScroll && !navbar.classList.contains("navigation__slideup")){
           navbar.classList.remove("navigation__slidedown");
           navbar.classList.add("navigation__slideup");
-          return console.log("navigation should go up")
      } else if(currentScroll < lastScroll && navbar.classList.contains("navigation__slideup")){
           navbar.classList.remove("navigation__slideup");
           navbar.classList.add("navigation__slidedown");
-          return console.log("navigation should go down")
      }
      lastScroll = currentScroll;
 
      let currentPos = window.scrollY; 
      let visibleY = currentPos+100; 
      myScrollFunction(visibleY); 
-     // clearTimeout(navbarShowTimer);
 
      let displayArrowToTop = heroSection[0].offsetTop / 2;
      if (currentPos >= displayArrowToTop ) {
@@ -157,17 +157,6 @@ if(window.location.hash == "")
 {
      myScrollFunction(window.scrollY);
 }
-
-
-
-
-         
-
-
-
-navigationMenu.addEventListener('click', () => {
-     navigation.classList.remove('active');
-})
 
 /* carousel */
 
