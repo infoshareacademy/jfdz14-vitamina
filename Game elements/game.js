@@ -1,10 +1,30 @@
 const mainScreen = document.querySelector('.canvas');
 const secondScreen = document.querySelector('.game__box');
 
+let closeFood = [] ;
+let score;
+
+function removeFromCloseFood(food) {
+
+     for( var i = 0; i < closeFood.length; i++) {
+
+          if ( closeFood[i] === food) { 
+               closeFood.splice(i, 1); 
+               i--; 
+          }
+     } // hmm????
+}
+
 class Food {
      positionX = 10;
      positionY = 5;
-     number = 0;
+     score = 0;
+
+     openedMouth = false;
+
+     runningInterval = null;
+
+     foodType = null;
 
      createFoodContainer() {
           this.food = document.createElement('div');
@@ -14,24 +34,74 @@ class Food {
      randomPosition() {
           this.positionY = Math.random() * 80;
           this.food.style.bottom = this.positionY + 2 +"%";
-          this.positionY; // dlaczego tak ^ ??
+          this.positionY;
+
      }
 
-     runToLeft() {
-          setInterval(() => {
-               if (this.positionX > 95) { // removing = from >=
-                    this.food.remove();
-               }
-               if (this.positionX <= 100) {
-                    this.food.style.left = this.positionX + "%";
-                    this.positionX += .4;
+     runToRight() {
 
-                    console.log(this.positionY + "||" + this.positionX)
-               }
-          }, 50);
+          this.runningInterval = 
+               setInterval(() => {
+                    if (this.positionX >= 95) {
+                         let foodRect = this.food.getBoundingClientRect();
+                         let humanRect = human.human.getBoundingClientRect();
+
+                         if(foodRect.top > humanRect.top 
+                              && foodRect.bottom < humanRect.bottom)
+                         {
+                              // console.log("Eaten: "+this.foodType);
+                              // // food was eaten
+
+                              if (this.foodType == 'good') {
+                                   //dodawanie punktow
+                                   console.log('good food was eaten')
+                                   return this.score + 1;
+                              } else if(this.foodType == 'bad') {
+
+                                   myProgressBar.consumeFood(-5);
+                                   // odejmowanie zycia
+                                   // console.log ('bad food was eaten')
+                              }
+                         }
+
+                         clearInterval(this.runningInterval);
+
+                         removeFromCloseFood(this.food);
+                         this.food.remove();
+
+                         if(this.openedMouth && closeFood.length == 0)
+                         {
+                              human.humanCloseMouth();
+                         }                        
+                    }
+
+                    if (this.positionX <= 100) {
+                         this.food.style.left = this.positionX + "%";
+                         this.positionX += .4;
+
+                         if(this.positionX > 90 && !this.openedMouth)
+                         {
+                              //check if Y pos is same as human
+
+                              let foodRect = this.food.getBoundingClientRect();
+                              let humanRect = human.human.getBoundingClientRect();
+
+                              if(foodRect.top > humanRect.top 
+                                   && foodRect.bottom < humanRect.bottom)
+                              {
+                                   console.log(foodRect);
+                                   console.log(humanRect);
+          
+                                   closeFood.push(this.food);
+
+                                   human.humanOpenMouth();
+                                   this.openedMouth = true;
+                              }
+                         }
+                         //console.log("PosY: "+this.positionY+"New pos X: "+this.positionX);
+                    }
+               }, 50);
      }
-
-
 
      foodsTypeRandom() {
           const badFood = [
@@ -48,13 +118,15 @@ class Food {
           let number = Math.random() * 100;
 
           if (number > 50 && number < 80) {
+               this.foodType = "bad";
                this.food.classList.add('game__box--badfood');
                this.food.style.backgroundImage = badFood[choiceFood];
-          } else if (number > 20 && number < 50){ // 50 jest nieużywane
+          } else if (number > 20 && number < 50){
+               this.foodType = "good";
                this.food.classList.add('game__box--goodfood');
                this.food.style.backgroundImage = goodFood[choiceFood];
           } else {
-               this.food.style.backgroundImage = ''; // a czemu puste? One wciąż lecą 
+               this.food.style.backgroundImage = '';
           };
      }
 
@@ -62,43 +134,50 @@ class Food {
           this.createFoodContainer();
           this.foodsTypeRandom();
           this.randomPosition();
-          this.runToLeft();
+          this.runToRight();
      }
 }
 
 class Human {
-     positionX = 100;
+     positionX = 0;
      positionY = 0;
-     width = 51; // dajmy mu większą szerokość dla łątwiejszego sterowania?
+     width = 51;
      height = 120;
 
      createHumanElement() {
           this.human = document.createElement('div');
           this.human.classList.add('human');
           secondScreen.appendChild(this.human);
-
-          // //adding a "food catcher"
-          // this.maw = document.createElement('div');
-          // this.maw.classList.add("maw")
-          // this.human.appendChild(this.maw);
      }
      humanMove() {
           let sreenTopPosition = secondScreen.offsetTop;
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
 
-          if (this.positionY >= 395) {
-               this.positionY = 395; //zmieniona bo był clip za ramy (zmienic min wysokosc spawnu zarcia?)
+          if (this.positionY >= 400) {
+               this.positionY = 400;
           }
-          if (this.positionY <= 30 ) { 
-               this.positionY = 30; //zmienione na przestrzen na staty
+          if (this.positionY <= 1 ) {
+               this.positionY = 1;
           }
           this.human.style.top = this.positionY + 'px';
-
-          // console.log(this.positionY + "||" + this.positionX) // remove later
      }
      humanPositionY() {
           this.human.addEventListener('mousemove', () => this.humanMove());
+     }
+
+     humanCloseMouth() {
+
+          if (this.human.classList.contains('active')) { 
+               this.human.classList.remove('active');
+          };
+     }
+
+     humanOpenMouth() {
+          if (!this.human.classList.contains('active')) { 
+               this.human.classList.add('active');
+               console.log("Opening mouth");
+          };
      }
 }
 
@@ -110,37 +189,66 @@ const randomFoodCreate = () => {
 }
 
 const human = new Human();
+
 human.createHumanElement();
 human.humanPositionY();
 randomFoodCreate();
 
-let food = new Food();
+
+class progressBar {
+     constructor(element, initialValue = 0){
+          this.valueElement = element.querySelector('.progress__bar__value');
+          this.fillElement = element.querySelector('.progress__bar__fill');
+
+          this.setValue(initialValue);
+
+     }
+
+     setValue(newValue) {
+          if (newValue < 0) {
+               newValue = 0;
+          }
+          if(newValue > 100) {
+               newValue = 100;
+          }
+          this.value = newValue;
+          this.update();
+     }
+
+     consumeFood(changeBy)
+     {
+          let currentValue = this.value;
+          let newValue = currentValue + changeBy;
+          this.setValue(newValue);
+     }
+
+     update() {
+          const progressBarPercentage = this.value + '%';
+          this.fillElement.style.width = progressBarPercentage;
+          this.valueElement.textContent = progressBarPercentage;
+     }
+}
+
+let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
+
 
 // -----------------------------------------------------------------------------------
 
 let lives = 5;
 let time = 0;
-let score = 0;
 
-let timer = document.querySelector(".game__timer");
+// let timer = document.querySelector(".game__timer");
 
-timer.textContent = time;
+// timer.textContent = time;
 
-const removeHeart = () => {
-     const hearts = document.querySelector(".game__lives");
-     
-     console.log(hearts.lastChild)
-          
-     hearts.lastChild.remove();   // działa co drugi raz? WTF
-}
 
-const gameTime = () => {
-          setInterval( () => {
-               time += 0.1;   
+// const gameTime = () => {
+//           setInterval( () => {
+//                time += 0.1;   
 
-               return (Math.round((time + Number.EPSILON) * 100) / 100)
-          }, 1500)
-     }
+//                return (Math.round((time + Number.EPSILON) * 100) / 100)
+//           }, 1500)
+//      }
 
 const gameScore = () => {
      return score += 1;   // start z 1 ??? ;/
@@ -149,29 +257,24 @@ const gameScore = () => {
 const updateStats = () => { //niepotrzebne?
      
      gameTime()
-     removeHeart()
 }
 
-const gameStop = () => {
 
-}
 
-const detectDevouring = () => {
-     if (food.positionX == human.positionX && food.positionY >= human.positionY - 30 || food.positionY <= human.positionY + 30) {
-          if (food.number > 20 && food.number < 50) { // >=  czy >
-               gameScore()
-          } else if (food.number >50 && food.number < 80) {
-               removeHeart();
-               if (removeHeart() = undefined) {
-                    gameStop(); // nie wiem, czy to tu?
-               }
-          }
-          return score;       
-     }
-     return score;
-}
 
-detectDevouring();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // dodajmy max-width lub costam bo background sie przycina przy wiekszych 1x1
@@ -179,13 +282,3 @@ detectDevouring();
 
 
 
-
-
-
-
-
-// --- \/ test \/ ---
-
-
-// --- \/ test \/ ---
-        //  console.log(maw.positionY) // remove later
