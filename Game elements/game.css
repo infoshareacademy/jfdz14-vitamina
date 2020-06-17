@@ -56,10 +56,22 @@ html, body {
      position: absolute;
      z-index: 1;
      margin: 8px;
+     left: 400px;
      font-size: 1.2em;
      font-weight: 600;
-     letter-spacing: 1px;
-     color: black;
+     color: #272727;
+}
+.game__over__screen {
+     position: absolute;
+     z-index: 5;
+     background-image: 'url(./game_image/screen-3.svg)';
+     width: 100vw;
+     height: 520px;
+     background-size: cover;
+     display: none;
+}
+.game__over__screen.active {
+     display: flex;
 }
 .final__score {
      position: absolute;
@@ -67,7 +79,7 @@ html, body {
      top: 160px;
      left: 300px;
      margin: 8px;
-     font-size: 1.6em;
+     font-size: 1.4em;
      letter-spacing: 1px;
      color: pink;
 }

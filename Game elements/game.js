@@ -1,6 +1,11 @@
 const canvas = document.querySelector('.canvas');
 const mainScreen = document.querySelector('.game__box');
 
+const gameOverScreen = document.querySelector('.game__over__screen');
+const finalScoreDiv = document.querySelector('.final__score');
+const buttonPlayAgain = document.querySelector('.button-playAgain');
+const buttonRanking = document.querySelector('.button-ranking')
+
 class Food {
      positionX = 10;
      positionY = 5;
@@ -109,8 +114,8 @@ const human = new Human();
 const startGame = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
      const randomFoodCreate = () => {
-          setInterval(() => {
-               let food = new Food();
+          dupa2 = setInterval(() => {
+               food = new Food();
                food.initializeFood();
           }, 1000);
      }
@@ -118,33 +123,106 @@ const startGame = () => {
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
-     timer();
-}
+     timer = new Timer();
+     timer.startTimer();
+     finalScoreDiv.innerText = null;
+     if (gameOverScreen.classList.contains("active")){
+          gameOverScreen.classList.remove("active");}
 
-const newGame = showFirstScreen();
-
-let totalSeconds = 0;
-let seconds = 0;
-let minutes = 0;
-
-const timer = () => {
-     const timerDiv = document.createElement('div');
-     timerDiv.classList.add('timer');
-     mainScreen.appendChild(timerDiv);
 
      /*do usuniecia */
      const buttonStart = document.createElement('button');
      buttonStart.classList.add('button-start');
      buttonStart.textContent = 'koniec';
      mainScreen.appendChild(buttonStart);
-
      buttonStart.addEventListener('click', () => {
           buttonStart.remove();
           gameOver();
      })
-
 /*koniec usuniecia*/
+}
 
+const newGame = showFirstScreen();
+
+class Timer {
+     constructor() {
+          this.timerDiv = document.querySelector('.timer');
+          this.totalSeconds = 0;
+          this.seconds = 0;
+          this.minutes = 0;
+     }
+     startTimer() {
+          this.timerInterval= setInterval(() => {
+               this.totalSeconds++;
+               this.seconds = this.padTimer(this.totalSeconds % 60);
+               this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
+               this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
+          }, 1000)
+     }
+     padTimer(timeValue) {
+          let time = timeValue + '';
+          if (time.length < 2){
+                return '0' + time;
+           } else { 
+                return time;
+          }
+     }
+     stopTimer() {
+          clearInterval(this.timerInterval);
+          this.timerDiv.innerText = null;
+     }
+}
+
+const gameOver = () => {
+     human.removeHuman();
+     timer.stopTimer();
+     showGameOverScreen();
+}
+
+const showGameOverScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
+     gameOverScreen.classList.add("active");
+     finalScoreDiv.innerText = 'Czas: ' + timer.minutes + ':' + timer.seconds + ' Punkty: ';
+
+     buttonRanking.addEventListener('click', () => {
+          alert('cos ranking')
+     })
+
+     buttonPlayAgain.addEventListener('click', () => {
+          startGame();
+     })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const timer = new Timer();*/
+
+
+/*const timerDiv = document.querySelector('.timer');
+let totalSeconds = 0;
+let seconds = 0;
+let minutes = 0;
+/*
+const timer = () => {
     dupa = setInterval(() => {
           totalSeconds++;
           seconds = padTimer(totalSeconds % 60);
@@ -160,41 +238,4 @@ const padTimer = (timeValue) => {
                return time;
          }
 }
-
-function myStopFunction() {
-     clearInterval(dupa);
-   }
-
-const gameOver = () => {
-     human.removeHuman();
-     showGameOverScreen();
-     myStopFunction();
-}
-
-const showGameOverScreen = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
-     const finalScoreDiv = document.createElement('div');
-     finalScoreDiv.classList.add('final__score');
-     mainScreen.appendChild(finalScoreDiv);
-     finalScoreDiv.innerText = 'Czas: ' + minutes + ':' + seconds + ' Punkty: ';
-
-
-     const buttonRanking = document.createElement('button');
-     buttonRanking.classList.add('button-ranking');
-     buttonRanking.textContent = 'Ranking';
-     mainScreen.appendChild(buttonRanking);
-
-     buttonRanking.addEventListener('click', () => {
-          alert('cos ranking')
-     })
-     const buttonPlayAgain = document.createElement('button');
-     buttonPlayAgain.classList.add('button-playAgain');
-     buttonPlayAgain.textContent = 'Zagraj';
-     mainScreen.appendChild(buttonPlayAgain);
-
-     buttonPlayAgain.addEventListener('click', () => {
-          buttonRanking.remove();
-          buttonPlayAgain.remove();
-          startGame();
-     })
-}
+*/
