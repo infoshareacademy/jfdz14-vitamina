@@ -92,7 +92,6 @@ class Food {
                                    console.log(foodRect);
                                    console.log(humanRect);
      
-     
                                    closeFood.push(this.food);
 
                                    human.humanOpenMouth();
@@ -153,11 +152,11 @@ class Human {
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
 
-          if (this.positionY >= 400) {
-               this.positionY = 400;
+          if (this.positionY >= 395) {
+               this.positionY = 395;
           }
-          if (this.positionY <= 1 ) {
-               this.positionY = 1;
+          if (this.positionY <= 30 ) {
+               this.positionY = 30;
           }
           this.human.style.top = this.positionY + 'px';
      }
@@ -246,15 +245,10 @@ class ScoreCounter {
      }
 
      increaseScore(changeValue) {
-
           let currentValue = this.value;
-      
           let scoreValue = currentValue + changeValue;
           this.setScore(scoreValue)
-
           // this.scoreCounter.value += changeValue; // hmm what the hell is this?
-
-          console.log(scoreValue);
      }
 
      update() {
@@ -267,18 +261,9 @@ let scoreValue = new ScoreCounter(document.querySelector(".score__counter"), 0)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+class Difficulty {
+     
+}
 
 //-----------
 // let time = 0;
