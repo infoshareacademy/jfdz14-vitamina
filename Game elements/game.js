@@ -33,7 +33,6 @@ class Food {
           this.positionY = Math.random() * 80;
           this.food.style.bottom = this.positionY + 2 +"%";
           this.positionY;
-
      }
 
      runToRight() {
@@ -138,6 +137,10 @@ class Food {
           this.randomPosition();
           this.runToRight();
      }
+
+     removeFood() {
+               clearInterval(this.runningInterval);
+     }
 }
 
 class Human {
@@ -180,9 +183,9 @@ class Human {
                console.log("Opening mouth");
           };
      }
-    /* removeHuman() {
+    removeHuman() {
           this.human.remove();
-     }*/
+     }
 }
 const showFirstScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
@@ -206,12 +209,11 @@ randomFoodCreate();
 const startGame = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
      const randomFoodCreate = () => {
-          dupa2 = setInterval(() => {
+          foodInterval = setInterval(() => {
                food = new Food();
                food.initializeFood();
           }, 1000);
      }
-     /*const human = new Human();*/
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
@@ -222,7 +224,7 @@ const startGame = () => {
           gameOverScreen.classList.remove("active");}
 
 
-     /*do usuniecia */
+     /*do usuniecia przycisk!!!!*/
      const buttonStart = document.createElement('button');
      buttonStart.classList.add('button-start');
      buttonStart.textContent = 'koniec';
@@ -231,7 +233,7 @@ const startGame = () => {
           buttonStart.remove();
           gameOver();
      })
-/*koniec usuniecia*/
+     /*koniec usuniecia*/
 }
 
 const newGame = showFirstScreen();
@@ -244,7 +246,6 @@ class progressBar {
           this.setValue(initialValue);
 
      }
-
      setValue(newValue) {
           if (newValue < 0) {
                newValue = 0;
@@ -252,25 +253,24 @@ class progressBar {
           if(newValue > 100) {
                newValue = 100;
           }
+          if(newValue == 0) {
+               gameOver();
+          }
 
           this.value = newValue;
           this.update();
      }
-
      consumeFood(changeBy)
      {
           let currentValue = this.value;
           let newValue = currentValue + changeBy;
           this.setValue(newValue);
      }
-
-
      update() {
           const progressBarPercentage = this.value + '%';
           this.fillElement.style.width = progressBarPercentage;
           this.valueElement.textContent = progressBarPercentage;
      }
-
 }
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
@@ -305,9 +305,11 @@ class Timer {
 }
 
 const gameOver = () => {
-     /*human.removeHuman();*/
+     human.removeHuman();
      timer.stopTimer();
      showGameOverScreen();
+     food.removeFood();
+     clearInterval(foodInterval);
 }
 
 const showGameOverScreen = () => {
@@ -319,9 +321,7 @@ const showGameOverScreen = () => {
           alert('cos ranking')
      })
 
-     buttonPlayAgain.addEventListener('click', () => {
-          startGame();
-     })
+
 }
 
 
@@ -331,39 +331,3 @@ const showGameOverScreen = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*const timer = new Timer();*/
-
-
-/*const timerDiv = document.querySelector('.timer');
-let totalSeconds = 0;
-let seconds = 0;
-let minutes = 0;
-/*
-const timer = () => {
-    dupa = setInterval(() => {
-          totalSeconds++;
-          seconds = padTimer(totalSeconds % 60);
-          minutes = padTimer(parseInt(totalSeconds / 60));
-          timerDiv.innerText = 'Czas: ' + minutes + ':' + seconds;
-     }, 1000)
-}
-const padTimer = (timeValue) => {
-         let time = timeValue + '';
-         if (time.length < 2){
-               return '0' + time;
-          } else { 
-               return time;
-         }
-}
-*/
