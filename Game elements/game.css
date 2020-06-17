@@ -15,6 +15,9 @@ html, body {
      height: 520px;
      background-size: cover;
 }
+.game__box.hidden {
+     display: none;
+}
 .button-start {
      position: absolute;
      bottom: 50px;
@@ -97,9 +100,10 @@ html, body {
      z-index: 2;
 }
 .timer {
-     position: relative;
-     z-index: 1;
-     left: 400px;
+     position: absolute;
+     z-index: 5;
+     top: 1%;
+     left: 50%;
      font-size: 1.2em;
      font-weight: 600;
      color: #272727;
@@ -107,23 +111,23 @@ html, body {
 .game__over__screen {
      position: absolute;
      z-index: 5;
-     background-image: 'url(./game_image/screen-3.svg)';
+     background-image: url('game_image/screen-3.svg');
+     background-size: cover;
+     background-position: center;
      width: 100vw;
      height: 520px;
-     background-size: cover;
      display: none;
 }
 .game__over__screen.active {
      display: flex;
 }
 .final__score {
-     position: absolute;
+     position: relative;
      z-index: 1;
      top: 160px;
      left: 300px;
      margin: 8px;
      font-size: 1.4em;
-     letter-spacing: 1px;
      color: #272727;
 }
 .button-ranking {

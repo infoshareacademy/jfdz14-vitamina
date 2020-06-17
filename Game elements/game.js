@@ -3,7 +3,6 @@ const mainScreen = document.querySelector('.game__box');
 
 const gameOverScreen = document.querySelector('.game__over__screen');
 const finalScoreDiv = document.querySelector('.final__score');
-const buttonPlayAgain = document.querySelector('.button-playAgain');
 const buttonRanking = document.querySelector('.button-ranking')
 
 let closeFood = [] ;
@@ -138,8 +137,11 @@ class Food {
           this.runToRight();
      }
 
-     removeFood() {
-               clearInterval(this.runningInterval);
+     removeFood(food) {
+          setTimeout(() => {
+               this.food.remove();
+          }, 100)
+          clearInterval(this.runningInterval);
      }
 }
 
@@ -222,7 +224,8 @@ const startGame = () => {
      finalScoreDiv.innerText = null;
      if (gameOverScreen.classList.contains("active")){
           gameOverScreen.classList.remove("active");}
-
+     if (mainScreen.classList.contains("hidden")){
+          mainScreen.classList.remove("hidden");}
 
      /*do usuniecia przycisk!!!!*/
      const buttonStart = document.createElement('button');
@@ -307,9 +310,10 @@ class Timer {
 const gameOver = () => {
      human.removeHuman();
      timer.stopTimer();
-     showGameOverScreen();
      food.removeFood();
      clearInterval(foodInterval);
+     mainScreen.classList.add("hidden");
+     showGameOverScreen();
 }
 
 const showGameOverScreen = () => {
@@ -320,8 +324,6 @@ const showGameOverScreen = () => {
      buttonRanking.addEventListener('click', () => {
           alert('cos ranking')
      })
-
-
 }
 
 
