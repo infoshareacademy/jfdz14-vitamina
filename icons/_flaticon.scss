@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 26/03/2020 21:17
+    Creation date: 07/06/2020 17:26
     */
 
     @font-face {
@@ -28,34 +28,27 @@
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  line-height: 1;
+  line-height: 2;
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+  -font-smoothing: antialiased;
     }
 
-    .flaticon-brand:before { content: "\f100"; }
-.flaticon-instagram:before { content: "\f101"; }
-.flaticon-dribbble:before { content: "\f102"; }
-.flaticon-twitter:before { content: "\f103"; }
-.flaticon-facebook:before { content: "\f104"; }
-.flaticon-linkedin:before { content: "\f105"; }
+.flaticon-facebook:before { content: "\f100"; }
+.flaticon-linkedin:before { content: "\f101"; }
+.flaticon-github:before { content: "\f102"; }
+.flaticon-basketball:before { content: "\f103"; }
+.flaticon-behance:before { content: "\f104"; }
+.flaticon-instagram:before { content: "\f105"; }
+.flaticon-twitter:before { content: "\f106"; }
     
-    $font-Flaticon-brand: "\f100";
-    $font-Flaticon-instagram: "\f101";
-    $font-Flaticon-dribbble: "\f102";
-    $font-Flaticon-twitter: "\f103";
-    $font-Flaticon-facebook: "\f104";
-    $font-Flaticon-linkedin: "\f105";
-    .flaticon-exercise:before { content: "\f100"; }
-.flaticon-apple:before { content: "\f101"; }
-.flaticon-head:before { content: "\f102"; }
-.flaticon-goodwill:before { content: "\f103"; }
-    
-    $font-Flaticon-exercise: "\f100";
-    $font-Flaticon-apple: "\f101";
-    $font-Flaticon-head: "\f102";
-    $font-Flaticon-goodwill: "\f103";
+    $font-Flaticon-facebook: "\f100";
+    $font-Flaticon-linkedin: "\f101";
+    $font-Flaticon-github: "\f102";
+    $font-Flaticon-basketball: "\f103";
+    $font-Flaticon-behance: "\f104";
+    $font-Flaticon-instagram: "\f105";
+    $font-Flaticon-twitter: "\f106";
