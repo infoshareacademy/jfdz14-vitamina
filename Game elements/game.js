@@ -2,7 +2,7 @@ const mainScreen = document.querySelector('.canvas');
 const secondScreen = document.querySelector('.game__box');
 
 let closeFood = [] ;
-let score;
+let score = 0;
 
 function removeFromCloseFood(food) {
 
@@ -12,19 +12,18 @@ function removeFromCloseFood(food) {
                closeFood.splice(i, 1); 
                i--; 
           }
-     } // hmm????
+     }
 }
-
 class Food {
      positionX = 10;
      positionY = 5;
-     score = 0;
 
      openedMouth = false;
 
      runningInterval = null;
 
      foodType = null;
+     score = 0;
 
      createFoodContainer() {
           this.food = document.createElement('div');
@@ -43,6 +42,7 @@ class Food {
           this.runningInterval = 
                setInterval(() => {
                     if (this.positionX >= 95) {
+                         
                          let foodRect = this.food.getBoundingClientRect();
                          let humanRect = human.human.getBoundingClientRect();
 
@@ -53,9 +53,8 @@ class Food {
                               // // food was eaten
 
                               if (this.foodType == 'good') {
-                                   //dodawanie punktow
                                    console.log('good food was eaten')
-                                   return this.score + 1;
+                                   scoreValue.increaseScore(1)  // replace one with variable and add difficulty setting?
                               } else if(this.foodType == 'bad') {
 
                                    myProgressBar.consumeFood(-5);
@@ -72,13 +71,13 @@ class Food {
                          if(this.openedMouth && closeFood.length == 0)
                          {
                               human.humanCloseMouth();
-                         }                        
+                         }
+                         
                     }
-
                     if (this.positionX <= 100) {
                          this.food.style.left = this.positionX + "%";
                          this.positionX += .4;
-
+                         
                          if(this.positionX > 90 && !this.openedMouth)
                          {
                               //check if Y pos is same as human
@@ -86,12 +85,14 @@ class Food {
                               let foodRect = this.food.getBoundingClientRect();
                               let humanRect = human.human.getBoundingClientRect();
 
+
                               if(foodRect.top > humanRect.top 
                                    && foodRect.bottom < humanRect.bottom)
                               {
                                    console.log(foodRect);
                                    console.log(humanRect);
-          
+     
+     
                                    closeFood.push(this.food);
 
                                    human.humanOpenMouth();
@@ -117,17 +118,15 @@ class Food {
           let choiceFood = Math.floor(Math.random() * badFood.length);
           let number = Math.random() * 100;
 
-          if (number > 50 && number < 80) {
+          if (number > 50 && number < 100) {
                this.foodType = "bad";
                this.food.classList.add('game__box--badfood');
                this.food.style.backgroundImage = badFood[choiceFood];
-          } else if (number > 20 && number < 50){
+          } else if (number > 0 && number <= 50){
                this.foodType = "good";
                this.food.classList.add('game__box--goodfood');
                this.food.style.backgroundImage = goodFood[choiceFood];
-          } else {
-               this.food.style.backgroundImage = '';
-          };
+          } // removed useless setting
      }
 
      initializeFood() {
@@ -194,14 +193,13 @@ human.createHumanElement();
 human.humanPositionY();
 randomFoodCreate();
 
-
 class progressBar {
+
      constructor(element, initialValue = 0){
           this.valueElement = element.querySelector('.progress__bar__value');
           this.fillElement = element.querySelector('.progress__bar__fill');
 
           this.setValue(initialValue);
-
      }
 
      setValue(newValue) {
@@ -209,8 +207,9 @@ class progressBar {
                newValue = 0;
           }
           if(newValue > 100) {
-               newValue = 100;
+               newValue = 100; //is this needed? or will go back to 100 again if it drops below 0?
           }
+
           this.value = newValue;
           this.update();
      }
@@ -231,11 +230,58 @@ class progressBar {
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
 
+class ScoreCounter {   
+     // scoreValue = this.value <- to sobie tutaj jest
 
-// -----------------------------------------------------------------------------------
+     constructor(scoreCounter, initialValue) {
+          this.scoreCounter = document.querySelector(".score__counter");
+          this.initialValue = scoreCounter.innerText = initialValue;
 
-let lives = 5;
-let time = 0;
+          this.setScore(initialValue);
+     }
+
+     setScore(scoreValue) {
+          this.value = scoreValue;
+          this.update();
+     }
+
+     increaseScore(changeValue) {
+
+          let currentValue = this.value;
+      
+          let scoreValue = currentValue + changeValue;
+          this.setScore(scoreValue)
+
+          // this.scoreCounter.value += changeValue; // hmm what the hell is this?
+
+          console.log(scoreValue);
+     }
+
+     update() {
+          this.scoreCounter.innerText = this.value;
+          console.log(this.value)  // how is this.value not a number?!?!?!?!?!?!?! REEEEEEEEEEE
+     }
+}
+
+let scoreValue = new ScoreCounter(document.querySelector(".score__counter"), 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------
+// let time = 0;
 
 // let timer = document.querySelector(".game__timer");
 
@@ -248,37 +294,4 @@ let time = 0;
 
 //                return (Math.round((time + Number.EPSILON) * 100) / 100)
 //           }, 1500)
-//      }
-
-const gameScore = () => {
-     return score += 1;   // start z 1 ??? ;/
-}
-
-const updateStats = () => { //niepotrzebne?
-     
-     gameTime()
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// dodajmy max-width lub costam bo background sie przycina przy wiekszych 1x1
-
-
-
-
+//  }
