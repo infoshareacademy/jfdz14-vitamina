@@ -1,5 +1,5 @@
-const mainScreen = document.querySelector('.canvas');
-const secondScreen = document.querySelector('.game__box');
+const canvas = document.querySelector('.canvas');
+const mainScreen = document.querySelector('.game__box');
 
 let closeFood = [] ;
 
@@ -26,7 +26,7 @@ class Food {
 
      createFoodContainer() {
           this.food = document.createElement('div');
-          secondScreen.appendChild(this.food);
+          mainScreen.appendChild(this.food);
      }
 
      randomPosition() {
@@ -161,15 +161,15 @@ class Human {
      createHumanElement() {
           this.human = document.createElement('div');
           this.human.classList.add('human');
-          secondScreen.appendChild(this.human);
+          mainScreen.appendChild(this.human);
      }
      humanMove() {
-          let sreenTopPosition = secondScreen.offsetTop;
+          let sreenTopPosition = mainScreen.offsetTop;
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
 
-          if (this.positionY >= 400) {
-               this.positionY = 400;
+          if (this.positionY >= 395) {
+               this.positionY = 395;
           }
           if (this.positionY <= 1 ) {
                this.positionY = 1;
@@ -198,6 +198,7 @@ class Human {
           };
      }
 }
+<<<<<<< HEAD
 
 
 
@@ -213,8 +214,37 @@ const human = new Human();
 human.createHumanElement();
 human.humanPositionY();
 randomFoodCreate();
+=======
+const showFirstScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
+     const buttonStart = document.createElement('button');
+     buttonStart.classList.add('button-start');
+     buttonStart.textContent = 'start';
+     mainScreen.appendChild(buttonStart);
+
+     buttonStart.addEventListener('click', () => {
+          buttonStart.remove();
+          startGame();
+     })
+}
+>>>>>>> michpas
 
 
+const startGame = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     const randomFoodCreate = () => {
+          setInterval(() => {
+               let food = new Food();
+               food.initializeFood();
+          }, 1000);
+     }
+     const human = new Human();
+     human.createHumanElement();
+     human.humanPositionY();
+     randomFoodCreate();
+}
+
+const newGame = showFirstScreen();
 
 
 

@@ -16,6 +16,29 @@ cookieButton.addEventListener('click', () => {
      cookie.classList.add('hidden');
 })
 
+// burger menu mobile
+
+const navigation = document.querySelector('.navigation');
+const burger = document.querySelector('.navigation__burger');
+const navigationMenu = document.querySelector('.navigation__menu');
+const burgerInput = document.querySelector('.navigation__burger__checkbox');
+const arrowToTop = document.querySelector('.navigation__arrow');
+const heroSection = document.getElementsByClassName('features');
+
+
+burger.addEventListener('click', () => {
+     burgerInput.checked = true;
+     if (!navigation.classList.contains('active')) {
+          navigation.classList.add('active');
+     } else {
+          navigation.classList.remove('active');
+     }
+})
+arrowToTop.addEventListener('click', () => {
+     window.scrollTo(0, 0);
+})
+
+
 //active navbar elements
 
 function activateMenuLink(allLinks, linkToActivate) { 
@@ -119,7 +142,15 @@ window.addEventListener('scroll', () => {
      let currentPos = window.scrollY; 
      let visibleY = currentPos+100; 
      myScrollFunction(visibleY); 
-     clearTimeout(navbarShowTimer);
+     // clearTimeout(navbarShowTimer);
+
+     let displayArrowToTop = heroSection[0].offsetTop / 2;
+     if (currentPos >= displayArrowToTop ) {
+          arrowToTop.classList.remove('hidden');
+     } else {
+          arrowToTop.classList.add('hidden');
+     };
+
 });
 
 if(window.location.hash == "")
@@ -127,19 +158,12 @@ if(window.location.hash == "")
      myScrollFunction(window.scrollY);
 }
 
-// burger menu mobile
 
-const navigation = document.querySelector('.navigation');
-const burger = document.querySelector('.navigation__burger');
-const navigationMenu = document.querySelector('.navigation__menu');
 
-burger.addEventListener('click', () => {
-     if (!navigation.classList.contains('active')) {
-          navigation.classList.add('active');
-     } else {
-          navigation.classList.remove('active');
-     }
-})
+
+         
+
+
 
 navigationMenu.addEventListener('click', () => {
      navigation.classList.remove('active');
