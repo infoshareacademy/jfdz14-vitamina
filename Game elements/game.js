@@ -65,9 +65,6 @@ class Food {
                               }
 
                          }
-
-
-
                          clearInterval(this.runningInterval);
 
                          removeFromCloseFood(this.food);
@@ -98,9 +95,6 @@ class Food {
                               if(foodRect.top > humanRect.top 
                                    && foodRect.bottom < humanRect.bottom)
                               {
-                                   console.log(foodRect);
-                                   console.log(humanRect);
-     
      
                                    closeFood.push(this.food);
 
@@ -170,8 +164,10 @@ class Human {
      }
      humanMove() {
           let sreenTopPosition = secondScreen.offsetTop;
+          let screenLeftPosition = secondScreen.offsetLeft;
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
+          this.positionX = event.clientX - screenLeftPosition - this.height / 2;
 
           if (this.positionY >= 400) {
                this.positionY = 400;
@@ -179,6 +175,7 @@ class Human {
           if (this.positionY <= 1 ) {
                this.positionY = 1;
           }
+          console.log("WTF NOOBS");
           this.human.style.top = this.positionY + 'px';
      }
      humanPositionY() {
@@ -195,10 +192,42 @@ class Human {
      humanOpenMouth() {
           if (!this.human.classList.contains('active')) { 
                this.human.classList.add('active');
-               console.log("Opening mouth");
           };
      }
+
 }
+
+document.addEventListener('touchstart', function(touchScreen) {
+     clientX = touchScreen.touches[0].clientX;
+     clientY = touchScreen.touches[0].clientY;
+
+     let humanRect = human.human.getBoundingClientRect();
+
+     if (clientX > humanRect.left && clientX < humanRect.right && clientY < humanRect.bottom && clientY > humanRect.top) {
+         document.addEventListener('touchmove', function(touchMove){
+
+               let availableHeight = document.querySelector(".game__box").getBoundingClientRect().height;
+               let movementY = touchMove.touches[0].clientY;
+               let faceHeight = humanRect.height;
+
+               let minTop = availableHeight*0.0555;
+               let maxTop = availableHeight-faceHeight;
+
+               if(movementY > minTop && movementY < maxTop)
+               {
+                    human.human.style.top = movementY + 'px';
+               }
+               else if(movementY > maxTop)
+               {
+                    human.human.style.top = maxTop + 'px';
+               }
+               else if(movementY < minTop)
+               {
+                    human.human.style.top = minTop + 'px';
+               }
+         })
+     }
+}, false);
 
 const randomFoodCreate = () => {
      setInterval(() => {
@@ -253,3 +282,31 @@ class progressBar {
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
 
+// var isMobile = {
+//      Android: function() {
+//          return navigator.userAgent.match(/Android/i);
+//      },
+//      BlackBerry: function() {
+//          return navigator.userAgent.match(/BlackBerry/i);
+//      },
+//      iOS: function() {
+//          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+//      },
+//      Opera: function() {
+//          return navigator.userAgent.match(/Opera Mini/i);
+//      },
+//      Windows: function() {
+//          return navigator.userAgent.match(/IEMobile/i);
+//      },
+//      any: function() {
+//          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+//      }
+//  };
+
+//  if( isMobile.any() ) {
+
+//  };
+
+//  if(window.innerHeight > window.innerWidth){
+//      alert("Please use Landscape!");
+//  }
