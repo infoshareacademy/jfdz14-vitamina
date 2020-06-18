@@ -1,13 +1,15 @@
-const mainScreen = document.querySelector('.canvas');
-const secondScreen = document.querySelector('.game__box');
+const canvas = document.querySelector('.canvas');
+const mainScreen = document.querySelector('.game__box');
 
-let closeFood = [] ;
+const gameOverScreen = document.querySelector('.game__over__screen');
+const finalScoreDiv = document.querySelector('.final__score');
+const buttonRanking = document.querySelector('.button-ranking')
+
+let closeFood = [];
 let score = 0;
 
 function removeFromCloseFood(food) {
-
      for( var i = 0; i < closeFood.length; i++) {
-
           if ( closeFood[i] === food) { 
                closeFood.splice(i, 1); 
                i--; 
@@ -19,15 +21,13 @@ class Food {
      positionY = 5;
 
      openedMouth = false;
-
      runningInterval = null;
-
      foodType = null;
      score = 0;
 
      createFoodContainer() {
           this.food = document.createElement('div');
-          secondScreen.appendChild(this.food);
+          mainScreen.appendChild(this.food);
      }
 
      randomPosition() {
@@ -102,7 +102,7 @@ class Food {
                     }
                }, 50);
      }
-
+     
      foodsTypeRandom() {
           const badFood = [
                'url(./game_image/burger.svg)',
@@ -134,6 +134,13 @@ class Food {
           this.randomPosition();
           this.runToRight();
      }
+
+     removeFood(food) {
+          setTimeout(() => {
+               this.food.remove();
+          }, 100)
+          clearInterval(this.runningInterval);
+     }
 }
 
 class Human {
@@ -145,10 +152,10 @@ class Human {
      createHumanElement() {
           this.human = document.createElement('div');
           this.human.classList.add('human');
-          secondScreen.appendChild(this.human);
+          mainScreen.appendChild(this.human);
      }
      humanMove() {
-          let sreenTopPosition = secondScreen.offsetTop;
+          let sreenTopPosition = mainScreen.offsetTop;
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
 
@@ -163,7 +170,6 @@ class Human {
      humanPositionY() {
           this.human.addEventListener('mousemove', () => this.humanMove());
      }
-
      humanCloseMouth() {
 
           if (this.human.classList.contains('active')) { 
@@ -177,49 +183,90 @@ class Human {
                console.log("Opening mouth");
           };
      }
+    removeHuman() {
+          this.human.remove();
+     }
 }
+const showFirstScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
+     const buttonStart = document.createElement('button');
+     buttonStart.classList.add('button-start');
+     buttonStart.textContent = 'start';
+     mainScreen.appendChild(buttonStart);
 
-const randomFoodCreate = () => {
-     setInterval(() => {
-          let food = new Food();
-          food.initializeFood();
-     }, 1000);
+     buttonStart.addEventListener('click', () => {
+          buttonStart.remove();
+          startGame();
+     })
 }
 
 const human = new Human();
 
-human.createHumanElement();
+/*human.createHumanElement();
 human.humanPositionY();
 randomFoodCreate();
+*/
+const startGame = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     const randomFoodCreate = () => {
+          foodInterval = setInterval(() => {
+               food = new Food();
+               food.initializeFood();
+          }, 1000);
+     }
+     human.createHumanElement();
+     human.humanPositionY();
+     randomFoodCreate();
+     timer = new Timer();
+     timer.startTimer();
+     finalScoreDiv.innerText = null;
+     if (gameOverScreen.classList.contains("active")){
+          gameOverScreen.classList.remove("active");}
+     if (mainScreen.classList.contains("hidden")){
+          mainScreen.classList.remove("hidden");}
+
+     /*do usuniecia przycisk!!!!*/
+     const buttonStart = document.createElement('button');
+          buttonStart.classList.add('button-start');
+          buttonStart.textContent = 'koniec';
+          mainScreen.appendChild(buttonStart);
+          buttonStart.addEventListener('click', () => {
+          buttonStart.remove();
+          gameOver();
+     })
+     /*koniec usuniecia*/
+}
+
+const newGame = showFirstScreen();
 
 class progressBar {
-
      constructor(element, initialValue = 0){
           this.valueElement = element.querySelector('.progress__bar__value');
           this.fillElement = element.querySelector('.progress__bar__fill');
 
           this.setValue(initialValue);
-     }
 
+     }
      setValue(newValue) {
           if (newValue < 0) {
                newValue = 0;
           }
           if(newValue > 100) {
-               newValue = 100; //is this needed? or will go back to 100 again if it drops below 0?
+               newValue = 100;
+          }
+          if(newValue == 0) {
+               gameOver();
           }
 
           this.value = newValue;
           this.update();
      }
-
      consumeFood(changeBy)
      {
           let currentValue = this.value;
           let newValue = currentValue + changeBy;
           this.setValue(newValue);
      }
-
      update() {
           const progressBarPercentage = this.value + '%';
           this.fillElement.style.width = progressBarPercentage;
@@ -228,6 +275,56 @@ class progressBar {
 }
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
+
+class Timer {
+     constructor() {
+          this.timerDiv = document.querySelector('.timer');
+          this.totalSeconds = 0;
+          this.seconds = 0;
+          this.minutes = 0;
+     }
+     startTimer() {
+          this.timerInterval= setInterval(() => {
+               this.totalSeconds++;
+               this.seconds = this.padTimer(this.totalSeconds % 60);
+               this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
+               this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
+          }, 1000)
+     }
+     padTimer(timeValue) {
+          let time = timeValue + '';
+          if (time.length < 2){
+                return '0' + time;
+           } else { 
+                return time;
+          }
+     }
+     stopTimer() {
+          clearInterval(this.timerInterval);
+          this.timerDiv.innerText = null;
+     }
+}
+
+const gameOver = () => {
+     human.removeHuman();
+     timer.stopTimer();
+     food.removeFood();
+     clearInterval(foodInterval);
+     mainScreen.classList.add("hidden");
+     showGameOverScreen();
+}
+
+const showGameOverScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
+     gameOverScreen.classList.add("active");
+     finalScoreDiv.innerText = 'Czas: ' + timer.minutes + ':' + timer.seconds + ' Punkty: ';
+
+     buttonRanking.addEventListener('click', () => {
+          alert('cos ranking')
+     })
+}
+
+
 
 class ScoreCounter {   
      // scoreValue = this.value <- to sobie tutaj jest
@@ -253,7 +350,7 @@ class ScoreCounter {
 
      update() {
           this.scoreCounter.innerText = this.value;
-          console.log(this.value)  // how is this.value not a number?!?!?!?!?!?!?! REEEEEEEEEEE
+          console.log(this.value);
      }
 }
 

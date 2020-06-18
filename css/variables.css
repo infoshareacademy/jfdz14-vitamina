@@ -11,7 +11,10 @@ html{
     --focus-color: #00BBD5;
     --shader-color: rgba(54, 73, 84, 0.3);
   
+  
     --font-color: #363636;
+    --modal-font-color: #272727;
+    --modal-email-color: rgba(39, 39, 39, 0.7);
     --font: 'Source Sans Pro';
   
     --big-header-font-size: 2em;
