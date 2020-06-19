@@ -572,6 +572,11 @@ const removeFoodHard = () => {
      }
 }
 
+const removeHumanHard = () => {
+     const humanHard = document.querySelector('.human');
+     humanHard.remove();
+}
+
 
 ///Koniec rozmowy na czacie
 ///Wpisz wiadomość...
@@ -582,6 +587,7 @@ const ranking = new Ranking();
 ranking.getLocalInfo()
 
 const gameOver = () => {
+     removeHumanHard();
      human.removeHuman();
      timer.stopTimer();
      food.removeFood();
