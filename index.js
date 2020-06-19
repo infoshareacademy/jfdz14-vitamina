@@ -227,7 +227,7 @@ heroDots.forEach((dot, indexDots) => {
 const modalWindow = document.querySelector('.modal__overlay');
 const closeButton = document.querySelector('.modal__close');
 
-setTimeout(showModal, 1000);
+setTimeout(showModal, 7000);
 
 function closeModal() {
     modalWindow.classList.remove("active");
