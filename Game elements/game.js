@@ -13,7 +13,6 @@ function removeFromCloseFood(food) {
           }
      }
 }
-
 class Food {
      positionX = 10;
      positionY = 5;
@@ -74,11 +73,9 @@ class Food {
                          {
                               human.humanCloseMouth();
                          }
-
-
-
-                         
+   
                     }
+
                     if (this.positionX <= 100) {
                          this.food.style.left = this.positionX + "%";
                          this.positionX += .4;
@@ -103,18 +100,11 @@ class Food {
                               }
                          }
 
-
-                         //console.log("PosY: "+this.positionY+"New pos X: "+this.positionX);
                     }
 
                }, 50);
 
-
-
-
      }
-
-
 
      foodsTypeRandom() {
           const badFood = [
@@ -197,6 +187,7 @@ class Human {
 
 }
 
+// touch movement for Vitamen
 document.addEventListener('touchstart', function(touchScreen) {
      clientX = touchScreen.touches[0].clientX;
      clientY = touchScreen.touches[0].clientY;
@@ -281,32 +272,3 @@ class progressBar {
 }
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
-
-// var isMobile = {
-//      Android: function() {
-//          return navigator.userAgent.match(/Android/i);
-//      },
-//      BlackBerry: function() {
-//          return navigator.userAgent.match(/BlackBerry/i);
-//      },
-//      iOS: function() {
-//          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-//      },
-//      Opera: function() {
-//          return navigator.userAgent.match(/Opera Mini/i);
-//      },
-//      Windows: function() {
-//          return navigator.userAgent.match(/IEMobile/i);
-//      },
-//      any: function() {
-//          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-//      }
-//  };
-
-//  if( isMobile.any() ) {
-
-//  };
-
-//  if(window.innerHeight > window.innerWidth){
-//      alert("Please use Landscape!");
-//  }

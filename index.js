@@ -119,7 +119,7 @@ window.addEventListener('scroll', () => {
      let currentPos = window.scrollY; 
      let visibleY = currentPos+100; 
      myScrollFunction(visibleY); 
-     clearTimeout(navbarShowTimer);
+     // clearTimeout(navbarShowTimer);
 });
 
 if(window.location.hash == "")
@@ -236,6 +236,11 @@ const form = document.querySelector('.modal__form');
 const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const emailErrorText = document.querySelector('.modal__email__error__text');
 const modalSubmit = document.querySelector('.modal__submit');
+const currentModalHeader = document.querySelector('.modal__title');
+const currentModalText = document.querySelector('.modal__text');
+const modalLabel = document.querySelector(".modal__label");
+const modalPermission = document.querySelector(".modal__permission")
+const playGameButton = document.querySelector(".modal__play__game")
 
 modalSubmit.addEventListener('click', checkEmail)
  
@@ -248,8 +253,17 @@ function checkEmail(event) {
     }
     else {
         localStorage.setItem('email', emailValue);
-        window.open("/game.html"); /*tutaj jakis odpalacz gierki*/
-        closeModal();
+          currentModalHeader.innerHTML = "Dziękujemy.";
+          currentModalText.innerHTML = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę";
+          email.style.visibility = "hidden";
+          modalSubmit.style.visibility = "hidden";
+          modalLabel.style.visibility = "hidden";
+          modalPermission.style.visibility = "hidden";
+          playGameButton.style.visibility = "visible"
+          playGameButton.addEventListener('click', () => {
+               window.open("/game.html"); /*tutaj jakis odpalacz gierki*/
+               closeModal();
+         });
     }
 }
 
