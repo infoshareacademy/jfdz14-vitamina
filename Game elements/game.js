@@ -71,7 +71,9 @@ class Food {
                          {
                               human.humanCloseMouth();
                          }
+   
                     }
+
                     if (this.positionX <= 100) {
                          this.food.style.left = this.positionX + "%";
                          this.positionX += .4;
@@ -97,10 +99,14 @@ class Food {
                               }
                          }
                          //console.log("PosY: "+this.positionY+"New pos X: "+this.positionX);
+
                     }
                }, 50);
      }
    
+
+     }
+
      foodsTypeRandom() {
           const badFood = [
                'url(./game_image/burger.svg)',
@@ -154,8 +160,11 @@ class Human {
      }
      humanMove() {
           let sreenTopPosition = mainScreen.offsetTop;
+          let sreenTopPosition = secondScreen.offsetTop;
+          let screenLeftPosition = secondScreen.offsetLeft;
 
           this.positionY = event.clientY - sreenTopPosition - this.width / 2;
+          this.positionX = event.clientX - screenLeftPosition - this.height / 2;
 
           if (this.positionY >= 395) {
                this.positionY = 395;
@@ -163,6 +172,7 @@ class Human {
           if (this.positionY <= 30 ) {
                this.positionY = 30;
           }
+          console.log("WTF NOOBS");
           this.human.style.top = this.positionY + 'px';
      }
      humanPositionY() {
@@ -178,7 +188,6 @@ class Human {
      humanOpenMouth() {
           if (!this.human.classList.contains('active')) { 
                this.human.classList.add('active');
-               console.log("Opening mouth");
           };
      }
     removeHuman() {
@@ -201,6 +210,39 @@ const showFirstScreen = () => {
 <<<<<<< HEAD
 
 
+
+// touch movement for Vitamen
+document.addEventListener('touchstart', function(touchScreen) {
+     clientX = touchScreen.touches[0].clientX;
+     clientY = touchScreen.touches[0].clientY;
+
+     let humanRect = human.human.getBoundingClientRect();
+
+     if (clientX > humanRect.left && clientX < humanRect.right && clientY < humanRect.bottom && clientY > humanRect.top) {
+         document.addEventListener('touchmove', function(touchMove){
+
+               let availableHeight = document.querySelector(".game__box").getBoundingClientRect().height;
+               let movementY = touchMove.touches[0].clientY;
+               let faceHeight = humanRect.height;
+
+               let minTop = availableHeight*0.0555;
+               let maxTop = availableHeight-faceHeight;
+
+               if(movementY > minTop && movementY < maxTop)
+               {
+                    human.human.style.top = movementY + 'px';
+               }
+               else if(movementY > maxTop)
+               {
+                    human.human.style.top = maxTop + 'px';
+               }
+               else if(movementY < minTop)
+               {
+                    human.human.style.top = minTop + 'px';
+               }
+         })
+     }
+}, false);
 
 const randomFoodCreate = () => {
      setInterval(() => {
@@ -386,6 +428,7 @@ class progressBar {
 }
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
+<<<<<<< HEAD
 
 class Timer {
      constructor() {
@@ -448,3 +491,5 @@ const showGameOverScreen = () => {
 //                return (Math.round((time + Number.EPSILON) * 100) / 100)
 //           }, 1500)
 //  }
+=======
+>>>>>>> pauleb
