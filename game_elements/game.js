@@ -577,7 +577,6 @@ const removeHumanHard = () => {
      humanHard.remove();
 }
 
-
 ///Koniec rozmowy na czacie
 ///Wpisz wiadomość...
 
