@@ -560,6 +560,23 @@ class Ranking {
 
      // }
 }
+const removeFoodHard = () => {
+     const badFoodHard = document.querySelectorAll('.game__box--badfood');
+     const goodFoodHard = document.querySelectorAll('.game__box--goodfood');
+
+     for(let i = 0; i < badFoodHard.length; i++) {
+          badFoodHard[i].remove();
+     }
+     for(let i = 0; i < goodFoodHard.length; i++) {
+          goodFoodHard[i].remove();
+     }
+}
+
+
+///Koniec rozmowy na czacie
+///Wpisz wiadomość...
+
+
 
 const ranking = new Ranking();
 ranking.getLocalInfo()
@@ -568,6 +585,7 @@ const gameOver = () => {
      human.removeHuman();
      timer.stopTimer();
      food.removeFood();
+     removeFoodHard();
      clearInterval(foodInterval);
      mainScreen.classList.add("hidden");
      showGameOverScreen();
