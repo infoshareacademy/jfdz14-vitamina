@@ -227,7 +227,7 @@ heroDots.forEach((dot, indexDots) => {
 const modalWindow = document.querySelector('.modal__overlay');
 const closeButton = document.querySelector('.modal__close');
 
-setTimeout(showModal, 7000);
+setTimeout(showModal, 1000);
 
 function closeModal() {
     modalWindow.classList.remove("active");
@@ -256,7 +256,8 @@ const modalLabel = document.querySelector(".modal__label");
 const modalPermission = document.querySelector(".modal__permission")
 const playGameButton = document.querySelector(".modal__play__game")
 
-modalSubmit.addEventListener('click', checkEmail)
+modalSubmit.addEventListener('click', checkEmail);
+playGameButton.addEventListener('click', showGame);
  
 function checkEmail(event) {
     event.preventDefault();
@@ -267,18 +268,21 @@ function checkEmail(event) {
     }
     else {
         localStorage.setItem('email', emailValue);
-          currentModalHeader.innerHTML = "Dziękujemy.";
-          currentModalText.innerHTML = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę";
-          email.style.visibility = "hidden";
-          modalSubmit.style.visibility = "hidden";
-          modalLabel.style.visibility = "hidden";
-          modalPermission.style.visibility = "hidden";
-          playGameButton.style.visibility = "visible"
-          playGameButton.addEventListener('click', () => {
-               window.open("/game.html"); /*tutaj jakis odpalacz gierki*/
-               closeModal();
-         });
+          currentModalHeader.innerText = "Dziękujemy.";
+          currentModalText.innerText = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę.";
+          currentModalText.style.margin = "0px";
+          modalSubmit.classList.add("hidden__form");
+          email.classList.add("hidden__form");
+          modalPermission.classList.add("hidden__form");
+          modalLabel.classList.add("hidden__form");
+          playGameButton.classList.add("active"); 
     }
+}
+
+function showGame() {
+     event.preventDefault();
+     window.open("/game_elements/game.html"); /*tutaj jakis odpalacz gierki*/
+     closeModal();
 }
 
 form.addEventListener('focusin', (event) => {   
