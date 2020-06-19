@@ -158,24 +158,6 @@ if(window.location.hash == "")
      myScrollFunction(window.scrollY);
 }
 
-// burger menu mobile
-
-const navigation = document.querySelector('.navigation');
-const burger = document.querySelector('.navigation__burger');
-const navigationMenu = document.querySelector('.navigation__menu');
-
-burger.addEventListener('click', () => {
-     if (!navigation.classList.contains('active')) {
-          navigation.classList.add('active');
-     } else {
-          navigation.classList.remove('active');
-     }
-})
-
-navigationMenu.addEventListener('click', () => {
-     navigation.classList.remove('active');
-})
-
 /* carousel */
 
 const leftArrow = document.querySelectorAll('.hero__arrow')[0];
