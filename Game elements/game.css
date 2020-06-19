@@ -6,6 +6,7 @@ html, body {
      width: 100vw;
      height: 100vh;
      display: flex;
+     flex-wrap: wrap;
      justify-content: center;
      align-items: center;
 }
@@ -72,20 +73,24 @@ html, body {
 }
 
 .game__box--badfood {
+     /*
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
-     background-position: center;
+     background-position: center; 
+     */
 }
 .game__box--goodfood {
+     /*
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
-     background-position: center;
+     background-position: center; 
+     */
 }
 .hidden-food {
      display: none;
@@ -109,8 +114,12 @@ html, body {
      z-index: 2;
 }
 .game__stats{
-     height: 30px;
+     margin: -36px auto;
+
+     height: 36px;
      width: 100%;
+
+     background-color: #5E717A;
 
      display: flex;
      flex-wrap: nowrap;
@@ -124,8 +133,10 @@ html, body {
 }
 .game__stat{
      width: 33%;
+     height: 35px;
      margin: 0px 20px;
 }
+
 .progress__bar {
      position: relative;
      width: 209px; /* widen? */
@@ -163,6 +174,7 @@ html, body {
 .hidden{
      display: none;
 }
+/*
 .timer {
      position: absolute;
      z-index: 5;
@@ -171,7 +183,8 @@ html, body {
      font-size: 1.2em;
      font-weight: 600;
      color: #272727;
-}
+} */
+
 .game__over__screen {
      position: absolute;
      z-index: 5;
@@ -189,7 +202,7 @@ html, body {
      position: relative;
      z-index: 1;
      top: 160px;
-     left: 300px;
+     left: 35%;  /* trzeba zmienić */
      margin: 8px;
      font-size: 1.4em;
      color: #272727;
@@ -197,7 +210,7 @@ html, body {
 .button-ranking {
      position: absolute;
      top: 450px;
-     left: 300px;
+     left: 45%;
      margin: 8px;
      z-index: 1;
      font-size: 1.5em;
@@ -209,4 +222,33 @@ html, body {
      margin: 8px;
      z-index: 1;
      font-size: 1.5em;
+}
+
+.button-diff-easy {
+     position: absolute;
+     bottom: 50px;
+     left: 50px;
+     width: 150px;
+     height: 50px;
+
+     font-size: 1.5em;
+}
+
+.button-diff-hard {
+     position: absolute;
+     bottom: 50px;
+     left: 250px;
+     width: 150px;
+     height: 50px;
+
+     font-size: 1.5em;
+}
+
+.button-pressed{
+     background-color: #0098c9;
+}
+
+.game__ranking{
+     display: grid;
+     grid-template-columns: 50% 50%;
 }

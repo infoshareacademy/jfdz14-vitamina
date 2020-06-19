@@ -3,7 +3,7 @@ const mainScreen = document.querySelector('.game__box');
 
 const gameOverScreen = document.querySelector('.game__over__screen');
 const finalScoreDiv = document.querySelector('.final__score');
-const buttonRanking = document.querySelector('.button-ranking')
+const buttonNewGame = document.querySelector('.button-new');
 
 let closeFood = [];
 let score = 0;
@@ -57,7 +57,7 @@ class Food {
                                    scoreValue.increaseScore(1)  // replace one with variable and add difficulty setting?
                               } else if(this.foodType == 'bad') {
 
-                                   myProgressBar.consumeFood(-5);
+                                   myProgressBar.consumeFood(-100); // junk food penalty
                                    // odejmowanie zycia
                                    // console.log ('bad food was eaten')
                               }
@@ -76,7 +76,7 @@ class Food {
                     }
                     if (this.positionX <= 100) {
                          this.food.style.left = this.positionX + "%";
-                         this.positionX += .4;
+                         this.positionX += difficulty.multiplierSpeed; //added multiplier // NaN!!!
                          
                          if(this.positionX > 90 && !this.openedMouth)
                          {
@@ -117,13 +117,18 @@ class Food {
           let choiceFood = Math.floor(Math.random() * badFood.length);
           let number = Math.random() * 100;
 
+          // if (number > 100) {                    // if changing food ratio is added
+          //        number = 100;
+          // }
           if (number > 50 && number < 100) {
                this.foodType = "bad";
                this.food.classList.add('game__box--badfood');
+               this.food.classList.add("game--food")
                this.food.style.backgroundImage = badFood[choiceFood];
           } else if (number > 0 && number <= 50){
                this.foodType = "good";
                this.food.classList.add('game__box--goodfood');
+               this.food.classList.add("game--food")
                this.food.style.backgroundImage = goodFood[choiceFood];
           } // removed useless setting
      }
@@ -162,8 +167,8 @@ class Human {
           if (this.positionY >= 395) {
                this.positionY = 395;
           }
-          if (this.positionY <= 30 ) {
-               this.positionY = 30;
+          if (this.positionY <= 0 ) {
+               this.positionY = 0;
           }
           this.human.style.top = this.positionY + 'px';
      }
@@ -189,14 +194,59 @@ class Human {
 }
 const showFirstScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
-     const buttonStart = document.createElement('button');
-     buttonStart.classList.add('button-start');
-     buttonStart.textContent = 'start';
-     mainScreen.appendChild(buttonStart);
 
-     buttonStart.addEventListener('click', () => {
-          buttonStart.remove();
-          startGame();
+     // const buttonStart = document.createElement('button');
+     // buttonStart.classList.add('button-start');
+     // buttonStart.setAttribute("disabled", "")
+     // buttonStart.textContent = 'start';
+     // mainScreen.appendChild(buttonStart);
+
+     // buttonStart.addEventListener('click', () => {
+     //      // buttonStart.remove();
+     //      buttonDiffEasy.remove();
+     //      buttonDiffHard.remove();          
+     // })
+     
+     const buttonDiffEasy = document.createElement('button');
+     buttonDiffEasy.classList.add('button-diff-easy');
+     // buttonDiffEasy.classList.add('button-pressed')
+     buttonDiffEasy.textContent = "Easy mode";
+     mainScreen.appendChild(buttonDiffEasy);
+
+     const buttonDiffHard = document.createElement('button');
+     buttonDiffHard.classList.add('button-diff-hard');
+     buttonDiffHard.innerText = "Hard mode";
+     mainScreen.appendChild(buttonDiffHard);
+
+     //        --- difficulty settings: --- 
+     buttonDiffEasy.addEventListener("click", () => {
+          buttonDiffEasy.classList.add('button-pressed');
+          buttonDiffHard.classList.remove("button-pressed")
+
+          difficulty.difficultySetting = "easy"
+          difficulty.changeMultiplier();
+
+          difficulty.logDiffValues(); // remove later
+
+          buttonDiffEasy.remove(); //added after buttonStart removal
+          buttonDiffHard.remove(); //added after buttonStart removal
+
+          startGame(); //added after buttonStart removal
+     })
+
+     buttonDiffHard.addEventListener("click", () => {
+          buttonDiffHard.classList.add('button-pressed');
+          buttonDiffEasy.classList.remove("button-pressed")
+
+          difficulty.difficultySetting = "hard";
+          difficulty.changeMultiplier();
+
+          difficulty.logDiffValues(); // remove later
+
+          buttonDiffEasy.remove(); //added after buttonStart removal
+          buttonDiffHard.remove(); //added after buttonStart removal
+
+          startGame(); //added after buttonStart removal
      })
 }
 
@@ -209,32 +259,48 @@ randomFoodCreate();
 const startGame = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
      const randomFoodCreate = () => {
+
+          // let multiplierFoodSpawnHolder = difficulty.multiplierFoodSpawn;
+          // console.log(difficulty.multiplierFoodSpawn);
+
           foodInterval = setInterval(() => {
                food = new Food();
                food.initializeFood();
-          }, 1000);
+
+               
+               // console.log("Type of this.initialValue" + ": " + typeof difficulty.initialValue)
+               // console.log("Type of this.multiplier" + ": " + typeof difficulty.multiplier)
+               // console.log("Type of this.difficultySetting" + ": " + typeof difficulty.difficultySetting)
+
+               // console.log("---")
+
+               // console.log("Type of this.multiplierFoodRatio" + ": " + typeof difficulty.multiplierFoodRatio)
+               // console.log("Type of this.multiplierFoodSpawn" + ": " + typeof difficulty.multiplierFoodSpawn)
+               // console.log("Type of this.multiplierSpeed" + ": " + typeof difficulty.multiplierSpeed)
+                 
+               // console.log("----------------------------------------------------------")
+
+          }, difficulty.multiplierFoodSpawn); // added difficulty multiplier
+
+          // console.log(difficulty.multiplierFoodSpawn);     // HERE ITS NOT A NUMBER
+
      }
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
+     difficulty.changeMultiplier()  // added
      timer = new Timer();
      timer.startTimer();
-     finalScoreDiv.innerText = null;
+     finalScoreDiv.innerText = scoreValue.value; // final score here??
      if (gameOverScreen.classList.contains("active")){
-          gameOverScreen.classList.remove("active");}
+          gameOverScreen.classList.remove("active");
+     }
      if (mainScreen.classList.contains("hidden")){
-          mainScreen.classList.remove("hidden");}
+          mainScreen.classList.remove("hidden");
+     }
 
-     /*do usuniecia przycisk!!!!*/
-     const buttonStart = document.createElement('button');
-          buttonStart.classList.add('button-start');
-          buttonStart.textContent = 'koniec';
-          mainScreen.appendChild(buttonStart);
-          buttonStart.addEventListener('click', () => {
-          buttonStart.remove();
-          gameOver();
-     })
-     /*koniec usuniecia*/
+     difficulty.logDiffValues();
+
 }
 
 const newGame = showFirstScreen();
@@ -270,7 +336,7 @@ class progressBar {
      update() {
           const progressBarPercentage = this.value + '%';
           this.fillElement.style.width = progressBarPercentage;
-          this.valueElement.textContent = progressBarPercentage;
+          this.valueElement.textContent = progressBarPercentage; 
      }
 }
 
@@ -305,27 +371,6 @@ class Timer {
      }
 }
 
-const gameOver = () => {
-     human.removeHuman();
-     timer.stopTimer();
-     food.removeFood();
-     clearInterval(foodInterval);
-     mainScreen.classList.add("hidden");
-     showGameOverScreen();
-}
-
-const showGameOverScreen = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
-     gameOverScreen.classList.add("active");
-     finalScoreDiv.innerText = 'Czas: ' + timer.minutes + ':' + timer.seconds + ' Punkty: ';
-
-     buttonRanking.addEventListener('click', () => {
-          alert('cos ranking')
-     })
-}
-
-
-
 class ScoreCounter {   
      // scoreValue = this.value <- to sobie tutaj jest
 
@@ -352,28 +397,198 @@ class ScoreCounter {
           this.scoreCounter.innerText = this.value;
           console.log(this.value);
      }
+
+     // updateDifficulty()  {
+     //      if (this.value % 15) {
+     //           difficulty.multiplier += 0.05;
+
+     //           console.log(difficulty.multiplier)
+     //      }
+     // }             // remove later???
 }
 
 let scoreValue = new ScoreCounter(document.querySelector(".score__counter"), 0)
 
-
-
 class Difficulty {
+
+     constructor(initialValue, difficultySetting) { // add initialValue
+          
+          this.difficultySetting = difficultySetting;
+          this.initialValue = initialValue; 
+          
+          let multiplier = 1;
+          
+          let multiplierFoodRatio = 1;
+          let multiplierFoodSpawn = 1;
+          let multiplierSpeed = 0.4;
+     }   
+
+     changeMultiplier() {
+          if (this.difficultySetting == "easy") {
+               this.multiplier = 1.25;
+
+               // let difficulty = new Difficulty(1000, "easy");
+
+               this.getMultipliers();
+
+          } else if (this.difficultySetting == "hard"){
+               this.multiplier = 1.75;
+
+               // let difficulty = new Difficulty(1000, "hard");
+
+               this.getMultipliers();
+
+          }
+     }
+
+
+     multiplierFoodRatio = this.initialValue * this.multiplier;
+     multiplierFoodSpawn = this.initialValue / this.multiplier;
+     multiplierSpeed = 0.4;                                               // is this even needed???
+
+     getInitialValue() {
+          return this.initialValue;
+     }
+
+     getRatio() {
+          return this.multiplierFoodRatio = this.initialValue * this.multiplier;
+     }
+
+     getSpawn() {
+          return this.multiplierFoodSpawn = this.initialValue / this.multiplier;
+     }
+
+     getSpeed() {
+          return this.multiplierSpeed = 0.4 * this.multiplier;
+     }
+
+     getMultipliers() {
+          this.getInitialValue()
+          this.getRatio();
+          this.getSpawn();
+          this.getSpeed();
+     }
+
+     // updateMultiplier() {
+     //      if ()        
+     // }
+   
+     logDiffValues() {
+          console.log("----------------------------------------------------------")
+          console.log(`initialValue: ${this.initialValue}`)
+          console.log(`multiplier: ${this.multiplier}`)
+          console.log(`difficultySetting: ${this.difficultySetting}`)
+          console.log("---")
+
+          console.log(`multiplierFoodRatio: ${this.multiplierFoodRatio}`);
+          console.log(`multiplierFoodSpawn: ${this.multiplierFoodSpawn}`);
+          console.log(`multiplierSpeed: ${this.multiplierSpeed}`);        
+          console.log("----------------------------------------------------------")
+
+          console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
+     }
      
+     // updateDifficulty(multiplier)  {
+     //        if (scoreValue.value % 15) {
+     //        this.multiplier += 0.05;
+
+     //        console.log(this.multiplier)
+     //   }
+     // }
+
+     // scoreMultiplier = line 59;           
+     // timer.totalSeconds
 }
 
-//-----------
-// let time = 0;
+let difficulty = new Difficulty(1000, "easy");  //add math.round to values?
 
-// let timer = document.querySelector(".game__timer");
+difficulty.getMultipliers();    // change later?
 
-// timer.textContent = time;
+// difficulty.diffSetting();
+// scoreValue.updateDifficulty();
+
+class Ranking {
+
+     constructor(time, score) {
+          this.currentTime = time;
+          this.playerScore = score;
+     }
+
+     recordedScore = {};
+     
+
+     getScores () {
+          this.currentTime = new Date().toLocaleString();
+          this.playerScore = scoreValue.value;
+     }
+
+     updateScore() {
+
+          this.getScores();
+
+          this.recordedScore = {
+               time: this.currentTime,
+               score: this.playerScore
+          }
+
+          this.logInfo()
+     } 
+
+     logInfo() {
+          console.log(this.recordedScore)
+     }
+
+     getLocalInfo() {
+          this.storedInfo = localStorage.getItem("Best score")
+          this.parsedInfo = JSON.parse(this.storedInfo)
+
+          return this.parsedInfo
+     } //ok
+
+     storeInfo() {
+          this.bestScore = "Best score";
+
+          console.log(`parsed: ${this.parsedInfo} & ${this.recordedScore.score}`)
 
 
-// const gameTime = () => {
-//           setInterval( () => {
-//                time += 0.1;   
+          if (this.parsedInfo.score < this.recordedScore.score) {
+               localStorage.setItem(this.bestScore, JSON.stringify(this.recordedScore))
+          } // konsola zwraca [object Object], ale działać działa - zwiększa score w LS          
+     }          
 
-//                return (Math.round((time + Number.EPSILON) * 100) / 100)
-//           }, 1500)
-//  }
+     // displayRanking() {
+
+     // }
+}
+
+const ranking = new Ranking();
+ranking.getLocalInfo()
+
+const gameOver = () => {
+     human.removeHuman();
+     timer.stopTimer();
+     food.removeFood();
+     clearInterval(foodInterval);
+     mainScreen.classList.add("hidden");
+     showGameOverScreen();
+
+     ranking.updateScore();
+     ranking.getLocalInfo();
+     ranking.storeInfo();
+}
+
+const showGameOverScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
+     gameOverScreen.classList.add("active");
+     finalScoreDiv.innerText = `Czas: ${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
+     
+     // może by to ^ jakoś ostylować?
+
+     buttonNewGame.addEventListener('click', () => {
+          gameOverScreen.classList.remove("active");
+          mainScreen.classList.remove("hidden");
+
+          // setTimeout \/
+          showFirstScreen();
+     })
+}
