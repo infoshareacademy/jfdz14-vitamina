@@ -40,8 +40,6 @@
     <a href="#home" class="navigation__menu__list__link"></a>
     <div class="linkLoc" id="home"></div>
 
-
-
     <div class="cookie hidden">
         <div class="cookie__box">
             <img class="cookie__box__icon" src="/icons/food.svg" alt="icona ciastka">
@@ -79,6 +77,9 @@
             </li>
         </ul>
     </nav>
+    <div class="navigation__arrow">
+        <img src="./image/svg/arrow_up.svg" alt="na początek">
+    </div>
 
     <header class="hero" id="hero__page__part">
         <section class="hero__img hero__img__1 active">
@@ -155,7 +156,7 @@
             </div>
         </section>
 
-        <section class="section__additional__features">
+        <section class="section__additional__features" id="additional__features">
             <div class="container">
                 <article class="additional__features linkLoc" id="additional__features">
                     <section class="additional__features__box">
@@ -331,7 +332,7 @@
             </div>
         </section>
 
-        <section class="section__mission">
+        <section class="section__mission" id="our__mission">
             <div class="container">
                 <article class="mission linkLoc" id="our__mission">
                     <figure class="mission__image">
@@ -356,7 +357,7 @@
             </div>
         </section>
 
-        <section class="section__ourwork">
+        <section class="section__ourwork" id="our__work">
             <div class="container">
                 <article class="ourwork linkLoc" id="our__work">
                     <h2 class="ourwork__h">Zobacz nasze inne aplikacje</h2>
@@ -379,10 +380,10 @@
                         </section>
                         <section class="ourwork__present__section">
                             <img class="ourwork__present__section__img"
-                                src="image/ourwork-viktor-talashuk-OYMKjv5zmGU-unsplash-2.jpg"
+                                src="image/ourwork-freestocks-HAIPJ8PyeL8-unsplash.jpg"
                                 alt="our first aplication">
                             <button class="ourwork__present__section__button">
-                                <h3 class="ourwork__present__section__button--h">Fricky Pink</h3>
+                                <h3 class="ourwork__present__section__button--h">Lucky Coffe</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                             </button>
                         </section>
@@ -396,70 +397,125 @@
                 <h2 class="team__header">Poznaj bliżej naszą drużynę</h2>
                 <div class="team__container">
                     <article class="team__card">
-                        <figure class="team__card__img__container">
-                            <img class="team__card__img" src="image/team/Paulina__awesome__pic.jpg"
-                                alt="team member picture">
-                        </figure>
-                        <h4 class="team__card__name team__card__header">Paulina<br />Lebiecka</h4>
-                        <h5 class="team__card__title team__card__header">UX/UI Designer</h5>
-                        <div class="team__card__icons">
-                            <a href="https://www.facebook.com/paulina.lebiecka/" class="team__card__icon__link link"><i
-                                    class="team__card__icon flaticon-facebook"></i></a>
-                            <a href="https://twitter.com/lebcia3" class="team__card__icon__link link"><i
-                                    class="team__card__icon flaticon-twitter"></i></a>
-                            <a href="https://www.linkedin.com/in/paulina-lebiecka-2b993518a/" class="team__card__icon__link link"><i
-                                    class="team__card__icon flaticon-linkedin"></i></a>
-                        </div>
+
+                        <div class="team__card__container">
+                          <div class="team__card__front team__card__styling">
+                            <figure class="team__card__img__container">
+                                <img class="team__card__img" src="image/team/Paulina__awesome__pic.jpg"
+                                    alt="team member picture">
+                            </figure>
+                            <h4 class="team__card__name team__card__header">Paulina Lebiecka</h4>
+                            <h5 class="team__card__title team__card__header">UX/UI Designer</h5>
+                          </div>
+                            
+                          <div class="team__card__back team__card__styling"> 
+                            <figure class="team__card__img__container">
+                              <img class="team__card__img" src="image/team/Paulina__awesome__pic.jpg"
+                                  alt="team member picture">
+                          </figure>   
+                          <h4 class="team__card__name team__card__header">Paulina Lebiecka</h4>                   
+                            <div class="team__card__icons">
+                                <a href="https://www.facebook.com/paulina.lebiecka/" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-facebook"></i></a>
+                                <a href="https://github.com/paulinalebiecka" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-github"></i></a> <!--fix git-->
+                                <a href="https://www.linkedin.com/in/paulina-lebiecka-2b993518a/" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-linkedin"></i></a>
+                            </div>
+                          </div>
+                      </div>
                     </article>
                     <article class="team__card">
-                        <figure class="team__card__img__container">
-                            <img class="team__card__img" src="image/team/Michal__awesome__pic.jpg"
-                                alt="team member picture">
-                        </figure>
-                        <h4 class="team__card__name team__card__header">Michał<br />Pastewski</h4>
-                        <h5 class="team__card__title team__card__header">Front-End Developer</h5>
-                        <div class="team__card__icons">
-                            <a href="https://www.facebook.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-facebook"></i></a>
-                            <a href="https://www.twitter.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-twitter"></i></a>
-                            <a href="https://www.linkedin.com/" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-linkedin"></i></a>
-                        </div>
+
+                        <div class="team__card__container">
+                          <div class="team__card__front team__card__styling">
+                            <figure class="team__card__img__container">
+                                <img class="team__card__img" src="image/team/Michal__awesome__pic.jpg"
+                                    alt="team member picture">
+                            </figure>
+                            <h4 class="team__card__name team__card__header">Michał Pastewski</h4>
+                            <h5 class="team__card__title team__card__header">Front-End Developer</h5>
+                          </div>
+                            
+                          <div class="team__card__back team__card__styling"> 
+                            <figure class="team__card__img__container">
+                              <img class="team__card__img" src="image/team/Michal__awesome__pic.jpg"
+                                  alt="team member picture">
+                          </figure>  
+                          <h4 class="team__card__name team__card__header">Michał Pastewski</h4>
+                            <div class="team__card__icons">
+                                
+                                <a href="https://www.facebook.com/michpastewski" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-facebook"></i></a>
+                                <a href="https://github.com/michael-pastewski" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-github"></i></a> <!--fix git-->
+                                <a href="https://www.linkedin.com/in/michal-pastewski" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-linkedin"></i></a>
+                            </div>
+                          </div>
+                      </div>
                     </article>
 
                     <article class="team__card">
-                        <figure class="team__card__img__container">
-                            <img class="team__card__img" src="image/team/Ania__awesome__pic.jpg"
-                                alt="team member picture">
-                        </figure>
-                        <h4 class="team__card__name team__card__header">Anna<br />Rutkowska</h4>
-                        <h5 class="team__card__title team__card__header">Front-End Developer</h5>
-                        <div class="team__card__icons">
-                            <a href="https://www.facebook.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-facebook"></i></a>
-                            <a href="https://www.twitter.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-twitter"></i></a>
-                            <a href="https://www.linkedin.com/" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-linkedin"></i></a>
-                        </div>
+
+                        <div class="team__card__container">
+                          <div class="team__card__front team__card__styling">
+                            <figure class="team__card__img__container">
+                                <img class="team__card__img" src="image/team/Ania__awesome__pic.jpg"
+                                    alt="team member picture">
+                            </figure>
+                            <h4 class="team__card__name team__card__header">Anna Rutkowska</h4>
+                            <h5 class="team__card__title team__card__header">Front-End Developer</h5>
+                          </div>
+                            
+                          <div class="team__card__back team__card__styling"> 
+                            <figure class="team__card__img__container">
+                              <img class="team__card__img" src="image/team/Ania__awesome__pic.jpg"
+                                  alt="team member picture">
+                          </figure>      
+                          <h4 class="team__card__name team__card__header">Anna Rutkowska</h4>                
+                            <div class="team__card__icons">
+                                <a href="https://www.facebook.com/ania.rutkowska.980" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-facebook"></i></a>
+                                <a href="https://github.com/rutkows-anna" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-github"></i></a> <!--fix git-->
+                                <a href="https://www.linkedin.com/in/rutkows-anna/" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-linkedin"></i></a>
+                            </div>
+                          </div>
+                      </div>
                     </article>
+                    
                     <article class="team__card">
-                        <figure class="team__card__img__container">
-                            <img class="team__card__img" src="image/team/Mikolaj__awesome__pic.jpg"
-                                alt="team member picture">
-                        </figure>
-                        <h4 class="team__card__name team__card__header">Mikołaj<br />Jędrak</h4>
-                        <h5 class="team__card__title team__card__header">Front-End Developer</h5>
-                        <div class="team__card__icons">
-                            <a href="https://www.facebook.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-facebook"></i></a>
-                            <a href="https://www.twitter.com" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-twitter"></i></a>
-                            <a href="https://www.linkedin.com/" class="team__card__icon__link"><i
-                                    class="team__card__icon flaticon-linkedin"></i></a>
-                        </div>
+
+                        <div class="team__card__container">
+                          <div class="team__card__front team__card__styling">
+                            <figure class="team__card__img__container">
+                                <img class="team__card__img" src="image/team/Mikolaj__awesome__pic.jpg"
+                                    alt="team member picture">
+                            </figure>
+                            <h4 class="team__card__name team__card__header">Mikołaj Jędrak</h4>
+                            <h5 class="team__card__title team__card__header">Front-End Developer</h5>
+                          </div>
+                            
+                          <div class="team__card__back team__card__styling"> 
+                            <figure class="team__card__img__container">
+                              <img class="team__card__img" src="image/team/Mikolaj__awesome__pic.jpg"
+                                  alt="team member picture">
+                          </figure>     
+                          <h4 class="team__card__name team__card__header">Mikołaj Jędrak</h4>                 
+                            <div class="team__card__icons">
+                                <a href="https://www.facebook.com/kuba.jedrak" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-facebook"></i></a>
+                                <a href="https://github.com/KubaJedrak" class="team__card__icon__link link"><i
+                                        class="team__card__icon flaticon-github"></i></a> <!--fix git-->
+                                <a href="https://www.linkedin.com/in/miko%C5%82aj-j%C4%99drak-a148a5160/" class="team__card__icon__link link">
+                                    <i class="team__card__icon flaticon-linkedin"></i></a>
+                            </div>
+                          </div>
+                      </div>
                     </article>
+                    
                 </div>
             </div>
         </section>
@@ -475,9 +531,9 @@
             <div class="footer__icons footer__item">
                 <!--MISSING LINKS BELOW-->
                 <a href="#" class="link footer__link footer__icon__link"><i
-                        class="socialmedia__icon flaticon-brand footer__icon"></i></a>
+                        class="socialmedia__icon flaticon-behance footer__icon"></i></a>
                 <a href="#" class="link footer__link footer__icon__link"><i
-                        class="socialmedia__icon flaticon-dribbble footer__icon"></i></a>
+                        class="socialmedia__icon flaticon-basketball footer__icon"></i></a>
                 <a href="#" class="link footer__link footer__icon__link"><i
                         class="socialmedia__icon flaticon-facebook footer__icon"></i></a>
                 <a href="#" class="link footer__link footer__icon__link"><i
