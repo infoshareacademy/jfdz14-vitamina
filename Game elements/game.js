@@ -276,3 +276,35 @@ class progressBar {
 }
 
 let myProgressBar = new progressBar(document.querySelector('.progress__bar'), 100);
+
+function isLandscapeOriented()
+{
+     let windowWidth = window.innerWidth;
+     let windowHeight = window.innerHeight;
+
+     if(windowWidth > windowHeight)
+     {
+          return true;
+     }
+
+     return false;
+}
+
+const checkWidthGame = function() {
+
+     let nonLandscapeWarning = document.querySelector("#non-landscape-warning");
+     let gameDiv = document.querySelector(".game__box");
+
+     if(isLandscapeOriented()) {
+          nonLandscapeWarning.style.display = "none";
+          gameDiv.style.display = "block";
+     }
+     else {
+          gameDiv.style.display = "none";
+          nonLandscapeWarning.style.display = "block";
+     }
+}
+checkWidthGame();
+document.body.onresize = function() {
+     checkWidthGame();
+}
