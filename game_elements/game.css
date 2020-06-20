@@ -43,8 +43,8 @@ html, body {
 }
 .close__window {
      position: absolute;
-     top: 10px;
-     right: 10px;
+     top: 6px;
+     right: 6px;
      width: 24px;
      height: 24px;
      z-index: 2;
@@ -52,7 +52,7 @@ html, body {
 .close__window::before {
      content: '';
      position: absolute;
-     top: 10px;
+     top: 6px;
      right: 0;
      width: 24px;
      height: 4px;
@@ -62,7 +62,7 @@ html, body {
 .close__window::after {
      content: '';
      position: absolute;
-     top: 10px;
+     top: 6px;
      right: 0;
      width: 24px;
      height: 4px;
@@ -147,6 +147,7 @@ html, body {
 }
 .human {
      position: absolute;
+     top: 30%;
      right: .1vw;
      width: 53px;
      height: 125px;
@@ -156,6 +157,7 @@ html, body {
 }
 .human.active  {
      position: absolute;
+     top: 30%;
      right: .1vw;
      width: 53px;
      height: 125px;
