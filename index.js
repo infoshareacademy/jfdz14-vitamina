@@ -279,9 +279,20 @@ function checkEmail(event) {
     }
 }
 
+form.addEventListener('focusin', (event) => {
+    email.classList.remove("error");
+    emailErrorText.classList.remove("error");
+  });
+
+  function openGame() {
+       const canvas = document.querySelector('.canvas');
+       canvas.classList.remove('hidden');
+      }
+
+
 function showGame() {
      event.preventDefault();
-     window.open("/game_elements/game.html"); /*tutaj jakis odpalacz gierki*/
+     openGame();
      closeModal();
 }
 

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/modal.css" type="text/css">
     <link rel="stylesheet" href="css/variables.css" type="text/css">
     <link rel="stylesheet" href="icons/flaticon.css">
+    <link rel="stylesheet" href="./game_elements/game.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400&display=swap&subset=latin-ext"
         rel="stylesheet">
@@ -40,6 +41,42 @@
     </div>
     <a href="#home" class="navigation__menu__list__link"></a>
     <div class="linkLoc" id="home"></div>
+
+    <div class="canvas hidden">
+        <div class="game__box">
+
+		    <div class="game__stats">
+			    <div class="progress__bar__container game__stat">
+				    <div class="progress__bar">
+					    <div class="progress__bar__value">100%</div>
+					    <div class="progress__bar__empty"></div>
+					    <div class="progress__bar__fill"></div>
+				    </div>
+			    </div>
+
+                <div class="timer game__stat"></div>
+
+                <div class="game__score game__stat">
+                    Wynik: <span class="score__counter"></span>
+                </div>
+		    </div>
+
+            <div class="game__over__screen">
+                <img class="end__game__image__text" src="./game_elements/game_image/koniec_gry.svg">
+                <div class="final__score"></div>
+                <div class="best__score">wynik najnajajanleeepszy</div>
+                <div class="end__game__text">Vitamen się najdał niezdrowego jedzenia i teraz boli go brzuch. Czy ktoś ma jakąś miętową herbatę?</div>
+                <img class="full__human" src="./game_elements/game_image/ludek_brzuch.svg">
+                <button class="button-new">Nowa gra</button> 
+            </div>
+
+            <div class="close__window"></div>
+            <!-- <button class="game__button--easy hidden">Easy mode</button>
+            <button class="game__button--hard hidden">Hard mode</button> -->
+
+            <div class="game__ranking"></div>
+        </div>
+    </div>
 
     <div class="cookie hidden">
         <div class="cookie__box">
@@ -78,7 +115,7 @@
             </li>
         </ul>
     </nav>
-    <div class="navigation__arrow">
+    <div class="navigation__arrow hidden">
         <img src="./image/svg/arrow_up.svg" alt="na początek">
     </div>
 
@@ -551,6 +588,7 @@
     </footer>
 
     <script src="index.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./game_elements/game.js"></script>
 
 </body>
 
