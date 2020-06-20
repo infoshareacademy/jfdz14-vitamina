@@ -151,6 +151,7 @@ window.addEventListener('scroll', () => {
           arrowToTop.classList.add('hidden');
      };
 
+     // clearTimeout(navbarShowTimer);
 });
 
 if(window.location.hash == "")
@@ -249,8 +250,14 @@ const form = document.querySelector('.modal__form');
 const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const emailErrorText = document.querySelector('.modal__email__error__text');
 const modalSubmit = document.querySelector('.modal__submit');
+const currentModalHeader = document.querySelector('.modal__title');
+const currentModalText = document.querySelector('.modal__text');
+const modalLabel = document.querySelector(".modal__label");
+const modalPermission = document.querySelector(".modal__permission")
+const playGameButton = document.querySelector(".modal__play__game")
 
-modalSubmit.addEventListener('click', checkEmail)
+modalSubmit.addEventListener('click', checkEmail);
+playGameButton.addEventListener('click', showGame);
  
 function checkEmail(event) {
     event.preventDefault();
@@ -274,4 +281,25 @@ form.addEventListener('focusin', (event) => {
   function openGame() {
        const canvas = document.querySelector('.canvas');
        canvas.classList.remove('hidden');
-  }
+  
+          currentModalHeader.innerText = "Dziękujemy.";
+          currentModalText.innerText = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę.";
+          currentModalText.style.margin = "0px";
+          modalSubmit.classList.add("hidden__form");
+          email.classList.add("hidden__form");
+          modalPermission.classList.add("hidden__form");
+          modalLabel.classList.add("hidden__form");
+          playGameButton.classList.add("active"); 
+    }
+
+
+function showGame() {
+     event.preventDefault();
+     window.open("/game_elements/game.html"); /*tutaj jakis odpalacz gierki*/
+     closeModal();
+}
+
+form.addEventListener('focusin', (event) => {   
+    email.classList.remove("error");
+    emailErrorText.classList.remove("error");
+  });git
