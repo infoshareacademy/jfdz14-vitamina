@@ -355,10 +355,10 @@ class Timer {
      }
      startTimer() {
           this.timerInterval= setInterval(() => {
-               this.totalSeconds++;
                this.seconds = this.padTimer(this.totalSeconds % 60);
                this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
+               ++this.totalSeconds;
           }, 1000)
      }
      padTimer(timeValue) {
