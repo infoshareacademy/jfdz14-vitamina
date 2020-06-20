@@ -1,5 +1,8 @@
 const canvas = document.querySelector('.canvas');
 const mainScreen = document.querySelector('.game__box');
+const gameStats = document.querySelector('.game__stats');
+const closeWindow = document.querySelector('.close__window');
+
 
 const gameOverScreen = document.querySelector('.game__over__screen');
 const finalScoreDiv = document.querySelector('.final__score');
@@ -42,7 +45,7 @@ class Food {
           this.runningInterval = 
                setInterval(() => {
                     if (this.positionX >= 95) {
-                         
+
                          let foodRect = this.food.getBoundingClientRect();
                          let humanRect = human.human.getBoundingClientRect();
 
@@ -57,7 +60,7 @@ class Food {
                                    scoreValue.increaseScore(1)  // replace one with variable and add difficulty setting?
                               } else if(this.foodType == 'bad') {
 
-                                   myProgressBar.consumeFood(-100); // junk food penalty
+                                   myProgressBar.consumeFood(-20); // junk food penalty
                                    // odejmowanie zycia
                                    // console.log ('bad food was eaten')
                               }
@@ -193,30 +196,20 @@ class Human {
      }
 }
 const showFirstScreen = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     gameStats.classList.add('hidden');
 
-     // const buttonStart = document.createElement('button');
-     // buttonStart.classList.add('button-start');
-     // buttonStart.setAttribute("disabled", "")
-     // buttonStart.textContent = 'start';
-     // mainScreen.appendChild(buttonStart);
-
-     // buttonStart.addEventListener('click', () => {
-     //      // buttonStart.remove();
-     //      buttonDiffEasy.remove();
-     //      buttonDiffHard.remove();          
-     // })
-     
      const buttonDiffEasy = document.createElement('button');
-     buttonDiffEasy.classList.add('button-diff-easy');
+     buttonDiffEasy.classList.add('game__button--easy');
      // buttonDiffEasy.classList.add('button-pressed')
      buttonDiffEasy.textContent = "Easy mode";
      mainScreen.appendChild(buttonDiffEasy);
 
      const buttonDiffHard = document.createElement('button');
-     buttonDiffHard.classList.add('button-diff-hard');
+     buttonDiffHard.classList.add('game__button--hard');
      buttonDiffHard.innerText = "Hard mode";
      mainScreen.appendChild(buttonDiffHard);
+
 
      //        --- difficulty settings: --- 
      buttonDiffEasy.addEventListener("click", () => {
@@ -230,10 +223,10 @@ const showFirstScreen = () => {
 
           buttonDiffEasy.remove(); //added after buttonStart removal
           buttonDiffHard.remove(); //added after buttonStart removal
+          closeWindow.classList.add('hidden');
 
           startGame(); //added after buttonStart removal
      })
-
      buttonDiffHard.addEventListener("click", () => {
           buttonDiffHard.classList.add('button-pressed');
           buttonDiffEasy.classList.remove("button-pressed")
@@ -245,8 +238,13 @@ const showFirstScreen = () => {
 
           buttonDiffEasy.remove(); //added after buttonStart removal
           buttonDiffHard.remove(); //added after buttonStart removal
+          closeWindow.classList.add('hidden');
 
           startGame(); //added after buttonStart removal
+     })
+
+     closeWindow.addEventListener('click', () => {
+          canvas.classList.add('hidden');
      })
 }
 
@@ -257,7 +255,11 @@ human.humanPositionY();
 randomFoodCreate();
 */
 const startGame = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
+     gameStats.classList.remove('hidden');
+     scoreValue.resetScore();
+     myProgressBar.resetProgressBar();
+
      const randomFoodCreate = () => {
 
           // let multiplierFoodSpawnHolder = difficulty.multiplierFoodSpawn;
@@ -288,6 +290,7 @@ const startGame = () => {
      human.createHumanElement();
      human.humanPositionY();
      randomFoodCreate();
+
      difficulty.changeMultiplier()  // added
      timer = new Timer();
      timer.startTimer();
@@ -337,6 +340,10 @@ class progressBar {
           const progressBarPercentage = this.value + '%';
           this.fillElement.style.width = progressBarPercentage;
           this.valueElement.textContent = progressBarPercentage; 
+     }
+
+     resetProgressBar() {
+          this.setValue(100);
      }
 }
 
@@ -396,6 +403,10 @@ class ScoreCounter {
      update() {
           this.scoreCounter.innerText = this.value;
           console.log(this.value);
+     }
+
+     resetScore() {
+          this.setScore(0);
      }
 
      // updateDifficulty()  {
@@ -592,7 +603,7 @@ const gameOver = () => {
      food.removeFood();
      removeFoodHard();
      clearInterval(foodInterval);
-     mainScreen.classList.add("hidden");
+     // mainScreen.classList.add("hidden");
      showGameOverScreen();
 
      ranking.updateScore();
@@ -601,15 +612,20 @@ const gameOver = () => {
 }
 
 const showGameOverScreen = () => {
+     gameStats.classList.add('hidden');
      mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
      gameOverScreen.classList.add("active");
      finalScoreDiv.innerText = `Czas: ${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
-     
+     closeWindow.classList.remove('hidden');
+
+     closeWindow.addEventListener('click', () => {
+          canvas.classList.add('hidden');
+     })
      // może by to ^ jakoś ostylować?
 
      buttonNewGame.addEventListener('click', () => {
           gameOverScreen.classList.remove("active");
-          mainScreen.classList.remove("hidden");
+          // mainScreen.classList.remove("hidden");
 
           // setTimeout \/
           showFirstScreen();

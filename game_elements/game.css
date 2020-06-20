@@ -3,23 +3,74 @@ html, body {
      padding: 0;
 }
 .canvas {
-     width: 100vw;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 1000;
+     width: 100%;
      height: 100vh;
+     margin: 0 auto;
+     background-color: rgba(54, 73, 84, 0.8);
      display: flex;
-     flex-wrap: wrap;
      justify-content: center;
      align-items: center;
 }
+.canvas.hidden {
+     display: none;
+}
 .game__box {
      position: relative;
-     width: 100vw;
-     height: 520px;
+     width: min(800px, 100%);
+     height: min(520px, 100%);
+
+     border: 3px solid #000;
+     background-image: url('./game_image/screen-1.svg');
      background-size: cover;
+     background-position: center;
+
+     display: flex;
 }
 .game__box.hidden {
      display: none;
 }
-.button-start {
+.game__button {
+     margin-left: calc(50% - 55.5px);
+     margin-bottom: 1%;
+     padding: 2px 25px;
+     font-size: 2em;
+     border: 2px solid #000;
+     align-self: flex-end;
+}
+.close__window {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     width: 24px;
+     height: 24px;
+     z-index: 2;
+}
+.close__window::before {
+     content: '';
+     position: absolute;
+     top: 10px;
+     right: 0;
+     width: 24px;
+     height: 4px;
+     background-color: #000;
+     transform: rotate(45deg);
+}
+.close__window::after {
+     content: '';
+     position: absolute;
+     top: 10px;
+     right: 0;
+     width: 24px;
+     height: 4px;
+     background-color: #000;
+     transform: rotate(-45deg);
+
+}
+/* .button-start {
      position: absolute;
      bottom: 50px;
      right: 50px;
@@ -27,7 +78,7 @@ html, body {
      height: 50px;
 
      font-size: 1.5em;
-}
+} */
 .progress__bar {
      position: relative;
      width: 209px;
@@ -100,7 +151,7 @@ html, body {
      right: .1vw;
      width: 53px;
      height: 125px;
-     background-image: url(./game_image/ludek3.svg);
+     background-image: url('./game_image/ludek3.svg');
      background-size: cover;
      z-index: 2;
 }
@@ -109,12 +160,12 @@ html, body {
      right: .1vw;
      width: 53px;
      height: 125px;
-     background-image: url(./game_image/ludek-1.svg);
+     background-image: url('./game_image/ludek-1.svg');
      background-size: cover;
      z-index: 2;
 }
 .game__stats{
-     margin: -36px auto;
+     /* margin: -36px auto; */
 
      height: 36px;
      width: 100%;
@@ -131,12 +182,14 @@ html, body {
      text-align: center;
      align-items: center;
 }
+.game__stats.hidden {
+     display: none;
+}
 .game__stat{
      width: 33%;
      height: 35px;
      margin: 0px 20px;
 }
-
 .progress__bar {
      position: relative;
      width: 209px; /* widen? */
@@ -186,23 +239,27 @@ html, body {
 } */
 
 .game__over__screen{
-     position: absolute;
      background-image: url('game_image/tlo_bez_napisu.svg');
+
+     /* position: absolute; */
      background-size: cover;
      background-position: center;
-     width: 100vw;
-     height: 520px;
+     width: 100%;
+     height: 100%;
      display: none;
      flex-direction: column;
      justify-content: center;
      align-items: center;
+
+     /* z-index: 5; */
+     
 }
 .game__over__screen.active {
      display: flex;
 }
 .end__game__image__text {
      z-index: 1;
-     width: 45vw;
+     width: 45%;
      height: auto;
      display: flex;
 }
@@ -220,7 +277,8 @@ html, body {
      color: #272727;
 }
 .end__game__text {
-     display: flex;
+    width: 65%;
+     /* display: flex; */
      font-size: 1.2em;
      color: #272727;
      line-height: 1.2;
@@ -252,24 +310,26 @@ html, body {
      outline: none;
 }
 
-.button-diff-easy {
+.game__button--easy {
      position: absolute;
-     bottom: 50px;
-     left: 50px;
+     bottom: 2%;
+     right: 52%;
      width: 150px;
      height: 50px;
-
      font-size: 1.5em;
+     border: 2px solid #000;
+     align-self: flex-end;
 }
 
-.button-diff-hard {
+.game__button--hard {
      position: absolute;
-     bottom: 50px;
-     left: 250px;
+     bottom: 2%;
+     left: 52%;
      width: 150px;
      height: 50px;
-
      font-size: 1.5em;
+     border: 2px solid #000;
+     align-self: flex-end;
 }
 
 .button-pressed{

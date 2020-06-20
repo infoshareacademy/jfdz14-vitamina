@@ -268,8 +268,14 @@ function checkEmail(event) {
     }
     else {
         localStorage.setItem('email', emailValue);
-        openGame();
-        closeModal();
+          currentModalHeader.innerText = "Dziękujemy.";
+          currentModalText.innerText = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę.";
+          currentModalText.style.margin = "0px";
+          modalSubmit.classList.add("hidden__form");
+          email.classList.add("hidden__form");
+          modalPermission.classList.add("hidden__form");
+          modalLabel.classList.add("hidden__form");
+          playGameButton.classList.add("active"); 
     }
 }
 
@@ -281,25 +287,16 @@ form.addEventListener('focusin', (event) => {
   function openGame() {
        const canvas = document.querySelector('.canvas');
        canvas.classList.remove('hidden');
-  
-          currentModalHeader.innerText = "Dziękujemy.";
-          currentModalText.innerText = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę.";
-          currentModalText.style.margin = "0px";
-          modalSubmit.classList.add("hidden__form");
-          email.classList.add("hidden__form");
-          modalPermission.classList.add("hidden__form");
-          modalLabel.classList.add("hidden__form");
-          playGameButton.classList.add("active"); 
-    }
+      }
 
 
 function showGame() {
      event.preventDefault();
-     window.open("/game_elements/game.html"); /*tutaj jakis odpalacz gierki*/
+     openGame();
      closeModal();
 }
 
 form.addEventListener('focusin', (event) => {   
     email.classList.remove("error");
     emailErrorText.classList.remove("error");
-  });git
+  });
