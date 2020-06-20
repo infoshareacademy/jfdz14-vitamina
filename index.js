@@ -261,13 +261,17 @@ function checkEmail(event) {
     }
     else {
         localStorage.setItem('email', emailValue);
-        window.open("/game.html"); /*tutaj jakis odpalacz gierki*/
+        openGame();
         closeModal();
     }
 }
 
-form.addEventListener('focusin', (event) => {   
+form.addEventListener('focusin', (event) => {
     email.classList.remove("error");
     emailErrorText.classList.remove("error");
   });
 
+  function openGame() {
+       const canvas = document.querySelector('.canvas');
+       canvas.classList.remove('hidden');
+  }
