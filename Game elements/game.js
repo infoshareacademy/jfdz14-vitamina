@@ -89,8 +89,8 @@ class Food {
                               if(foodRect.top > humanRect.top 
                                    && foodRect.bottom < humanRect.bottom)
                               {
-                                   console.log(foodRect);
-                                   console.log(humanRect);
+                                   // console.log(foodRect);
+                                   // console.log(humanRect);
      
                                    closeFood.push(this.food);
 
@@ -266,6 +266,7 @@ const startGame = () => {
      difficulty.changeMultiplier()  // added
      timer = new Timer();
      timer.startTimer();
+     // timer.updateMultiplier(); // remove later
      finalScoreDiv.innerText = scoreValue.value; // final score here??
      if (gameOverScreen.classList.contains("active")){
           gameOverScreen.classList.remove("active");
@@ -314,7 +315,7 @@ class progressBar {
      }
 
      resetProBar() {
-          this.value = 100;
+          this.setValue(100);
      }
 }
 
@@ -335,7 +336,8 @@ class Timer {
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
 
                if (this.totalSeconds % 8 === 0) {
-                    console.log("")
+                    difficulty.updateMultiplier();
+                    console.log(`Ticked 8 and multiplier = ${difficulty.multiplier}`)
                }
           }, 1000)
      }
@@ -350,14 +352,6 @@ class Timer {
      stopTimer() {
           clearInterval(this.timerInterval);
           this.timerDiv.innerText = null;
-     }
-
-     updateMultiplier() {
-          for (i = this.totalSeconds; i < 120; i) {
-               // this.multiplier += 0.05;
-
-               console.log("tick")
-          }        
      }
 }
 
@@ -383,7 +377,6 @@ class ScoreCounter {
 
      update() {
           this.scoreCounter.innerText = this.value;
-          console.log(this.value);
      }
 
      // updateDifficulty()  {
@@ -445,27 +438,9 @@ class Difficulty {
           this.getSpeed();
      }
 
-     // updateMultiplier() {
-     //      for (i = this.totalSeconds; i < 120; i) {
-     //           // this.multiplier += 0.05;
-
-     //           console.log("tick")
-     //      }        
-     // }
-
-   // updateDifficulty(multiplier)  {
-     //        if (scoreValue.value % 15) {
-     //        this.multiplier += 0.05;
-
-     //        console.log(this.multiplier)
-     //   }
-     // }
-
-     // scoreMultiplier = line 59;           
-     // timer.totalSeconds
-
-     
-
+     updateMultiplier() {
+          this.multiplier += 0.05;     
+     }
      
      // -------------- \/ REMOVE THIS \/ --------------
      logDiffValues() {
@@ -526,7 +501,7 @@ class Ranking {
      storeInfo() {
           this.getLocalInfo();
 
-          if (this.grabbedInfo.score == null) {
+          if (this.grabbedInfo == null) {
                console.log("Im empty")
                localStorage.setItem("Best score", JSON.stringify(this.recordedScore))
           } else if (this.grabbedInfo.score < this.playerScore) {
