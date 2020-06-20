@@ -41,6 +41,16 @@ html, body {
 .game__box.hidden {
      display: none;
 }
+.close__window {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     width: 24px;
+     height: 4px;
+     background-color: #000;
+     transform: rotate(45deg);
+
+}
 /* .button-start {
      position: absolute;
      bottom: 50px;
