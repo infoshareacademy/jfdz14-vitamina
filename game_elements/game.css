@@ -71,27 +71,26 @@ html, body {
      background-repeat: no-repeat;
      background-position: center;
 }
-
+/*
 .game__box--badfood {
-     /*
+     
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
      background-position: center; 
-     */
+     
 }
 .game__box--goodfood {
-     /*
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
      background-position: center; 
-     */
-}
+     
+}*/
 .hidden-food {
      display: none;
 }
