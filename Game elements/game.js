@@ -198,7 +198,11 @@ document.addEventListener('touchstart', function(touchScreen) {
          document.addEventListener('touchmove', function(touchMove){
 
                let availableHeight = document.querySelector(".game__box").getBoundingClientRect().height;
+
                let movementY = touchMove.touches[0].clientY;
+               
+               movementY = movementY - document.querySelector(".game__box").offsetTop;
+               
                let faceHeight = humanRect.height;
 
                let minTop = availableHeight*0.0555;
