@@ -6,6 +6,7 @@ const closeWindow = document.querySelector('.close__window');
 
 const gameOverScreen = document.querySelector('.game__over__screen');
 const finalScoreDiv = document.querySelector('.final__score');
+const bestScoreDiv = document.querySelector('.best__score');
 const buttonNewGame = document.querySelector('.button-new');
 
 let closeFood = [];
@@ -354,10 +355,10 @@ class Timer {
      }
      startTimer() {
           this.timerInterval= setInterval(() => {
-               this.totalSeconds++;
                this.seconds = this.padTimer(this.totalSeconds % 60);
                this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
+               ++this.totalSeconds;
           }, 1000)
      }
      padTimer(timeValue) {
@@ -612,6 +613,7 @@ const showGameOverScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
      gameOverScreen.classList.add("active");
      finalScoreDiv.innerText = `Czas: ${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
+     bestScoreDiv.innerText = `Najlepszy wynik: `;
      closeWindow.classList.remove('hidden');
 
      closeWindow.addEventListener('click', () => {

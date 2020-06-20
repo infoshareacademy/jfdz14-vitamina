@@ -122,27 +122,26 @@ html, body {
      background-repeat: no-repeat;
      background-position: center;
 }
-
+/*
 .game__box--badfood {
-     /*
+     
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
      background-position: center; 
-     */
+     
 }
 .game__box--goodfood {
-     /*
      position: absolute;
      width: 45px;
      height: 38px;
      background-size: contain;
      background-repeat: no-repeat;
      background-position: center; 
-     */
-}
+     
+}*/
 .hidden-food {
      display: none;
 }
@@ -281,14 +280,14 @@ html, body {
 .end__game__text {
     width: 65%;
      /* display: flex; */
-     font-size: 1.2em;
+     font-size: 1em;
      color: #272727;
      line-height: 1.2;
      text-align: center;
 }
 .full__human {
      z-index: 10;
-     width: 55vw;
+     width: 75%;
      height: auto;
      display: flex;
 }
@@ -298,18 +297,13 @@ html, body {
      margin: 8px;
      z-index: 10;
      font-size: 1.2em;
-     width: 29%;
-     height: 36px;
+     width: 150px;
+     height: 50px;
      margin: 6px 0px;
      padding: 0px;
-     background: transparent;
      border: 2px solid #272727;
-     border-radius: 10px;
      color: #272727;
      cursor: pointer;
-}
-.button-new:focus {
-     outline: none;
 }
 
 .game__button--easy {
