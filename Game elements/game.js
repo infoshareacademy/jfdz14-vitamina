@@ -248,11 +248,6 @@ const resetStats = () => {
      scoreValue.scoreCounter.innerText = 0;  // to działa
 
      myProgressBar.resetProBar();
-
-     // myProgressBar.value = 100;    // a to nie
-
-     console.log(scoreValue.value);
-     console.log(myProgressBar.value);
 }
 
 const startGame = () => {
@@ -338,6 +333,10 @@ class Timer {
                this.seconds = this.padTimer(this.totalSeconds % 60);
                this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
+
+               if (this.totalSeconds % 8 === 0) {
+                    console.log("")
+               }
           }, 1000)
      }
      padTimer(timeValue) {
@@ -351,6 +350,14 @@ class Timer {
      stopTimer() {
           clearInterval(this.timerInterval);
           this.timerDiv.innerText = null;
+     }
+
+     updateMultiplier() {
+          for (i = this.totalSeconds; i < 120; i) {
+               // this.multiplier += 0.05;
+
+               console.log("tick")
+          }        
      }
 }
 
@@ -439,7 +446,11 @@ class Difficulty {
      }
 
      // updateMultiplier() {
-     //      if ()        
+     //      for (i = this.totalSeconds; i < 120; i) {
+     //           // this.multiplier += 0.05;
+
+     //           console.log("tick")
+     //      }        
      // }
 
    // updateDifficulty(multiplier)  {
@@ -453,6 +464,10 @@ class Difficulty {
      // scoreMultiplier = line 59;           
      // timer.totalSeconds
 
+     
+
+     
+     // -------------- \/ REMOVE THIS \/ --------------
      logDiffValues() {
           console.log("----------------------------------------------------------")
           console.log(`initialValue: ${this.initialValue}`)
@@ -466,9 +481,7 @@ class Difficulty {
           console.log("----------------------------------------------------------")
 
           console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
-     }
-     
-     
+     }     
 }
 
 let difficulty = new Difficulty(1000, "easy");  //add math.round to values?
@@ -476,13 +489,14 @@ let difficulty = new Difficulty(1000, "easy");  //add math.round to values?
 difficulty.getMultipliers();    // change later?
 
 class Ranking {
-
-     constructor(time, score) {
+     constructor(time, score, info) {
           this.currentTime = time;
           this.playerScore = score;
+          this.grabbedInfo = info;
      }
 
      recordedScore = {};
+     parsedInfo = {};
      
      getScores () {
           this.currentTime = new Date().toLocaleString();
@@ -506,26 +520,19 @@ class Ranking {
      }
 
      getLocalInfo() {
-          this.storedInfo = localStorage.getItem("Best score")
-          this.parsedInfo = JSON.parse(this.storedInfo)
-
-          return this.parsedInfo
-     } //ok
+          this.grabbedInfo = JSON.parse(localStorage.getItem("Best score"));
+     }
 
      storeInfo() {
-          this.bestScore = "Best score";
+          this.getLocalInfo();
 
-          console.log(`parsed: ${this.parsedInfo} & ${this.recordedScore.score}`)
-
-
-          if (this.parsedInfo.score < this.recordedScore.score) {
-               localStorage.setItem(this.bestScore, JSON.stringify(this.recordedScore))
-          } // konsola zwraca [object Object], ale działać działa - zwiększa score w LS          
-     }          
-
-     // displayRanking() {
-
-     // }
+          if (this.grabbedInfo.score == null) {
+               console.log("Im empty")
+               localStorage.setItem("Best score", JSON.stringify(this.recordedScore))
+          } else if (this.grabbedInfo.score < this.playerScore) {
+               localStorage.setItem("Best score", JSON.stringify(this.recordedScore))
+          }    
+     }
 
      resetScore() {
           scoreValue.value = 0;
@@ -533,7 +540,7 @@ class Ranking {
 }
 
 const ranking = new Ranking();
-ranking.getLocalInfo()
+// ranking.getLocalInfo()
 
 const gameOver = () => {
      human.removeHuman();
@@ -560,7 +567,7 @@ const showGameOverScreen = () => {
           gameOverScreen.classList.remove("active");
           mainScreen.classList.remove("hidden");
 
-          // setTimeout \/
+          // setTimeout \/ ????
           showFirstScreen();
      })
 }
