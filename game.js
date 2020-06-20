@@ -1,4 +1,3 @@
-// MIKOLAJ GAME JS
 const canvas = document.querySelector('.canvas');
 const mainScreen = document.querySelector('.game__box');
 const gameStats = document.querySelector('.game__stats');
@@ -220,7 +219,7 @@ function resetGame() {
 
 
 function showFirstScreen() {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
      gameStats.classList.add('hidden');
 
      const buttonDiffEasy = document.querySelector('.game__button--easy');
@@ -258,7 +257,7 @@ let timer = new Timer();
 
 
 const startGame = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
      gameStats.classList.remove('hidden');
      scoreValue.resetScore();
      timer.resetTimer();
