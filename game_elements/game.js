@@ -34,8 +34,8 @@ class Food {
      }
 
      randomPosition() {
-          this.positionY = Math.random() * 80;
-          this.food.style.bottom = this.positionY + 2 +"%";
+          this.positionY = Math.random() * 75;
+          this.food.style.bottom = this.positionY + "%";
           this.positionY;
 
      }
@@ -170,8 +170,8 @@ class Human {
           if (this.positionY >= 395) {
                this.positionY = 395;
           }
-          if (this.positionY <= 0 ) {
-               this.positionY = 0;
+          if (this.positionY <= 20) {
+               this.positionY = 20;
           }
           this.human.style.top = this.positionY + 'px';
      }
@@ -223,7 +223,6 @@ const showFirstScreen = () => {
 
           buttonDiffEasy.remove(); //added after buttonStart removal
           buttonDiffHard.remove(); //added after buttonStart removal
-          closeWindow.classList.add('hidden');
 
           startGame(); //added after buttonStart removal
      })
@@ -238,17 +237,14 @@ const showFirstScreen = () => {
 
           buttonDiffEasy.remove(); //added after buttonStart removal
           buttonDiffHard.remove(); //added after buttonStart removal
-          closeWindow.classList.add('hidden');
 
           startGame(); //added after buttonStart removal
      })
 
-     closeWindow.addEventListener('click', () => {
-          canvas.classList.add('hidden');
-     })
+     closeWindow.addEventListener('click', closeCanvas )
 }
 
-const human = new Human();
+const human = new Human(20);
 
 /*human.createHumanElement();
 human.humanPositionY();
@@ -630,4 +626,8 @@ const showGameOverScreen = () => {
           // setTimeout \/
           showFirstScreen();
      })
+}
+
+function closeCanvas() {
+     canvas.classList.add('hidden');
 }
