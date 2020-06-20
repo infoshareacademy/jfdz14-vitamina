@@ -33,10 +33,10 @@ html, body {
 }
 .progress__bar {
      position: relative;
-     width: 209px;
-     height: 35px;
-     margin-top: 4px;
-     margin-bottom: 15px;
+     width: 100%;
+     height: 100%;
+     /* margin-top: 4px;
+     margin-bottom: 15px; */
 
 }
 
@@ -117,9 +117,10 @@ html, body {
      z-index: 2;
 }
 .game__stats{
-     margin: -36px auto;
+     /* margin: -36px auto; */
 
-     height: 36px;
+     height: 5.5%;
+     min-height: 35px;
      width: 100%;
 
      background-color: #5E717A;
@@ -249,6 +250,7 @@ html, body {
      display: flex;
      flex-wrap: nowrap;
 
+     justify-content: center;
 }
 
 .button-diff-easy {

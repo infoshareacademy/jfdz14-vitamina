@@ -247,7 +247,7 @@ const resetStats = () => {
      ranking.resetScore();
      scoreValue.scoreCounter.innerText = 0;  // to działa
 
-     myProgressBar.resetProBar()
+     myProgressBar.resetProBar();
 
      // myProgressBar.value = 100;    // a to nie
 
@@ -319,7 +319,7 @@ class progressBar {
      }
 
      resetProBar() {
-          this.newValue = 100;
+          this.value = 100;
      }
 }
 
@@ -441,7 +441,18 @@ class Difficulty {
      // updateMultiplier() {
      //      if ()        
      // }
-   
+
+   // updateDifficulty(multiplier)  {
+     //        if (scoreValue.value % 15) {
+     //        this.multiplier += 0.05;
+
+     //        console.log(this.multiplier)
+     //   }
+     // }
+
+     // scoreMultiplier = line 59;           
+     // timer.totalSeconds
+
      logDiffValues() {
           console.log("----------------------------------------------------------")
           console.log(`initialValue: ${this.initialValue}`)
@@ -457,16 +468,7 @@ class Difficulty {
           console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
      }
      
-     // updateDifficulty(multiplier)  {
-     //        if (scoreValue.value % 15) {
-     //        this.multiplier += 0.05;
-
-     //        console.log(this.multiplier)
-     //   }
-     // }
-
-     // scoreMultiplier = line 59;           
-     // timer.totalSeconds
+     
 }
 
 let difficulty = new Difficulty(1000, "easy");  //add math.round to values?
