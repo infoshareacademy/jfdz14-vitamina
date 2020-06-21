@@ -53,17 +53,12 @@ class Food {
                          if(foodRect.top > humanRect.top 
                               && foodRect.bottom < humanRect.bottom)
                          {
-                              // console.log("Eaten: "+this.foodType);
-                              // // food was eaten
-
                               if (this.foodType == 'good') {
-                                   console.log('good food was eaten')
+                                   // console.log('good food was eaten')  // wykomentowane
                                    scoreValue.increaseScore(1)  // replace one with variable and add difficulty setting?
                               } else if(this.foodType == 'bad') {
 
-                                   myProgressBar.consumeFood(-20); // junk food penalty
-                                   // odejmowanie zycia
-                                   // console.log ('bad food was eaten')
+                                   myProgressBar.consumeFood(-20); 
                               }
                          }
 
@@ -80,12 +75,10 @@ class Food {
                     }
                     if (this.positionX <= 100) {
                          this.food.style.left = this.positionX + "%";
-                         this.positionX += difficulty.multiplierSpeed; //added multiplier // NaN!!!
+                         this.positionX += difficulty.multiplierSpeed; //added multiplier
                          
                          if(this.positionX > 90 && !this.openedMouth)
                          {
-                              //check if Y pos is same as human
-
                               let foodRect = this.food.getBoundingClientRect();
                               let humanRect = human.human.getBoundingClientRect();
 
@@ -93,16 +86,12 @@ class Food {
                               if(foodRect.top > humanRect.top 
                                    && foodRect.bottom < humanRect.bottom)
                               {
-                                   console.log(foodRect);
-                                   console.log(humanRect);
-     
                                    closeFood.push(this.food);
 
                                    human.humanOpenMouth();
                                    this.openedMouth = true;
                               }
                          }
-                         //console.log("PosY: "+this.positionY+"New pos X: "+this.positionX);
                     }
                }, 50);
      }
@@ -121,9 +110,6 @@ class Food {
           let choiceFood = Math.floor(Math.random() * badFood.length);
           let number = Math.random() * 100;
 
-          // if (number > 100) {                    // if changing food ratio is added
-          //        number = 100;
-          // }
           if (number > 50 && number < 100) {
                this.foodType = "bad";
                this.food.classList.add('game__box--badfood');
@@ -134,7 +120,7 @@ class Food {
                this.food.classList.add('game__box--goodfood');
                this.food.classList.add("game--food")
                this.food.style.backgroundImage = goodFood[choiceFood];
-          } // removed useless setting
+          }
      }
 
      initializeFood() {
@@ -189,7 +175,7 @@ class Human {
      humanOpenMouth() {
           if (!this.human.classList.contains('active')) { 
                this.human.classList.add('active');
-               console.log("Opening mouth");
+               // console.log("Opening mouth");   //wykomentowane
           };
      }
     removeHuman() {
@@ -202,7 +188,6 @@ const showFirstScreen = () => {
 
      const buttonDiffEasy = document.createElement('button');
      buttonDiffEasy.classList.add('game__button--easy');
-     // buttonDiffEasy.classList.add('button-pressed')
      buttonDiffEasy.textContent = "Easy mode";
      mainScreen.appendChild(buttonDiffEasy);
 
@@ -220,12 +205,12 @@ const showFirstScreen = () => {
           difficulty.difficultySetting = "easy"
           difficulty.changeMultiplier();
 
-          difficulty.logDiffValues(); // remove later
+          // difficulty.logDiffValues(); // remove later
 
-          buttonDiffEasy.remove(); //added after buttonStart removal
-          buttonDiffHard.remove(); //added after buttonStart removal
+          buttonDiffEasy.remove(); 
+          buttonDiffHard.remove(); 
 
-          startGame(); //added after buttonStart removal
+          startGame(); 
      })
      buttonDiffHard.addEventListener("click", () => {
           buttonDiffHard.classList.add('button-pressed');
@@ -234,12 +219,12 @@ const showFirstScreen = () => {
           difficulty.difficultySetting = "hard";
           difficulty.changeMultiplier();
 
-          difficulty.logDiffValues(); // remove later
+          // difficulty.logDiffValues(); // remove later
 
-          buttonDiffEasy.remove(); //added after buttonStart removal
-          buttonDiffHard.remove(); //added after buttonStart removal
+          buttonDiffEasy.remove();
+          buttonDiffHard.remove();
 
-          startGame(); //added after buttonStart removal
+          startGame();
      })
 
      closeWindow.addEventListener('click', closeCanvas )
@@ -247,10 +232,6 @@ const showFirstScreen = () => {
 
 const human = new Human(20);
 
-/*human.createHumanElement();
-human.humanPositionY();
-randomFoodCreate();
-*/
 const startGame = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
      gameStats.classList.remove('hidden');
@@ -259,30 +240,11 @@ const startGame = () => {
 
      const randomFoodCreate = () => {
 
-          // let multiplierFoodSpawnHolder = difficulty.multiplierFoodSpawn;
-          // console.log(difficulty.multiplierFoodSpawn);
-
           foodInterval = setInterval(() => {
                food = new Food();
                food.initializeFood();
 
-               
-               // console.log("Type of this.initialValue" + ": " + typeof difficulty.initialValue)
-               // console.log("Type of this.multiplier" + ": " + typeof difficulty.multiplier)
-               // console.log("Type of this.difficultySetting" + ": " + typeof difficulty.difficultySetting)
-
-               // console.log("---")
-
-               // console.log("Type of this.multiplierFoodRatio" + ": " + typeof difficulty.multiplierFoodRatio)
-               // console.log("Type of this.multiplierFoodSpawn" + ": " + typeof difficulty.multiplierFoodSpawn)
-               // console.log("Type of this.multiplierSpeed" + ": " + typeof difficulty.multiplierSpeed)
-                 
-               // console.log("----------------------------------------------------------")
-
-          }, difficulty.multiplierFoodSpawn); // added difficulty multiplier
-
-          // console.log(difficulty.multiplierFoodSpawn);     // HERE ITS NOT A NUMBER
-
+          }, difficulty.multiplierFoodSpawn); 
      }
      human.createHumanElement();
      human.humanPositionY();
@@ -299,7 +261,7 @@ const startGame = () => {
           mainScreen.classList.remove("hidden");
      }
 
-     difficulty.logDiffValues();
+     difficulty.logDiffValues(); // wykomentuj
 
 }
 
@@ -359,6 +321,13 @@ class Timer {
                this.minutes = this.padTimer(parseInt(this.totalSeconds / 60));
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
                ++this.totalSeconds;
+
+               if (this.totalSeconds % 8 === 0) {
+                    difficulty.updateMultiplier();
+                    console.log(`Ticked 8 and multiplier = ${difficulty.multiplier} 
+                    food speed: ${difficulty.multiplierSpeed}
+                    food spawn ratio: ${difficulty.multiplierFoodSpawn}`)
+               }
           }, 1000)
      }
      padTimer(timeValue) {
@@ -376,7 +345,6 @@ class Timer {
 }
 
 class ScoreCounter {   
-     // scoreValue = this.value <- to sobie tutaj jest
 
      constructor(scoreCounter, initialValue) {
           this.scoreCounter = document.querySelector(".score__counter");
@@ -386,40 +354,30 @@ class ScoreCounter {
      }
 
      setScore(scoreValue) {
-          this.value = scoreValue;
+          this.value = Math.round(scoreValue * 100) / 100;
           this.update();
      }
 
      increaseScore(changeValue) {
           let currentValue = this.value;
-          let scoreValue = currentValue + changeValue;
-          this.setScore(scoreValue)
-          // this.scoreCounter.value += changeValue; // hmm what the hell is this?
+          let scoreValue = currentValue + (changeValue * difficulty.multiplier);
+          this.setScore(scoreValue);
      }
 
      update() {
           this.scoreCounter.innerText = this.value;
-          console.log(this.value);
      }
 
      resetScore() {
           this.setScore(0);
      }
-
-     // updateDifficulty()  {
-     //      if (this.value % 15) {
-     //           difficulty.multiplier += 0.05;
-
-     //           console.log(difficulty.multiplier)
-     //      }
-     // }             // remove later???
 }
 
 let scoreValue = new ScoreCounter(document.querySelector(".score__counter"), 0)
 
 class Difficulty {
 
-     constructor(initialValue, difficultySetting) { // add initialValue
+     constructor(initialValue, difficultySetting) { // added initialValue
           
           this.difficultySetting = difficultySetting;
           this.initialValue = initialValue; 
@@ -433,26 +391,19 @@ class Difficulty {
 
      changeMultiplier() {
           if (this.difficultySetting == "easy") {
-               this.multiplier = 1.25;
-
-               // let difficulty = new Difficulty(1000, "easy");
-
+               this.multiplier = 1.5;
                this.getMultipliers();
 
           } else if (this.difficultySetting == "hard"){
-               this.multiplier = 1.75;
-
-               // let difficulty = new Difficulty(1000, "hard");
-
+               this.multiplier = 2; // modified multiplier
                this.getMultipliers();
-
           }
      }
 
 
      multiplierFoodRatio = this.initialValue * this.multiplier;
      multiplierFoodSpawn = this.initialValue / this.multiplier;
-     multiplierSpeed = 0.4;                                               // is this even needed???
+     multiplierSpeed = 0.4;
 
      getInitialValue() {
           return this.initialValue;
@@ -477,9 +428,10 @@ class Difficulty {
           this.getSpeed();
      }
 
-     // updateMultiplier() {
-     //      if ()        
-     // }
+     updateMultiplier() {
+          this.multiplier += 0.05;    
+          this.getMultipliers(); 
+     }
    
      logDiffValues() {
           console.log("----------------------------------------------------------")
@@ -493,7 +445,7 @@ class Difficulty {
           console.log(`multiplierSpeed: ${this.multiplierSpeed}`);        
           console.log("----------------------------------------------------------")
 
-          console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
+          // console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
      }
      
      // updateDifficulty(multiplier)  {
@@ -544,29 +496,26 @@ class Ranking {
 
      logInfo() {
           console.log(this.recordedScore)
-     }
+     } // remove
 
      getLocalInfo() {
-          this.storedInfo = localStorage.getItem("Best score")
-          this.parsedInfo = JSON.parse(this.storedInfo)
-
-          return this.parsedInfo
-     } //ok
+          this.grabbedInfo = JSON.parse(localStorage.getItem("Best score"));
+     }
 
      storeInfo() {
-          this.bestScore = "Best score";
+          this.getLocalInfo();
 
-          console.log(`parsed: ${this.parsedInfo} & ${this.recordedScore.score}`)
+          if (this.grabbedInfo == null) {
+               localStorage.setItem("Best score", JSON.stringify(this.recordedScore))
+          } else if (this.grabbedInfo.score < this.playerScore) {
+               localStorage.setItem("Best score", JSON.stringify(this.recordedScore))
+          }    
+     }
 
+     resetScore() {
+          scoreValue.value = 0;
+     }        
 
-          if (this.parsedInfo.score < this.recordedScore.score) {
-               localStorage.setItem(this.bestScore, JSON.stringify(this.recordedScore))
-          } // konsola zwraca [object Object], ale działać działa - zwiększa score w LS          
-     }          
-
-     // displayRanking() {
-
-     // }
 }
 const removeFoodHard = () => {
      const badFoodHard = document.querySelectorAll('.game__box--badfood');
