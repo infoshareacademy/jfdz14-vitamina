@@ -1,5 +1,6 @@
 const cookie = document.querySelector('.cookie');
 const cookieButton = document.querySelector('.cookie__button');
+const buttonPlayAgain = document.querySelector('.play__game__again');
 
 function addCookie(cookieKey) {
      localStorage.setItem(cookieKey, 'yes');
@@ -15,6 +16,7 @@ cookieButton.addEventListener('click', () => {
      addCookie('cookieAccept')
      cookie.classList.add('hidden');
 })
+localStorage.removeItem('cookieAccept');
 
 // burger menu mobile
 
@@ -299,3 +301,8 @@ form.addEventListener('focusin', (event) => {
     email.classList.remove("error");
     emailErrorText.classList.remove("error");
   });
+
+
+buttonPlayAgain.addEventListener('click', () => {
+     canvas.classList.remove('hidden');
+})
