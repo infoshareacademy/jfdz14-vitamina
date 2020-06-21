@@ -278,8 +278,11 @@ html, body {
      color: #272727;
 }
 .end__game__text {
-    width: 65%;
+     width: 65%;
+     margin: 15px 0px;
+
      /* display: flex; */
+
      font-size: 1em;
      color: #272727;
      line-height: 1.2;
@@ -308,7 +311,7 @@ html, body {
 
 .game__button--easy {
      position: absolute;
-     bottom: 2%;
+     bottom: 3%;
      right: 52%;
      width: 150px;
      height: 50px;
@@ -319,7 +322,7 @@ html, body {
 
 .game__button--hard {
      position: absolute;
-     bottom: 2%;
+     bottom: 3%;
      left: 52%;
      width: 150px;
      height: 50px;

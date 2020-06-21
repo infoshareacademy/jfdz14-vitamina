@@ -182,10 +182,8 @@ class Human {
           this.human.remove();
      }
 }
-const showFirstScreen = () => {
-     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
-     gameStats.classList.add('hidden');
 
+const createStartButtons = () => {
      const buttonDiffEasy = document.createElement('button');
      buttonDiffEasy.classList.add('game__button--easy');
      buttonDiffEasy.textContent = "Easy mode";
@@ -207,7 +205,7 @@ const showFirstScreen = () => {
 
           // difficulty.logDiffValues(); // remove later
 
-          buttonDiffEasy.remove(); 
+          buttonDiffEasy.remove(); // this.remove??
           buttonDiffHard.remove(); 
 
           startGame(); 
@@ -226,6 +224,13 @@ const showFirstScreen = () => {
 
           startGame();
      })
+}
+
+const showFirstScreen = () => {
+     mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
+     gameStats.classList.add('hidden');
+
+     createStartButtons();
 
      closeWindow.addEventListener('click', closeCanvas )
 }
@@ -253,7 +258,7 @@ const startGame = () => {
      difficulty.changeMultiplier()  // added
      timer = new Timer();
      timer.startTimer();
-     finalScoreDiv.innerText = scoreValue.value; // final score here??
+     // finalScoreDiv.innerText = scoreValue.value; // final score here??
      if (gameOverScreen.classList.contains("active")){
           gameOverScreen.classList.remove("active");
      }
@@ -360,7 +365,7 @@ class ScoreCounter {
 
      increaseScore(changeValue) {
           let currentValue = this.value;
-          let scoreValue = currentValue + (changeValue * difficulty.multiplier);
+          let scoreValue = currentValue + (changeValue * difficulty.multiplier); // this can be modified to increase scoring multiplier
           this.setScore(scoreValue);
      }
 
@@ -550,33 +555,36 @@ const gameOver = () => {
      removeFoodHard();
      clearInterval(foodInterval);
      // mainScreen.classList.add("hidden");
-     showGameOverScreen();
 
      ranking.updateScore();
      ranking.getLocalInfo();
      ranking.storeInfo();
+
+     showGameOverScreen();
 }
 
 const showGameOverScreen = () => {
      gameStats.classList.add('hidden');
      mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
      gameOverScreen.classList.add("active");
+
      finalScoreDiv.innerText = `Czas: ${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
-     bestScoreDiv.innerText = `Najlepszy wynik: `;
+     ranking.getLocalInfo();
+     bestScoreDiv.innerText = `Najlepszy wynik: ${ranking.grabbedInfo.score}`;
+
      closeWindow.classList.remove('hidden');
 
      closeWindow.addEventListener('click', () => {
           canvas.classList.add('hidden');
      })
-     // może by to ^ jakoś ostylować?
 
-     buttonNewGame.addEventListener('click', () => {
-          gameOverScreen.classList.remove("active");
-          // mainScreen.classList.remove("hidden");
+     createStartButtons();
 
-          // setTimeout \/
-          showFirstScreen();
-     })
+     // buttonNewGame.addEventListener('click', () => {
+     //      gameOverScreen.classList.remove("active");
+     //      // mainScreen.classList.remove("hidden");
+     //      showFirstScreen();
+     // })
 }
 
 function closeCanvas() {
