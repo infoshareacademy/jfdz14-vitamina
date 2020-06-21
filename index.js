@@ -150,8 +150,7 @@ window.addEventListener('scroll', () => {
      } else {
           arrowToTop.classList.add('hidden');
      };
-
-     // clearTimeout(navbarShowTimer);
+     
 });
 
 if(window.location.hash == "")

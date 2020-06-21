@@ -45,7 +45,19 @@ class Food {
 
           this.runningInterval = 
                setInterval(() => {
-                    if (this.positionX >= 95) {
+                    this.positionX += difficulty.multiplierSpeed; //added multiplier
+
+
+                    let gameWidth = window.getComputedStyle(document.querySelector(".game__box")).width;
+                    gameWidth = gameWidth.replace('px', '');
+
+                    let foodWidth = window.getComputedStyle(this.food).width;
+                    foodWidth = foodWidth.replace('px', '');
+
+                    let foodWidthInPercent = 100/(gameWidth/foodWidth);
+
+
+                    if (this.positionX >= (97 - foodWidthInPercent)) {
 
                          let foodRect = this.food.getBoundingClientRect();
                          let humanRect = human.human.getBoundingClientRect();
@@ -74,10 +86,12 @@ class Food {
                          
                     }
                     if (this.positionX <= 100) {
-                         this.food.style.left = this.positionX + "%";
-                         this.positionX += difficulty.multiplierSpeed; //added multiplier
                          
-                         if(this.positionX > 90 && !this.openedMouth)
+                         this.food.style.left = this.positionX + "%";
+                         
+
+                         
+                         if(this.positionX > (90 - foodWidthInPercent) && !this.openedMouth)
                          {
                               let foodRect = this.food.getBoundingClientRect();
                               let humanRect = human.human.getBoundingClientRect();
@@ -225,19 +239,59 @@ const createStartButtons = () => {
           startGame();
      })
 }
+const human = new Human(20);
+document.addEventListener('touchstart', function(touchScreen) {
+     clientX = touchScreen.touches[0].clientX;
+     clientY = touchScreen.touches[0].clientY;
 
+     if(typeof(human.human) === "undefined")
+     {
+          return;
+     }
+     let humanRect = human.human.getBoundingClientRect();
+
+     if (clientX > humanRect.left && clientX < humanRect.right && clientY < humanRect.bottom && clientY > humanRect.top) {
+         document.addEventListener('touchmove', function(touchMove){
+
+               let availableHeight = document.querySelector(".game__box").getBoundingClientRect().height;
+               let movementY = touchMove.touches[0].clientY;
+               let faceHeight = humanRect.height;
+
+               let minTop = availableHeight*0.0555;
+               let maxTop = availableHeight-faceHeight;
+
+               if(movementY > minTop && movementY < maxTop)
+               {
+                    human.human.style.top = movementY + 'px';
+               }
+               else if(movementY > maxTop)
+               {
+                    human.human.style.top = maxTop + 'px';
+               }
+               else if(movementY < minTop)
+               {
+                    human.human.style.top = minTop + 'px';
+               }
+         })
+     }
+}, false);
+
+//touch movement
 const showFirstScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-1.svg)';
      gameStats.classList.add('hidden');
+
+     
 
      createStartButtons();
 
      closeWindow.addEventListener('click', closeCanvas )
 }
 
-const human = new Human(20);
+
 
 const startGame = () => {
+     document.body.style.overflowY = "hidden";
      mainScreen.style.backgroundImage = 'url(./game_image/screen-2.svg)';
      gameStats.classList.remove('hidden');
      scoreValue.resetScore();
@@ -578,6 +632,7 @@ const showGameOverScreen = () => {
           canvas.classList.add('hidden');
      })
 
+     
      createStartButtons();
 
      // buttonNewGame.addEventListener('click', () => {
@@ -602,6 +657,7 @@ function isLandscapeOriented()
 
 function closeCanvas() {
      canvas.classList.add('hidden');
+     document.body.style.overflowY = "initial";
 }
 
 const checkWidthGame = function() {
@@ -614,6 +670,7 @@ const checkWidthGame = function() {
           changeBackgroundColor(true);
           nonLandscapeWarning.style.display = "none";
           gameDiv.style.display = "block";
+
      }
      else {
           changeBackgroundColor(false);

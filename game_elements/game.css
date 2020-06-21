@@ -290,7 +290,7 @@ html, body {
 }
 .full__human {
      z-index: 10;
-     width: 75%;
+     width: 25%;
      height: auto;
      display: flex;
 }
