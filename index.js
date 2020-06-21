@@ -303,6 +303,6 @@ form.addEventListener('focusin', (event) => {
   });
 
 
-buttonPlayAgain.addEventListener('click', () => {
-     canvas.classList.remove('hidden');
-})
+// buttonPlayAgain.addEventListener('click', () => {
+//      canvas.classList.remove('hidden');
+// })
