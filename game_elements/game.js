@@ -587,6 +587,54 @@ const showGameOverScreen = () => {
      // })
 }
 
+function isLandscapeOriented()
+{
+     let windowWidth = window.innerWidth;
+     let windowHeight = window.innerHeight;
+
+     if(windowWidth > windowHeight)
+     {
+          return true;
+     }
+
+     return false;
+}
+
 function closeCanvas() {
      canvas.classList.add('hidden');
+}
+
+const checkWidthGame = function() {
+
+     let nonLandscapeWarning = document.querySelector("#non-landscape-warning");
+     let gameDiv = document.querySelector(".game__box");
+
+     if(isLandscapeOriented()) {
+
+          changeBackgroundColor(true);
+          nonLandscapeWarning.style.display = "none";
+          gameDiv.style.display = "block";
+     }
+     else {
+          changeBackgroundColor(false);
+          gameDiv.style.display = "none";
+          nonLandscapeWarning.style.display = "block";
+     }
+}
+checkWidthGame();
+document.body.onresize = function() {
+     checkWidthGame();
+}
+
+function changeBackgroundColor(transparency) {
+     let backgroundColor = window.getComputedStyle(canvas).backgroundColor;
+
+     if(transparency) {
+          backgroundColor = backgroundColor.replace("1)", "0.8)");
+     }
+     else {
+          backgroundColor = backgroundColor.replace("0.8)", "1)");
+     }
+
+     canvas.style.backgroundColor = backgroundColor;
 }
