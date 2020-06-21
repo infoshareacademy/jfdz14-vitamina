@@ -1,6 +1,6 @@
 const cookie = document.querySelector('.cookie');
 const cookieButton = document.querySelector('.cookie__button');
-const buttonPlayAgain = document.querySelector('.play__game__again');
+// const buttonPlayAgain = document.querySelector('.play__game__again');
 
 function addCookie(cookieKey) {
      localStorage.setItem(cookieKey, 'yes');
