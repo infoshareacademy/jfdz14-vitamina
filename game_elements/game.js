@@ -2,6 +2,7 @@ const canvas = document.querySelector('.canvas');
 const mainScreen = document.querySelector('.game__box');
 const gameStats = document.querySelector('.game__stats');
 const closeWindow = document.querySelector('.close__window');
+const buttonPlayAgain = document.querySelector('.play__game__again');
 
 
 const gameOverScreen = document.querySelector('.game__over__screen');
@@ -83,7 +84,7 @@ class Food {
                          {
                               human.humanCloseMouth();
                          }
-                         
+
                     }
                     if (this.positionX <= 100) {
                          
@@ -695,3 +696,7 @@ function changeBackgroundColor(transparency) {
 
      canvas.style.backgroundColor = backgroundColor;
 }
+
+buttonPlayAgain.addEventListener('click', () => {
+     canvas.classList.remove('hidden');
+})
