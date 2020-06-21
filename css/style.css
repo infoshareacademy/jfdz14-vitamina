@@ -256,6 +256,26 @@ color: var(--font-color);
   color: var(--secondary-color);
   font-weight: 900;
 } */
+.page__version__button {
+  position: absolute;
+  top: 11px;
+  left: 60px;
+  text-align: center;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.page__version__button a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+.page__version__button:hover {
+  border: 1px solid #0098c9;
+  border-radius: 5px;
+}
 .navigation__logo {
   position: absolute;
   height: 50px;
@@ -886,12 +906,16 @@ color: var(--font-color);
   .navigation__burger__checkbox {
     display: none;
   }
+  .page__version__button {
+    top: 16px;
+    left: 96%;
+  }
   .navigation__logo {
     margin: 5px;
     align-self: flex-start;
   }
   .navigation__menu, .navigation.active .navigation__menu {
-    margin: 10px;
+    margin: 10px 3% 10px 10px;;
     padding: 0 16px 0 2px;
     background: transparent;
 
