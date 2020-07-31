@@ -268,7 +268,7 @@ function checkEmail(event) {
         email.classList.add('error');
     }
     else {
-        localStorage.setItem('email', emailValue);
+          localStorage.setItem('email', emailValue);
           currentModalHeader.innerText = "Dziękujemy.";
           currentModalText.innerText = "Mamy dla Ciebie niespodziankę! Wczuj się w Vitamena i zagraj w naszą krótką grę.";
           currentModalText.style.margin = "0px";
@@ -277,6 +277,11 @@ function checkEmail(event) {
           modalPermission.classList.add("hidden__form");
           modalLabel.classList.add("hidden__form");
           playGameButton.classList.add("active"); 
+
+          if (document.documentElement.lang == "en") {
+               currentModalHeader.innerText = "Thank you.";
+               currentModalText.innerText = "We have a surprise for you. Play a short game and feel like Vitaman";
+          }
     }
 }
 

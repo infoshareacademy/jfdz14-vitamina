@@ -309,19 +309,16 @@ const startGame = () => {
      human.humanPositionY();
      randomFoodCreate();
 
-     difficulty.changeMultiplier()  // added
+     difficulty.changeMultiplier()  
      timer = new Timer();
      timer.startTimer();
-     // finalScoreDiv.innerText = scoreValue.value; // final score here??
      if (gameOverScreen.classList.contains("active")){
           gameOverScreen.classList.remove("active");
      }
      if (mainScreen.classList.contains("hidden")){
           mainScreen.classList.remove("hidden");
      }
-
-     difficulty.logDiffValues(); // wykomentuj
-
+     difficulty.logDiffValues();
 }
 
 const newGame = showFirstScreen();
@@ -381,6 +378,10 @@ class Timer {
                this.timerDiv.innerText = 'Czas: ' + this.minutes + ':' + this.seconds;
                ++this.totalSeconds;
 
+               if (document.documentElement.lang == "en") {
+                    this.timerDiv.innerText = 'Time: ' + this.minutes + ':' + this.seconds;
+               }
+
                if (this.totalSeconds % 8 === 0) {
                     difficulty.updateMultiplier();
                     console.log(`Ticked 8 and multiplier = ${difficulty.multiplier} 
@@ -417,9 +418,10 @@ class ScoreCounter {
           this.update();
      }
 
+     // this can be modified to increase scoring multiplier  \/
      increaseScore(changeValue) {
           let currentValue = this.value;
-          let scoreValue = currentValue + (changeValue * difficulty.multiplier); // this can be modified to increase scoring multiplier
+          let scoreValue = currentValue + (changeValue * difficulty.multiplier); 
           this.setScore(scoreValue);
      }
 
@@ -436,7 +438,7 @@ let scoreValue = new ScoreCounter(document.querySelector(".score__counter"), 0)
 
 class Difficulty {
 
-     constructor(initialValue, difficultySetting) { // added initialValue
+     constructor(initialValue, difficultySetting) { 
           
           this.difficultySetting = difficultySetting;
           this.initialValue = initialValue; 
@@ -453,8 +455,10 @@ class Difficulty {
                this.multiplier = 1.5;
                this.getMultipliers();
 
+          // this can be modified to increase scoring multiplier  \/
+
           } else if (this.difficultySetting == "hard"){
-               this.multiplier = 2; // modified multiplier
+               this.multiplier = 2;
                this.getMultipliers();
           }
      }
@@ -503,28 +507,12 @@ class Difficulty {
           console.log(`multiplierFoodSpawn: ${this.multiplierFoodSpawn}`);
           console.log(`multiplierSpeed: ${this.multiplierSpeed}`);        
           console.log("----------------------------------------------------------")
-
-          // console.log("Type of this.initialValue" + ": " + typeof this.initialValue)
      }
-     
-     // updateDifficulty(multiplier)  {
-     //        if (scoreValue.value % 15) {
-     //        this.multiplier += 0.05;
-
-     //        console.log(this.multiplier)
-     //   }
-     // }
-
-     // scoreMultiplier = line 59;           
-     // timer.totalSeconds
 }
 
-let difficulty = new Difficulty(1000, "easy");  //add math.round to values?
+let difficulty = new Difficulty(1000, "easy");  
 
-difficulty.getMultipliers();    // change later?
-
-// difficulty.diffSetting();
-// scoreValue.updateDifficulty();
+difficulty.getMultipliers();
 
 class Ranking {
 
@@ -593,11 +581,6 @@ const removeHumanHard = () => {
      humanHard.remove();
 }
 
-///Koniec rozmowy na czacie
-///Wpisz wiadomość...
-
-
-
 const ranking = new Ranking();
 ranking.getLocalInfo()
 
@@ -608,7 +591,6 @@ const gameOver = () => {
      food.removeFood();
      removeFoodHard();
      clearInterval(foodInterval);
-     // mainScreen.classList.add("hidden");
 
      ranking.updateScore();
      ranking.getLocalInfo();
@@ -622,24 +604,22 @@ const showGameOverScreen = () => {
      mainScreen.style.backgroundImage = 'url(./game_image/screen-3.svg)';
      gameOverScreen.classList.add("active");
 
-     finalScoreDiv.innerText = `Czas: ${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
+     finalScoreDiv.innerText = `${timer.minutes}:${timer.seconds} Punkty: ${scoreValue.value}`;
      ranking.getLocalInfo();
      bestScoreDiv.innerText = `Najlepszy wynik: ${ranking.grabbedInfo.score}`;
+
+     if (document.documentElement.lang == "en") {
+          document.querySelector('.best__score').innerText = `Best score: ${ranking.grabbedInfo.score}`
+          document.querySelector('.final__score').innerText = `${timer.minutes}:${timer.seconds} Score: ${scoreValue.value}`;
+     }
 
      closeWindow.classList.remove('hidden');
 
      closeWindow.addEventListener('click', () => {
           canvas.classList.add('hidden');
      })
-
      
      createStartButtons();
-
-     // buttonNewGame.addEventListener('click', () => {
-     //      gameOverScreen.classList.remove("active");
-     //      // mainScreen.classList.remove("hidden");
-     //      showFirstScreen();
-     // })
 }
 
 function isLandscapeOriented()
@@ -651,7 +631,6 @@ function isLandscapeOriented()
      {
           return true;
      }
-
      return false;
 }
 
