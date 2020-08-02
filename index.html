@@ -25,25 +25,24 @@
             <div class="modal__img"></div>
             <button class="modal__close">&times;</button>
             <article class="modal__content">
-                <h1 class="modal__title">Bądź pierwszy.</h1>
-                <p class="modal__text">Zapisz się do Newslettera aby jako pierwszy dowiedziec się o premierze 
-                    <span class="modal__text modal__text--bold">VITAMINY.</span> </p>
+                <h1 class="modal__title" id="modal-text-1" data-reload>Bądź pierwszy.</h1>
+                <p class="modal__text" id="modal-text-2">Zapisz się do Newslettera aby jako pierwszy dowiedziec się o premierze <b>VITAMINY</b></p>
                 <form method="post" class="modal__form">
-                    <input class="modal__email" type="email" name="email" placeholder="Tutaj wpisz swojego maila">
-                    <button class="modal__submit" type="submit">Zapisz się</button><br>
-                    <button class="modal__play__game" type="submit">Zagraj w naszą grę</button>
-                    <span class="modal__email__error__text">Nieprawidłowy adres email. <br></span>
-                    <label class="modal__label"><span class="modal__label--bold">Psst!</span> Tak samo jak ty nie lubimy spamu, dlatego wyślemy Ci 
-                        <span class="modal__label--bold">tylko jedną</span> wiadomość w dniu premiery.</label>
+                    <input class="modal__email" type="email" name="email" id="modal-text-input" placeholder="Tutaj wpisz swojego maila">
+                    <button class="modal__submit" type="submit" id="modal-text-button">Zapisz się</button><br>
+                    <button class="modal__play__game" type="submit" id="modal-text-game-button">Zagraj w naszą grę</button>
+                    <span class="modal__email__error__text" id="modal-text-incorrect-email">Nieprawidłowy adres email. <br></span>
+                    <label class="modal__label" id="modal-text-nospam"><b>Psst!</b>Tak samo jak ty nie lubimy spamu, dlatego wyślemy Ci 
+                        <b>tylko jedną</b> wiadomość w dniu premiery.</label>
                 </form>
-                <p class="modal__permission">*Zapisując się do naszego Newslettera zgadzasz się na przetwarzanie Twoich danych w celach marketingowych.</p>
+                <p class="modal__permission" id="modal-text-permission">*Zapisując się do naszego Newslettera zgadzasz się na przetwarzanie Twoich danych w celach marketingowych.</p>
             </article>
         </section>
     </div>
     <a href="#home" class="navigation__menu__list__link"></a>
     <div class="linkLoc" id="home"></div>
 
-    <div class="canvas hidden"> <!--removed hidden ADD IT!-->
+    <div class="canvas hidden">
         <h3 id="non-landscape-warning" style= "display: none; padding: 10px; color: #FFF; text-align: center;">If you'd like to play the game, please rotate your device to horizontal position.</h3>
         <div class="game__box">
 		    <div class="game__stats">
@@ -57,7 +56,7 @@
 
                 <div class="timer game__stat"></div>
 
-                <div class="game__score game__stat">
+                <div class="game__score game__stat" id="game-proper-score">
                     Wynik: <span class="score__counter"></span>
                 </div>
 		    </div>
@@ -66,7 +65,7 @@
                 <img class="end__game__image__text" src="./game_elements/game_image/koniec_gry.svg">
                 <div class="final__score"></div>
                 <div class="best__score"></div>
-                <div class="end__game__text">Vitamen się najdał niezdrowego jedzenia i teraz boli go brzuch. Czy ktoś ma jakąś miętową herbatę?</div>
+                <div class="end__game__text" id="game-proper-endscreen">Vitamen się najadł niezdrowego jedzenia i teraz boli go brzuch. Czy ktoś ma jakąś miętową herbatę?</div>
                 <img class="full__human" src="./game_elements/game_image/ludek_brzuch.svg">
                 <!-- <button class="button-new">Nowa gra</button>  -->
             </div>
@@ -82,11 +81,11 @@
     <div class="cookie hidden">
         <div class="cookie__box">
             <img class="cookie__box__icon" src="/icons/food.svg" alt="icona ciastka">
-            <p class="cookie__box__description">Używamy własnych plików cookies oraz stron trzecich, aby wyświetlać ci reklamy na podstawie przeglądanych przez ciebie treści. Nawigowanie po stronie rozumiemy jako wyrażenie zgody na ich wykorzystanie. Możesz skonfigurować ustawienia plików cookie lub je odrzucić. Aby uzyskać więcej informacji, sprawdź naszą
-            <a class="cookie__box__description--link" href="#">Politykę cookies.</a>
+            <p class="cookie__box__description" id="cookie-info">Używamy własnych plików cookies oraz stron trzecich, aby wyświetlać ci reklamy na podstawie przeglądanych przez ciebie treści. Nawigowanie po stronie rozumiemy jako wyrażenie zgody na ich wykorzystanie. Możesz skonfigurować ustawienia plików cookie lub je odrzucić. Aby uzyskać więcej informacji, sprawdź naszą
+                <a class="cookie__box__description--link" id="cookie-policy" href="#">Politykę cookies.</a>
             </p>
         </div>
-        <button class="cookie__button">Rozumiem</button>
+        <button class="cookie__button" id="cookie-agreement">Rozumiem</button>
     </div>
 
     <nav class="navigation">
@@ -96,24 +95,24 @@
             <div class="navigation__burger--line burger__active--three"></div>
         </label>
         <input class="navigation__burger__checkbox" type="checkbox" id="burger__checkbox" />
-        <button class="page__version__button"><a href="" class="en--version">EN</a></button>
+        <button class="page__version__button"><a href="#eng" data-reload class="lang-version">EN</a></button>
         <a href="#hero__page__part" class="navigation__logo"><img class="navigation__logo__img" src="./image/logo.png"
                 alt="logo-vitamina"></a>
         <ul class="navigation__menu">
             <li class="navigation__menu__list">
-                <a href="#features" class="navigation__menu__list__link">Nasza filozofia</a>
+                <a href="#features" class="navigation__menu__list__link" id="philosophy" data-reload>Nasza filozofia</a>
             </li>
             <li class="navigation__menu__list">
-                <a href="#additional__features" class="navigation__menu__list__link">O produkcie</a>
+                <a href="#additional__features" class="navigation__menu__list__link" id="add-features">O produkcie</a>
             </li>
             <li class="navigation__menu__list">
-                <a href="#our__mission" class="navigation__menu__list__link">Misja</a>
+                <a href="#our__mission" class="navigation__menu__list__link" id="mission">Misja</a>
             </li>
             <li class="navigation__menu__list">
-                <a href="#our__work" class="navigation__menu__list__link">Nasze produkty</a>
+                <a href="#our__work" class="navigation__menu__list__link" id="other-products">Nasze produkty</a>
             </li>
             <li class="navigation__menu__list">
-                <a href="#team" class="navigation__menu__list__link">Nasz zespół</a>
+                <a href="#team" class="navigation__menu__list__link" id="team">Nasz zespół</a>
             </li>
         </ul>
     </nav>
@@ -126,8 +125,8 @@
         <div class="hero__img__overlay">
             <article class="hero__section">
                 <h1 class="hero__title">Stay healthy.</h1>
-                <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
-                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
+                <h2 class="hero__subtitle" id="hero__subtitle-one">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
+                <h2 class="hero__subtitle hero__subtitle--bold" id="hero__subtitle-two">Nadchodzi Vitamina.</h2>
             </article>
         </div>
         </section>
@@ -135,8 +134,8 @@
             <div class="hero__img__overlay">
             <article class="hero__section">
                 <h1 class="hero__title">Stay happy.</h1>
-                <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
-                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
+                <h2 class="hero__subtitle" id="hero__subtitle-three">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
+                <h2 class="hero__subtitle hero__subtitle--bold" id="hero__subtitle-four">Nadchodzi Vitamina.</h2>
             </article>
             </div>
         </section>
@@ -144,8 +143,8 @@
             <div class="hero__img__overlay">
             <article class="hero__section">
                 <h1 class="hero__title">Stay clean.</h1>
-                <h2 class="hero__subtitle">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
-                <h2 class="hero__subtitle hero__subtitle--bold">Nadchodzi Vitamina.</h2>
+                <h2 class="hero__subtitle" id="hero__subtitle-five">Nadchodzi rewolucja dla Twojego zdrowia.</h2>
+                <h2 class="hero__subtitle hero__subtitle--bold" id="hero__subtitle-six">Nadchodzi Vitamina.</h2>
             </article>
             </div>
         </section>
@@ -165,31 +164,31 @@
             <div class="container">
                 <article class="features">
                     <section class="features__action">
-                        <h2 class="features__action__h">Dieta</h2>
+                        <h2 class="features__action__h" id="features-diet">Dieta</h2>
                         <img class="features__action__img" src="image/svg/003-goodwill.svg"
                             alt="obrazek owoców - zdrowie">
-                        <p class="features__action__p">Na podstawie Twojego tygodniowego jadłospisu nasza aplikacja
+                        <p class="features__action__p" id="features-diet-info">Na podstawie Twojego tygodniowego jadłospisu nasza aplikacja
                             zaproponuje Ci spersonalizowaną alternatywę.</p>
                     </section>
                     <section class="features__action">
-                        <h2 class="features__action__h">Witalność</h2>
+                        <h2 class="features__action__h" id="features-vitality">Witalność</h2>
                         <img class="features__action__img" src="image/svg/004-head.svg"
                             alt="obrazek głowy- samopoczucie">
-                        <p class="features__action__p">Nasz tryb życia często odbija się na zdrowiu psychicznym. Zadbamy
+                        <p class="features__action__p" id="features-vitality-info">Nasz tryb życia często odbija się na zdrowiu psychicznym. Zadbamy
                             o pozytywny wpływ także na poprawę nastroju.</p>
                     </section>
                     <section class="features__action">
-                        <h2 class="features__action__h">Sylwetka</h2>
+                        <h2 class="features__action__h"  id="features-figure">Sylwetka</h2>
                         <img class="features__action__img" src="image/svg/002-exercise.svg"
                             alt="obrazek osoby wykonującej ćwiczenia- sylwetka">
-                        <p class="features__action__p">Po przeanalizowaniu Twojego trybu życia nasza aplikacja
+                        <p class="features__action__p" id="features-figure-info">Po przeanalizowaniu Twojego trybu życia nasza aplikacja
                             zaproponuje Ci plan treningowy.</p>
                     </section>
                     <section class="features__action">
-                        <h2 class="features__action__h">Zwyczaje</h2>
+                        <h2 class="features__action__h" id="features-habits">Zwyczaje</h2>
                         <img class="features__action__img" src="image/svg/001-healing.svg"
                             alt="obrazek prezenujący zdrowe serce - dobre nawyki">
-                        <p class="features__action__p">Zadbamy o to, żebyś po uzyskaniu zadowalających efektów nadal
+                        <p class="features__action__p" id="features-habits-info">Zadbamy o to, żebyś po uzyskaniu zadowalających efektów nadal
                             dbał o zdrowie i pamiętał o zdrowych nawykach.</p>
                     </section>
                 </article>
@@ -203,12 +202,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-apple.svg"
                                 alt="obrazek prezenujący jabłko">
-                            <h2 class="additional__features__title">Dziennik posiłków</h2>
+                            <h2 class="additional__features__title" id="add-features-journal">Dziennik posiłków</h2>
                         </div>
                         <div class="additional__features__box__body ">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--1" />
-                            <p class="additional___features__box__body__text">Podstawą jakościowego żywienia jest
+                            <p class="additional___features__box__body__text" id="add-features-journal-content">Podstawą jakościowego żywienia jest
                                 przemyślana dieta, która krok po krokupozwoli Ci zmienić nawyki oraz przyzwyczajenia
                                 żywieniowe.Analiza diety to narzędzie weryfikujące, które pozwala określić czy
                                 stosowanyprzez Ciebie sposób żywienia jest pełnowartościowy. Podstawą jest dziennik
@@ -220,7 +219,7 @@
                                 będziemy mogli przeanalizować Twoją dietę oceniająckaloryczność, pobór podstawowych
                                 składników pokarmowych (białka, tłuszczewęglowodany) oraz pobór składników mineralnych i
                                 witamin. Sprawdzimyrównież czy Twój jadłospis jest urozmaicony oraz ustalimy czy
-                                potrzebujeszniewielkiej korekty nawyków żywieniowych czy może rewolucji żywieniowej.</p>
+                                potrzebujesz niewielkiej korekty nawyków żywieniowych czy może rewolucji żywieniowej.</p>
                             <label for="additional__features__box__body__text__checkbox--1"
                                 class="additional__features__box__read__more__trigger"></label>
                         </div>
@@ -230,12 +229,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-apple.svg"
                                 alt="obrazek prezenujący jabłko">
-                            <h2 class="additional__features__title">Dieta dla Ciebie</h2>
+                            <h2 class="additional__features__title" id="add-features-diet">Dieta dla Ciebie</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--2" />
-                            <p class="additional___features__box__body__text">Po analizie stworzonego przez Ciebie
+                            <p class="additional___features__box__body__text" id="add-features-diet-content">Po analizie stworzonego przez Ciebie
                                 dziennika żywieniowego przygotujemy dla Ciebie wzorowy jadłospis uwzględniający Twoje
                                 zapotrzebowanie kaloryczne, tryb życia oraz upodobania kulinarne- nie będzie w naszej
                                 diecie produktów których nie lubisz, bądź nie tolerujesz! Dodatkowo wraz z dietą
@@ -250,12 +249,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-head.svg"
                                 alt="obrazek prezenujący głowę">
-                            <h2 class="additional__features__title">Nawodnienie</h2>
+                            <h2 class="additional__features__title" id="add-features-hydration">Nawodnienie</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--3" />
-                            <p class="additional___features__box__body__text">Nawodnienie wpływa nie tylko na wydolność
+                            <p class="additional___features__box__body__text" id="add-features-hydration-content">Nawodnienie wpływa nie tylko na wydolność
                                 fizyczną, ale też na lepsze samopoczucie czy sprawność umysłową. Narzędzie zadba o to
                                 abyś codziennie wypijał odpowiednią ilość płynów. Na początek na podstawie formularza
                                 obliczymy Twoje optymalne zapotrzebowanie na wodę. Następnie będziesz mógł codziennie
@@ -270,12 +269,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-head.svg"
                                 alt="obrazek prezenujący głowę">
-                            <h2 class="additional__features__title">Zdrowy sen</h2>
+                            <h2 class="additional__features__title" id="add-features-sleep">Zdrowy sen</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--4" />
-                            <p class="additional___features__box__body__text">Jednym z czynników wpływających na dobre
+                            <p class="additional___features__box__body__text" id="add-features-sleep-content">Jednym z czynników wpływających na dobre
                                 samopoczucie jest sen. Nasz produkt doszkoli Cię w dobrych praktykach dotyczących
                                 higieny snu, oraz zadba o to, aby te praktyki zostały wcielone w zycie między innymi
                                 dzięki aplikacji
@@ -293,12 +292,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-exercise.svg"
                                 alt="obrazek prezenujący ćwiczenia">
-                            <h2 class="additional__features__title">Aktywność fizyczna</h2>
+                            <h2 class="additional__features__title" id="add-features-activity">Aktywność fizyczna</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--5" />
-                            <p class="additional___features__box__body__text">Otrzymujesz dostęp do dziennika treningów,
+                            <p class="additional___features__box__body__text" id="add-features-activity-content">Otrzymujesz dostęp do dziennika treningów,
                                 w którym możesz zapisywaćswoje treningi z uwzględnieniem czasu oraz rodzaju
                                 wykonywanejaktywności fizycznej (np. spacerem, bieganiem, jazdą na rowerze) .Będziesz
                                 mógł sprawdzić spaloną liczbę kalorii oraz na bieżąco śledzić swoje sportowe postępy na
@@ -312,12 +311,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-exercise.svg"
                                 alt="obrazek prezenujący ćwiczenia">
-                            <h2 class="additional__features__title">Licznik kalorii</h2>
+                            <h2 class="additional__features__title" id="add-features-calories">Licznik kalorii</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--6" />
-                            <p class="additional___features__box__body__text">Ponieważ każdy z nas jest inny po
+                            <p class="additional___features__box__body__text" id="add-features-calories-content">Ponieważ każdy z nas jest inny po
                                 wypełnieniu formularzauwzględniającego Twoje indywidualne parametry, aktywność fizyczną
                                 orazcel, jaki chcesz osiągnąć otrzymasz od nas spersonalizowany rozkładmakroskładników,
                                 których ilość powinieneś spożywać każdego dnia.Również dostaniesz od nas wskazówki jak
@@ -331,12 +330,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-goodwill.svg"
                                 alt="obrazek prezenujący ćwiczenia">
-                            <h2 class="additional__features__title">Dobre praktyki</h2>
+                            <h2 class="additional__features__title" id="add-features-practices">Dobre praktyki</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--7" />
-                            <p class="additional___features__box__body__text">Prawidłowe nawyki żywieniowe to podstawa
+                            <p class="additional___features__box__body__text" id="add-features-practices-content">Prawidłowe nawyki żywieniowe to podstawa
                                 zdrowej diety. Dlatego tak ważne jest, by wiedzieć, jak komponować posiłki, jakie
                                 produkty są najzdrowsze, czym zastępować niezdrowe składniki diety. W naszych artykułach
                                 znajdziecie także porady, jak przyrządzać posiłki z super foods, by zachowały wszystkie
@@ -351,12 +350,12 @@
                         <div class="additional__features__box__header">
                             <img class="additional__features__box__header__icon" src="image/svg/AF-goodwill.svg"
                                 alt="obrazek prezenujący ćwiczenia">
-                            <h2 class="additional__features__title">Okazjonalne menu</h2>
+                            <h2 class="additional__features__title" id="add-features-menu">Okazjonalne menu</h2>
                         </div>
                         <div class="additional__features__box__body">
                             <input type="checkbox" class="additional__features__box__read__more__checkbox"
                                 id="additional__features__box__body__text__checkbox--8" />
-                            <p class="additional___features__box__body__text">Będziesz otrzymywać powiadomienia
+                            <p class="additional___features__box__body__text" id="add-features-menu-content">Będziesz otrzymywać powiadomienia
                                 dotyczące sezonowych produktów, które warto wprowadzić do swojej diety oraz codzienną
                                 dawkę motywacji, edukacji i wyzwań, które pozwolą Ci utrzymać zdrowy tryb życia.
                                 Zapewnimy Ci dostęp do łatwych i szybkich przepisów które stworzyć można z tych
@@ -380,17 +379,17 @@
                             alt="człowiek spoglądający z za liści">
                     </figure>
                     <section class="mission__section">
-                        <h3 class="mission__section--h">Poznaj nas bliżej</h3>
+                        <h3 class="mission__section--h" id="about-us-title">Poznaj nas bliżej</h3>
                         <div class="mission__section__discription">
-                            <p class="mission__section__discription--hidden">Żyjemy w świecie, w którym wiele osób
+                            <p class="mission__section__discription--hidden" id="about-us-content">Żyjemy w świecie, w którym wiele osób
                                 boryka się z problemami zdrowotnymi oraz brakiem czasu. Dlatego w odpowiedzi na rosnące
                                 zapotrzebowanie postanowiliśmy stworzyć narzędzie online, dzięki któremu możesz
                                 kontrolować, dietę, treningi, utrzymywać równowagę psychofizyczna oraz motywacje.</p>
-                            <p>Naszą misją jest inspirowanie ludzi do zdrowego stylu życia przy jednoczesnym
+                            <p id="about-us-content-2">Naszą misją jest inspirowanie ludzi do zdrowego stylu życia przy jednoczesnym
                                 dostarczeniu produktu opartego o najnowsze technologie. Chcemy Cię przekonać, że zdrowy
                                 styl życia może być prosty, szybki i niedrogi.</p>
-                            <p>To proste. Uda się!</p>
-                            <p class="mission__section__discription-p">Założyciele Vitaminy</p>
+                            <p id="about-us-content-3">To proste. Uda się!</p>
+                            <p class="mission__section__discription-p" id="about-us-founders">Założyciele Vitaminy</p>
                         </div>
                     </section>
                 </article>
@@ -400,7 +399,7 @@
         <section class="section__ourwork" id="our__work">
             <div class="container">
                 <article class="ourwork linkLoc" id="our__work">
-                    <h2 class="ourwork__h">Zobacz nasze inne aplikacje</h2>
+                    <h2 class="ourwork__h" id="products">Zobacz nasze inne aplikacje</h2>
                     <div class="ourwork__present">
                         <section class="ourwork__present__section">
                             <img class="ourwork__present__section__img"
@@ -434,7 +433,7 @@
 
         <section class="team linkLoc" id="team">
             <div class="container">
-                <h2 class="team__header">Poznaj bliżej naszą drużynę</h2>
+                <h2 class="team__header" id="team-header">Poznaj bliżej naszą drużynę</h2>
                 <div class="team__container">
                     <article class="team__card">
 
@@ -562,12 +561,12 @@
     </main>
 
     <footer class="footer">
-        <button class="play__game__again">ZAGRAJ PONOWNIE W GRĘ</button>
+        <button class="play__game__again" id="game-button">ZAGRAJ PONOWNIE W GRĘ</button>
         <hr class="footer__line">
         <div class="footer__container">
             <div class="footer__links footer__item">
-                <a href="#" class="link footer__link">Polityka prywatności</a>
-                <a href="#" class="link footer__link">Zasady i warunki</a>
+                <a href="#" class="link footer__link" id="policy">Polityka prywatności</a>
+                <a href="#" class="link footer__link" id="terms">Zasady i warunki</a>
             </div>
             <div class="footer__icons footer__item">
                 <!--MISSING LINKS BELOW-->
@@ -591,8 +590,8 @@
     </footer>
 
     <script src="index.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./game_elements/game.js"></script>
-
+    <script src="./game_elements/game.js" type="text/javascript"></script>
+    <script src="language.js" type="text/javascript"></script>
 </body>
 
 </html>
